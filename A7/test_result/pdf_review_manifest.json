@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "A7_Report.pdf",
-      "sha256": "88805ca7769189ec5a9b5a1954de24892c33cb322aaf816680838a98b393766f",
+      "sha256": "dcec072e25d24ea207cb31d73d6609e1ce3f02e262054e18eddc2cd3a4cc01d4",
       "pages": 29,
       "rendered_pages": [
         "report-01.png",
@@ -36,7 +36,7 @@
         "report-28.png",
         "report-29.png"
       ],
-      "visual_review": "Reviewed after grading-risk corrections: every rendered page inspected in eight contact sheets; changed report pages 16 and 25 inspected at full size. No observed clipping or overlap."
+      "visual_review": "Submission date updated to user-supplied 6 September. Recompiled; cover rendered and visually inspected. Other pages retain prior review."
     },
     {
       "path": "A7_slide.pdf",

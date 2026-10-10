@@ -10,7 +10,7 @@ Source language Ruby / Ruby on Rails
 Part 3 languages Java, Python, JavaScript, C++
 Baseline commit 5e15551ee646871b4bed32c982fa17da319d3ee3
 Document revision 2026-10-11 (current repair; not an original submission date)
-Submission date Not veriﬁed from retained inputs
+Submission date 6 September
 Team Members
 Roll Number Name Batch
 AM.AI.U4AID23016 Kavya Penikalapati AI & DS
@@ -1063,9 +1063,9 @@ observations, not language benchmarks.
 8. Historical LLM metadata. Some historical model/date information is unavailable and therefore remains
 explicitly unknown.
 9. Historical Prompt 02/03 wording. Exact verbatim records were not retained and were not reconstructed.
-10. T eam contribution evidence. Kurt Sony Rebello’s primary contribution is documented in the project brief.
-The retained records do not independently document speciﬁc technical contributions for the other three students;
-the report therefore does not fabricate task assignments for them.
+10. T eam contribution evidence. The contribution attribution in this report is supplied by the team. It assigns
+the main technical work to E. Abhijith Krishna and repository identiﬁcation and initial preparation to Kurt
+Sony Rebello; it does not claim an independent audit of individual contributions.
 9 Findings and Contributions
 9.1 Finding 1 – A single baseline pattern is defensible
 The original application contains one clearly evidenced application-level GoF collaboration: Template Method
@@ -1097,12 +1097,10 @@ improved by rejecting unsupported candidates rather than maximizing the pattern 
 --- PAGE 27 ---
 23CSE455 – Design Pattern Case Study Team A7
 9.7 Contributions
-The inherited report attributed the overall case-study work primarily to Kurt Sony Rebello. The supporting project
-brief and independent contribution evidence are unavailable in the supplied inputs, so this repair cannot conﬁrm
-that historical attribution. It is not presented as a veriﬁed contribution record.
-For Kavya Penikalapati, E. Abhijith Krishna and Guduru Akshaya Giri, the retained project records available
-for this report do not contain independently veriﬁed, speciﬁc technical contribution assignments. Their names and
-team membership are therefore reported exactly, but no unsupported technical tasks are attributed to them.
+The following contribution attribution was supplied by the team for this report.
+E. Abhijith Krishna: Main technical development, Part 2 implementation, design-pattern evolution, Part 3
+cross-language integration, testing, veriﬁcation, documentation and report preparation.
+Kurt Sony Rebello: Identiﬁed the original GitHub repository and completed the initial preparatory work.
 10 Conclusion
 This case study examined an existing Ruby on Rails hotel booking application using a source-ﬁrst, evidence-based
 design-pattern methodology. The baseline was ﬁxed to an immutable commit so that the pattern inventory could

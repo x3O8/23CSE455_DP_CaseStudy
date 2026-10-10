@@ -1,2 +1,1 @@
-Grading-risk follow-up: canonical A7_Report.pdf compiled successfully, 29 pages. A7_slide.pdf unchanged, 13 pages. All 42 rendered pages inspected in eight contact sheets; changed report pages 16 and 25 inspected at full size.
-No observed clipping/overlap. Exact PDF hashes are in pdf_review_manifest.json. Compiler warnings remain in Part2/verification/report_compile.txt. No failed build is represented as successful.
+Contribution update: A7_Report.pdf compiled successfully; 29 pages. Affected pages 26/27 and following page 28 rendered and visually inspected with no clipping/overlap. User-provided attributions verified in PDF text. No new Rails execution or full package validation claimed; earlier evidence is retained.
