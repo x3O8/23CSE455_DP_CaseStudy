@@ -1,0 +1,34 @@
+@startuml
+title Change3 - authorized cancellation workflow
+actor User
+participant BookingsController as Controller
+participant "server configuration" as Config
+participant CancellationService as Service
+participant CancellationPolicy as Policy
+participant Booking
+User -> Controller : POST cancel
+Controller -> Controller : authenticate / set_object / authorize
+Controller -> Config : cancellation_policy.call
+Config --> Controller : configured policy object
+Controller -> Service : new(booking, policy:).call
+Service -> Booking : with_lock
+Service -> Booking : canceled?
+alt already canceled
+Service --> Controller : raise ArgumentError
+Controller --> User : alert and redirect
+else first cancellation
+Service -> Policy : cancellable?(booking, at:)
+alt not permitted
+Service --> Controller : raise ArgumentError
+Controller --> User : alert and redirect
+else permitted
+Service -> Policy : refund_amount(booking, at:)
+Policy --> Service : calculated amount
+Service -> Booking : update!(canceled_at:, cancellation_refund_amount:)
+Booking -> Booking : pricing callbacks; payment skipped when canceled
+Service --> Controller : booking / refund_amount result
+Controller --> User : notice and redirect
+end
+end
+note over Service, Booking : Local transaction; no external refund API call.
+@enduml

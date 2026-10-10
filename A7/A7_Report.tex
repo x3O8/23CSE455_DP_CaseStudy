@@ -93,7 +93,8 @@
 \textbf{Source language} & Ruby / Ruby on Rails\\
 \textbf{Part 3 languages} & Java, Python, JavaScript, C++\\
 \textbf{Baseline commit} & \code{5e15551ee646871b4bed32c982fa17da319d3ee3}\\
-\textbf{Submission date} & 6 September 2027
+\textbf{Document revision} & 2026-10-11 (current repair; not an original submission date)\\
+\textbf{Submission date} & Not verified from retained inputs
 \end{tabular}
 
 \vfill
@@ -542,6 +543,16 @@ The rejected-candidate analysis is not a claim that these patterns are impossibl
 % ---------------- PART 2 ----------------
 \section{Part 2 -- Evolution and Refactoring}
 
+\subsection{Assignment scope and interpretation}
+
+This section follows the Part2 records and snapshot-count requirements in the supplied DP\_Csestudy-2 and DP\_Csestudy-3 PDFs. \code{Part2/verification/assignment\_compliance.md} records coverage and unresolved evidence gaps. The PDFs disagree about per-part reports and duplicate datasets; this package keeps one main report and canonical \code{data/} folder, with synchronized supporting CSV mirrors retained at the user's explicit request. The user-selected repository remains the target. Layout examples do not authorize fabricated historical commits, prompts, dates, faculty approval, contribution attribution or test results.
+
+\subsection{Reproducible source checkpoints and provenance}
+
+The retained repository did not contain historical commits for the three separate changes. Four cumulative source checkpoints now make the analysis reproducible: \code{Part2/checkpoints/original/}, \code{Part2/checkpoints/Change1/}, \code{Part2/checkpoints/Change2/}, and \code{Part2/checkpoints/Change3/}. Original copies the retained upstream baseline and Change3 matches the final \code{Part2/code/} application. Change1 and Change2 are explicitly reconstructed pedagogical stages, not historical commits. Existing migration filenames are identifiers, not verified execution dates. No historical prompt wording or model/date metadata is reconstructed.
+
+\code{tools/rebuild\_part2.py} records every checkpoint file in \code{Part2/checkpoint\_manifest.json}, generates true adjacent-stage unified patches, and synchronizes the three count CSV copies. \code{tools/check\_part2.py} checks exact bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next checkpoint. Evolution CSV references identify each stage's own source rather than the final application. The original baseline remains immutable.
+
 \subsection{Requirement evolution}
 
 The evolved requirements are:
@@ -597,6 +608,11 @@ The implementation also separates pricing calculation from the controller workfl
 
 The design is \textbf{not} classified as Decorator, Composite, Strategy or Factory. Although the service abstraction could be combined with other patterns in a larger system, the implemented structure does not require those pattern claims.
 
+\paragraph{CH01 acceptance and before/after record.}
+Observable criteria are captured service type/price/quantity, persisted selection with a booking foreign key, independent subtotals, refresh after quantity changes/removal, unchanged captured prices, refreshed pending-payment amount/identity and unchanged paid-payment amount. The complete criteria are \code{Part2/changes/Change1/requirement.md}. Before: \code{Part2/checkpoints/original/}; after: \code{Part2/checkpoints/Change1/}; exact changed paths/content: \code{Part2/changes/Change1/diff.patch}. New records/pricing and changes to Booking/HasPriceConcern address responsibility growth. The original callback's date-change-only guard would miss service-only updates; central recomputation on save corrects that concrete coupling. Template Method's Shared CRUD Controller Workflow remains preserved; no new GoF instance is counted.
+
+Run \code{bundle exec rspec spec --format documentation} from the after-checkpoint. \code{Part2/verification/Change1\_rails.txt} records 13 examples, zero failures, including the same five baseline model and seven feature examples. The before receipt \code{Part2/verification/original\_rails.txt} records 5/0. Under the same application-Ruby scope and Ripper tool, SLOC changes 495 to 556. New feature tests are not retroactively claimed to have run on original code. Shared bundle/eager-loading corrections are explicitly assigned to CH01 and visible in its patch.
+
 \subsection{Change 2 -- Room upgrade}
 
 A room upgrade differs from an additional service because it changes the core reservation target. The operation must:
@@ -613,9 +629,22 @@ A room upgrade differs from an additional service because it changes the core re
 
 The implementation isolates this workflow in \code{RoomUpgrade}. The service receives a booking and target room, validates the requested change, computes the difference, applies the new room and persists it. Saving the booking runs the pricing callbacks that recalculate totals, including selected service charges. The retained original-room association survives repeated upgrades; it is a reference to the first room, not a complete event-history ledger.
 
+\textbf{Dependency boundary:} Change2 introduces \code{Booking.active} before \code{RoomUpgrade} calls it. The baseline already supports a cancellation timestamp. Change2 also uses the scope in booking availability validation and \code{Room\#booked\_dates}, and rejects upgrades of canceled bookings. Change3 inherits these availability semantics and introduces the refund Strategy. The complete Change2 checkpoint is therefore runnable without Change3 classes or its refund migration.
+
 This avoids adding a large conditional branch to \code{Booking\#cancel!} or to controller actions. It also keeps the semantic distinction between ``an optional service attached to a booking'' and ``a replacement of the room being booked.''
 
 The operation is not classified as Command, State or Strategy. The presence of an operation object does not automatically create Command; the implementation is primarily a domain responsibility extraction.
+
+\paragraph{CH02 acceptance and before/after record.}
+The target rejects overlapping active stays without changing persisted room/totals, allows adjacent or canceled stays, computes the nightly pre-VAT difference, recalculates total/payment amounts, retains services and the first original room, rolls back invalid changes and rejects canceled-booking upgrades. Complete criteria: \code{Part2/changes/Change2/requirement.md}. Before: \code{Part2/checkpoints/Change1/}; after: \code{Part2/checkpoints/Change2/}; exact source delta: \code{Part2/changes/Change2/diff.patch}. The operation/scope extract new workflow responsibilities from an already broad Booking model. Availability queries still occur in both Booking validation and RoomUpgrade; duplication remains, rather than being claimed eliminated. Template Method is preserved; no new GoF instance is counted.
+
+Run the same complete RSpec command from Change2. \code{Part2/verification/Change2\_rails.txt} records 21/0, including all earlier examples and eight upgrade examples; the before-stage receipt records 13/0. Same-scope SLOC changes 556 to 596. Confirmed reservation means persisted, not necessarily paid. RoomUpgrade is a callable domain service; no upgrade controller route or external upgrade payment is claimed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth,height=0.42\textheight,keepaspectratio]{Part2/diagrams/room_upgrade.png}
+\caption{Change2 room upgrade and its active-reservation dependency. Editable source: Part2/diagrams/room\_upgrade.puml.}
+\end{figure}
 
 \subsection{Change 3 -- Cancellation Strategy}
 
@@ -652,6 +681,11 @@ The context delegates two conceptually related business decisions: whether cance
 
 \lstinputlisting[language=Ruby,caption={Evolved Strategy context and delegation from the final source}]{Part2/code/app/services/cancellation_service.rb}
 
+\paragraph{CH03 acceptance and before/after record.}
+Configured policies return full, fractional or zero refunds; the context delegates both rule methods, rejects denied/repeated cancellations and atomically records refund/time. The real route authenticates, scopes, authorizes and ignores client policy choices. Services belong to the refund basis; canceled stays inherit CH02 availability semantics. Complete criteria: \code{Part2/changes/Change3/requirement.md}. Before: \code{Part2/checkpoints/Change2/}; after: \code{Part2/checkpoints/Change3/}, identical to final \code{Part2/code/}; exact source delta: \code{Part2/changes/Change3/diff.patch}.
+
+Original cancellation only recorded a timestamp. Refund variation is new: the actual technique introduces Strategy and injects a policy into a separate context, rather than deleting a historical refund conditional that never existed. Cancellation Refund Policy is newly introduced; Shared CRUD Controller Workflow is preserved. Run the same complete RSpec command from Change3. \code{Part2/verification/Change3\_rails.txt} records 36/0, including earlier examples plus nine service and six route examples; before-stage receipt: 21/0. Same-scope SLOC changes 596 to 654. Atomic local recording and unchanged paid-payment records are tested; no external Stripe refund is implemented.
+
 \subsection{Why cancellation is genuinely Strategy}
 
 The classification follows the GoF intent rather than the class names:
@@ -674,6 +708,12 @@ The Strategy collaboration is therefore substantially stronger than the rejected
 \end{figure}
 
 \subsection{Before and after architecture}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth,height=0.42\textheight,keepaspectratio]{Part2/diagrams/original_architecture.png}
+\caption{Retained original architecture before the three cumulative changes. Editable source: Part2/diagrams/original\_architecture.puml.}
+\end{figure}
 
 \begin{figure}[H]
 \centering
@@ -705,6 +745,27 @@ After Change 3 & Strategy & Cancellation Refund Policy & Newly introduced\\
 
 The package's evolution CSV records Template Method as preserved and Strategy as newly introduced. \code{Part2/code/} contains the full application with the new models, migrations, application services, server-configured policy selection and real cancellation-route integration. The existing CRUD concern and its resource-specific hooks remain present.
 
+\subsection{Updated participant and observation counts}
+
+\begin{table}[H]
+\centering
+\caption{Current source-review counts for each saved version}
+\begin{tabular}{lrrrrrr}
+\toprule
+Snapshot & Types & Instances & Concrete classes & Symbols & Rejected & Uncertain\\
+\midrule
+Original & 1 & 1 & 3 & 4 & 13 & 2\\
+Change1 & 1 & 1 & 3 & 4 & 17 & 2\\
+Change2 & 1 & 1 & 3 & 4 & 20 & 2\\
+Change3 & 2 & 2 & 6 & 10 & 21 & 2\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Counts come from \code{Part2/evidence/snapshot\_summary.csv} and \code{Part2/evidence/pattern\_observations.csv}, reproduced by \code{tools/summarize\_part2.py}. Three controllers implement Template Method's variable roles; Change3 adds three concrete refund policies. Original has four unique mapped symbols (concern plus controllers); final has ten (those four, five Strategy classes, configured policy callable). Shared BookingsController counts once. This counts named participants, not every method call or application class.
+
+Rejected/uncertain totals are current documented candidate observations within each source scope, not distinct pattern types or recovered historical review events. Dependency Adapter/Facade claims remain uncertain because internals were excluded; other recorded candidates are rejected in the application scope. Optional-service and upgrade guesses remain rejected even when a separate cancellation collaboration becomes confirmed Strategy. Each observation has reasons and bounded source references; no minimum pattern quota is imposed.
+
 \subsection{Refactoring analysis}
 
 The primary design pressure is responsibility growth. The original Booking model already combines associations, availability validation, cancellation state, pricing behavior via a concern, payment integration and notification behavior. New requirements would increase this concentration if implemented directly in the model and controllers.
@@ -720,17 +781,41 @@ The evolution responds by extracting responsibilities:
 
 The resulting design is not claimed to be universally superior. It introduces more classes and indirection. That trade-off is justified only when the business rules are expected to vary or grow.
 
-\subsection{Part 2 verification status}
+\subsection{Measured before/after source metrics}
 
-The final application was tested with Ruby 2.7.5, Rails 7.0.6, Bundler 2.4.17 and PostgreSQL 15.10. A dedicated test database was recreated from scratch, all 12 migrations completed, and the complete RSpec suite passed \textbf{36 examples, zero failures}. This total comprises five baseline model examples, 30 feature examples and one eager-loading example. The three feature receipts report Change 1: 7/0, Change 2: 8/0, and Change 3: 15/0 (examples/failures). Change 3 includes nine cancellation service examples and six requests through the real Rails POST route.
+\code{tools/measure\_part2.py} invokes Ruby Ripper through \code{tools/ruby\_metrics.rb} on every application Ruby file in each checkpoint. \code{Part2/metrics/before\_after.csv} records per-file source paths and SHA-256 values; \code{Part2/metrics/ruby\_ast\_metrics.json} records method names, source lines, decisions and explicit application dependencies.
 
 \begin{table}[H]
 \centering
-\caption{Final Rails verification evidence}
+\caption{Measured cumulative application source (app Ruby files only)}
+\begin{tabular}{lrrrrr}
+\toprule
+Stage & SLOC & Methods & Sum method CC & Max CC & Explicit refs.\\
+\midrule
+Original & 495 & 95 & 127 & 4 & 27\\
+Change1 & 556 & 105 & 145 & 5 & 31\\
+Change2 & 596 & 110 & 154 & 6 & 31\\
+Change3 & 654 & 121 & 171 & 6 & 35\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+SLOC excludes blank and comment-only lines. Method CC starts at one and counts AST conditionals (including elsif), loops, ternaries, each case/rescue branch and short-circuit Boolean decisions; blocks belong to their enclosing method. Explicit references are a bounded coupling proxy: distinct application-owned constant references per file, summed across files. They exclude declarations and do not capture implicit Rails associations, framework or runtime-dispatch dependencies. The complete rules are in \code{Part2/metrics/README.md}.
+
+These measurements describe cumulative requirements, not equivalent competing implementations. Source size, total method complexity and explicit references increase. Responsibility separation and Strategy do not establish an overall numerical complexity reduction or runtime performance improvement. All Part2 diagrams now have editable PlantUML sources alongside their rendered images, including original architecture and Change2 room upgrade.
+
+\subsection{Part 2 verification status}
+
+Fresh repair verification used Ruby 2.7.5 and the checkpoint bundles with an isolated PostgreSQL server. Separate checkpoint databases were created and migrated; the final full RSpec suite passed \textbf{36 examples, zero failures}. This total comprises five baseline model examples, 30 feature examples and one eager-loading example. Cumulative checkpoint suites report original: 5/0, Change1: 13/0, Change2: 21/0 and Change3: 36/0. Change3 includes nine cancellation service examples and six real cancellation-route request examples. Actual command/output/exit-code receipts are in \code{Part2/verification/}; \code{tools/run\_part2\_tests.ps1} reproduces them. Earlier retained feature receipts (7/0, 8/0, 15/0) and HTTP/boot logs remain historical artifacts and are not presented as fresh runs or as historical executions of the reconstructed stages.
+
+\begin{table}[H]
+\centering
+\caption{Fresh suite receipt and retained earlier Rails verification artifacts}
 \begin{tabularx}{\linewidth}{lX}
 \toprule
 Verification & Retained evidence\\
 \midrule
+Fresh final suite: 36/0 & \code{Part2/verification/final\_rails.txt}\\
 Complete RSpec suite: 36/0 & \code{test\_result/part2\_rspec.txt}\\
 Clean migration rebuild & \code{test\_result/test\_db\_migrations.txt}\\
 Twelve migrations up & \code{test\_result/test\_db\_migration\_status.txt}\\
@@ -743,7 +828,7 @@ Boot regression before fix: 1/1 & \code{test\_result/boot\_regression\_before.tx
 \end{tabularx}
 \end{table}
 
-The suite exercises persisted room upgrades, original-room retention, availability boundaries, service totals, cancellation state/refund recording, configured policy selection, authentication, ownership and repeated cancellation. The eager-loading check required explicitly declaring \code{active\_model\_serializers}, a dependency used by the upstream Payify integration. The retained logs contain duplicate-constant warnings from \code{net/protocol}; the successful test and migration commands exit with status zero. These results establish the tested application behavior on the dedicated test database; production deployment and external payment/webhook delivery are outside that verification scope.
+The suite exercises persisted room upgrades, original-room retention, availability boundaries, service totals, cancellation state/refund recording, configured policy selection, authentication, ownership and repeated cancellation. The eager-loading check required explicitly declaring \code{active\_model\_serializers}, a dependency used by the upstream Payify integration; this support is assigned to reconstructed Change1. The logs contain duplicate-constant warnings from \code{net/protocol}; fresh successful test and migration commands exit zero. Earlier HTTP/boot logs in the table are retained artifacts, not rerun proof. Production deployment and external payment/webhook delivery remain outside the verification scope.
 
 % ---------------- PART 3 ----------------
 \section{Part 3 -- Cross-language Comparison}
@@ -1023,7 +1108,7 @@ The project demonstrates a general methodological lesson: a defensible design-pa
 
 \subsection{Contributions}
 
-The project brief identifies Kurt Sony Rebello as the primary contributor for the overall case-study work, including source repository investigation, architecture analysis, pattern investigation, source-code verification, Part 1 identification, Part 2 evolution/design analysis and coordination, cancellation Strategy design, four-language implementation, testing/verification coordination, metrics, LLM-assisted analysis, report preparation, repository organization and final submission preparation.
+The inherited report attributed the overall case-study work primarily to Kurt Sony Rebello. The supporting project brief and independent contribution evidence are unavailable in the supplied inputs, so this repair cannot confirm that historical attribution. It is not presented as a verified contribution record.
 
 For Kavya Penikalapati, E. Abhijith Krishna and Guduru Akshaya Giri, the retained project records available for this report do not contain independently verified, specific technical contribution assignments. Their names and team membership are therefore reported exactly, but no unsupported technical tasks are attributed to them.
 

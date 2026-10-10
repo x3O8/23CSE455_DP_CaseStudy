@@ -1,0 +1,28 @@
+@startuml
+title Change2 - upgrade uses active-reservation availability
+class RoomUpgrade {
+  initialize(booking, target_room)
+  call()
+  available?()
+  price_difference()
+}
+class Booking {
+  {static} active()
+  room
+  upgraded_from_room
+  canceled?()
+}
+class Room {
+  day_price
+  booked_dates()
+}
+RoomUpgrade --> Booking : lock / reject canceled / save
+RoomUpgrade --> Room : target lock / active overlap query
+Booking --> Room : current and first original room
+note bottom of RoomUpgrade
+  Difference = (target.day_price - current.day_price) * nights.
+  Booking.active is introduced here, before Strategy.
+  Half-open date intervals allow adjacent stays.
+  Source: checkpoints/Change2/app/services/room_upgrade.rb
+end note
+@enduml

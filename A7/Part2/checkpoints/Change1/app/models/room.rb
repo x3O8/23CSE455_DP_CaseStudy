@@ -1,0 +1,40 @@
+class Room < ApplicationRecord
+  include ::HasOwnerConcern
+
+  OPTIONS_AVAIABLE = ["self_check_in", "parking", "kitchen", "washer", "dryer", "dishwasher", "wifi", "tv", "bathroom_essentials", "bedroom_comforts",
+    "coffee_maker", "hair_dryer"].freeze
+
+  belongs_to :user
+  has_many :bookings
+  has_many_attached :images, dependent: :destroy
+
+  slug :title
+
+  enum room_type: { house: 0, apartment: 1 }
+
+  validates :title, :description, :num_guests, :num_rooms, :num_beds, :num_baths, :day_price, :location, presence: true
+
+  def self.default_sort
+    "created_at desc"
+  end
+
+  def options_enabled
+    OPTIONS_AVAIABLE.select do |option|
+      send(option)
+    end
+  end
+
+  def main_image
+    images.first
+  end
+
+  def other_images
+    images.drop(1)
+  end
+
+  def booked_dates
+    bookings.where("end_date >= ?", Date.today)
+    .pluck(:start_date, :end_date)
+    .map { |start_date, end_date| [start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")] }
+  end
+end

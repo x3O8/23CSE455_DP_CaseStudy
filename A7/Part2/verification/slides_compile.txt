@@ -1,0 +1,17 @@
+note: using only cached resource files
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: A7_slide.tex:17: Missing character: There is no 5 ("35) in font nullfont!
+warning: could not represent character "5" (0x35) in font "nullfont"
+warning:   you may need to load the `fontspec` package and use (e.g.) \setmainfont to
+warning:   choose a different font that covers the unrepresentable character(s)
+note: Rerunning TeX because "A7_slide.aux" changed ...
+warning: A7_slide.tex:17: 
+Missing character: There is no 5 ("35) in font nullfont!
+warning: could not represent character "5" (0x35) in font "nullfont"
+warning:   you may need to load the `fontspec` package and use (e.g.) \setmainfont to
+warning:   choose a different font that covers the unrepresentable character(s)
+note: Running xdvipdfmx ...
+note: Writing `.verification\A7_slide.pdf` (36.71 KiB)
+note: Writing `.verification\A7_slide.log` (32.11 KiB)
+note: Skipped writing 5 intermediate files (use --keep-intermediates to keep them)

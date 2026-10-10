@@ -1,0 +1,211 @@
+fr:
+  application:
+    name: "Rails Room Booking"
+
+  nav:
+    logout: Se déconnecter
+    login: Connexion
+    register: Inscription
+    rooms: Trouver un logement
+    my_rooms: Gérer mes logements
+    my_bookings: Mes réservations
+    settings: Paramètres
+
+  auth:
+    register: Inscription
+    logout: Déconnexion
+    login: Connexion
+    connected_as: Connecté en tant que
+    sign_in: Se connecter
+    sign_in_description: Connectez-vous à votre compte.
+    sign_in_button: Connexion
+    sign_up: Inscription
+    sign_up_description: Créez un compte.
+    sign_up_button: Valider
+    forget: Mot de passe oublié ?
+    forgot_your_password: Mot de passe oublié ?
+    forgot_your_password_button: Réinitialiser mon mot de passe
+    change_your_password: Modifier mon mot de passe
+
+  footer:
+    account: Mon compte
+
+  language:
+    current: Français
+    fr: Français
+    en: Anglais
+
+  activerecord:
+    models:
+      user: "Utilisateur"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: trop court
+            password_confirmation:
+              confirmation: ''
+            email:
+              blank: est manquante
+        booking:
+          attributes:
+            start_date:
+              blank: "ne peut pas être vide"
+            end_date:
+              blank: "ne peut pas être vide"
+          invalid_dates: doit être supérieur à la date de début
+          unavailable_dates: Les dates sélectionnées ne sont pas disponibles.
+    attributes:
+      user:
+        email: "Votre adresse e-mail"
+        password: "Mot de passe"
+        password_confirmation: "Confirmez le mot de passe"
+        remember_me: "Rester connecté"
+      room:
+        slug: "Slug"
+        title: "Titre"
+        description: "Description"
+        room_type: "Type de chambre"
+        num_guests: "Nombre d'invités"
+        num_rooms: "Nombre de chambres"
+        num_beds: "Nombre de lits"
+        num_baths: "Nombre de salles de bain"
+        day_price: "Prix HT par jour (€)"
+        self_check_in: "Enregistrement automatique"
+        parking: "Parking"
+        kitchen: "Cuisine"
+        washer: "Lave-linge"
+        dryer: "Sèche-linge"
+        dishwasher: "Lave-vaisselle"
+        wifi: "Wifi"
+        tv: "Télévision"
+        bathroom_essentials: "Articles de toilette"
+        bedroom_comforts: "Conforts de la chambre"
+        coffee_maker: "Machine à café"
+        hair_dryer: "Sèche-cheveux"
+        location: "Adresse"
+        location_description: "Description de l'emplacement"
+        lat: "Latitude"
+        long: "Longitude"
+        images: "Images"
+      booking:
+        dates: Dates
+        num_guests: Nombre d'invités
+      setting:
+        vat: Taxe sur la valeur ajoutée (TVA)
+
+  rooms:
+    title: "Logements"
+    my: Mes logements
+    new: "Ajouter un logement"
+    edit: "Modifier"
+    delete: "Supprimer le logement"
+    delete_confirm: "Êtes-vous sûr de vouloir supprimer ce logement ?"
+    empty: "Aucun logement disponible."
+    new_form: Ajouter un logement
+    edit_form: Modifier un logement
+    list: Retour à la liste
+    create: Valider
+    form_location: 'Emplacement du logement'
+    form_options: 'Ce que propose ce logement'
+    form_images: 'Photos'
+    room_types:
+      house: "Maison"
+      apartment: "Appartement"
+    room_options:
+      self_check_in:
+        label: "Enregistrement automatique"
+        icon: "fas fa-key"
+      parking:
+        label: "Parking"
+        icon: "fas fa-car"
+      kitchen:
+        label: "Cuisine"
+        icon: "fas fa-utensils"
+      washer:
+        label: "Lave-linge"
+        icon: "fas fa-socks"
+      dryer:
+        label: "Sèche-linge"
+        icon: "fas fa-water"
+      dishwasher:
+        label: "Lave-vaisselle"
+        icon: "fas fa-utensils"
+      wifi:
+        label: "Wifi"
+        icon: "fas fa-wifi"
+      tv:
+        label: "Télévision"
+        icon: "fas fa-tv"
+      bathroom_essentials:
+        label: "Articles de toilette"
+        icon: "fas fa-toilet-paper"
+      bedroom_comforts:
+        label: "Équipements de base"
+        icon: "fas fa-warehouse"
+      coffee_maker:
+        label: "Machine à café"
+        icon: "fas fa-coffee"
+      hair_dryer:
+        label: "Sèche-cheveux"
+        icon: "fas fa-air-freshener"
+    per_day: par nuit
+    overview: Présentation
+    options: Ce que propose ce logement
+    location: Emplacement du logement
+
+  bookings:
+    create: Réserver
+    title: Mes réservations
+    empty: Vous n'avez effectué aucune réservation
+    start: Arrivée
+    end: Départ
+    num_guests: Nombre de personnes
+    guest: personne
+    guests: personnes
+    payment_info: Informations de paiement
+    payment_form: Formulaire de paiement
+    total_ht: Prix HT
+    total_ttc: Coût total
+    back: Retour à la liste
+    cancel: Annuler la réservation
+    cancel_confirm: Êtes vous sûr de vouloir annuler la réservation ?
+    canceled: Annulé
+    payment_pending: Paiement en attente
+    paid: Payé
+    payment_status: Statut de paiement
+    back_to_show: Retour à la réservation
+
+  forms:
+    drag_and_drop_text: Faites glisser ou cliquez ici pour ajouter une image
+
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+
+  uploader:
+    filetoobig: "Fichier trop gros ({{filesize}}mb). Maximum autorisé {{maxFilesize}}mb"
+    invalidfiletype: "Type invalide"
+    cancelupload: "Annuler"
+    removefile: "Supprimer"
+    maxfilesexceeded: "Maximum {{maxFiles}} fichiers autorisés"
+    defaultmessage: "Déposer un fichier ici pour le télécharger"
+
+  settings:
+    title: Paramètres du compte
+    save: Enregistrer
+
+  payments:
+    submit: Payer
+    already_paid: Le paiement a déjà été effectué.
+    complete:
+      pending: Paiement en attente.
+      paid: Paiement réussi !

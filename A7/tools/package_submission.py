@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib
 import zipfile
+import argparse
 from check_submission import ROOT, submission_files, check_baseline, check_secrets, check_zip
 
 
@@ -12,6 +13,11 @@ def write_zip(destination, files):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output', type=Path, default=ROOT.parent / 'A7_submission.zip')
+    args = parser.parse_args()
+    from check_part2 import verify
+    verify()
     evidence = ROOT / "test_result"
     evidence.mkdir(exist_ok=True)
     receipts = [evidence / name for name in ["baseline_source_validation.txt", "secret_scan.txt", "package_verification.txt"]]
@@ -27,7 +33,7 @@ if __name__ == "__main__":
     secrets = check_secrets(files)
     receipts[0].write_text(baseline + "\n", encoding="utf-8")
     receipts[1].write_text(secrets + "\n", encoding="utf-8")
-    destination = ROOT.parent / "A7_submission.zip"
+    destination = args.output.resolve()
     write_zip(destination, files)
     first_result = check_zip(destination, files)
     receipts[2].write_text(first_result + "\n", encoding="utf-8")
@@ -40,6 +46,6 @@ if __name__ == "__main__":
         raise ValueError("Secret-scan scope changed")
     digest = hashlib.sha256(destination.read_bytes()).hexdigest()
     proof = "\n".join([baseline, secrets, final_result, "ZIP SHA-256: " + digest]) + "\n"
-    (ROOT.parent / "A7_submission.validation.txt").write_text(proof, encoding="utf-8")
+    destination.with_suffix('.validation.txt').write_text(proof, encoding="utf-8")
     print(proof)
     print("Created: " + str(destination))

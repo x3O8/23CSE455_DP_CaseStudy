@@ -74,8 +74,8 @@ def copies(paths: list[str], header: list[str]) -> list[dict[str, str]]:
 def validate_csvs() -> None:
     patterns = copies(["data/patterns.csv", "Part1/patterns.csv"], PATTERN_HEADER)
     evolution = copies(["data/patterns_evolution.csv", "Part2/patterns_evolution.csv"], EVOLUTION_HEADER)
-    counts = copies(["data/pattern_counts.csv", "Part1/pattern_counts.csv"], COUNT_HEADER)
-    evolved_counts = table("Part2/pattern_counts.csv", COUNT_HEADER)
+    counts = copies(["data/pattern_counts.csv", "Part1/pattern_counts.csv", "Part2/pattern_counts.csv"], COUNT_HEADER)
+    evolved_counts = counts
     llm = copies(["data/llm.csv", "Part1/llm.csv", "Part2/llm.csv", "Part3/llm/llm.csv"], LLM_HEADER)
     cross = copies(["data/cross_language.csv", "Part3/llm/pattern_crosslanguage.csv"], CROSS_HEADER)
     check(len(patterns) == 1 and patterns[0]["pattern_name"] == "Template Method", "baseline: exactly one Template Method instance")
@@ -83,7 +83,11 @@ def validate_csvs() -> None:
     for row in patterns + evolution:
         check(all(row.values()), f"pattern {row['source_version']}/{row['pattern_name']}: no blank fields")
         check(row["source_version"] in VERSIONS and row["pattern_type"] == "Behavioral", f"pattern {row['source_version']}: valid version/type")
-        expected_prefix = "code/" if row["source_version"] == VERSIONS[0] else "Part2/code/"
+        if row in evolution:
+            stage = ["original", "Change1", "Change2", "Change3"][VERSIONS.index(row["source_version"])]
+            expected_prefix = f"Part2/checkpoints/{stage}/"
+        else:
+            expected_prefix = "code/"
         for value in row["source_locations"].split(";"):
             check(value.strip().startswith(expected_prefix), f"{row['source_version']}: correct source snapshot prefix")
             check(bool(re.search(r":\d+-\d+$", value)), f"{row['source_version']}: explicit source line bounds")
@@ -101,7 +105,7 @@ def validate_csvs() -> None:
         check("VERBATIM-RECOVERY STATUS" in (ROOT / path).read_text(encoding="utf-8"), f"{path}: recovery note retained without invented transcript")
     for version in VERSIONS:
         inventory = patterns if version == VERSIONS[0] else [r for r in evolution if r["source_version"] == version]
-        counted = counts if version == VERSIONS[0] else [r for r in evolved_counts if r["source_version"] == version]
+        counted = [r for r in counts if r["source_version"] == version]
         actual = Counter(r["pattern_name"] for r in inventory)
         declared = {r["pattern_name"]: int(r["count"]) for r in counted if r["summary"] == "per_pattern"}
         check(declared == dict(actual), f"{version}: per_pattern counts match inventory")
@@ -166,7 +170,7 @@ def validate_report() -> None:
         options, value = listing.groups()
         value = value.strip()
         line = decoded[:listing.start()].count("\n") + 1
-        check(value.startswith(("code/", "Part2/code/", "Part3/")), f"report:{line}: listing {value} identifies source snapshot", REPORT_LOG)
+        check(value.startswith(("code/", "Part2/code/", "Part2/checkpoints/", "Part3/")), f"report:{line}: listing {value} identifies source snapshot", REPORT_LOG)
         reference(value, f"report:{line}/listing", REPORT_LOG)
         bounds = dict(re.findall(r"\b(firstline|lastline)\s*=\s*(\d+)", options or ""))
         if bounds:

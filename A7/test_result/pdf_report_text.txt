@@ -9,7 +9,8 @@ Application rails-room-booking
 Source language Ruby / Ruby on Rails
 Part 3 languages Java, Python, JavaScript, C++
 Baseline commit 5e15551ee646871b4bed32c982fa17da319d3ee3
-Submission date 6 September 2027
+Document revision 2026-10-11 (current repair; not an original submission date)
+Submission date Not veriﬁed from retained inputs
 Team Members
 Roll Number Name Batch
 AM.AI.U4AID23016 Kavya Penikalapati AI & DS
@@ -56,52 +57,56 @@ Contents
 4.5 Why this is more than ordinary reuse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
 4.6 Rejected and uncertain candidates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
 5 Part 2 – Evolution and Refactoring 9
-5.1 Requirement evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
-5.2 Change 1 – Additional services . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
-5.3 Change 2 – Room upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
-5.4 Change 3 – Cancellation Strategy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
-5.5 Why cancellation is genuinely Strategy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
-5.6 Before and after architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
-5.7 Pattern evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
-5.8 Refactoring analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
-5.9 Part 2 veriﬁcation status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
-6 Part 3 – Cross-language Comparison 14
-6.1 Purpose and scope . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-6.2 Shared behavioral speciﬁcations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-6.3 Template Method mapping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-6.4 Strategy mapping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-6.5 Execution results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-6.6 Static comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-6.7 Performance measurements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-6.8 Language-speciﬁc observations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.1 Assignment scope and interpretation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+5.2 Reproducible source checkpoints and provenance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+5.3 Requirement evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+5.4 Change 1 – Additional services . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+5.5 Change 2 – Room upgrade . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+5.6 Change 3 – Cancellation Strategy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+5.7 Why cancellation is genuinely Strategy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+5.8 Before and after architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5.9 Pattern evolution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.10 Updated participant and observation counts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5.11 Refactoring analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+5.12 Measured before/after source metrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+5.13 Part 2 veriﬁcation status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+6 Part 3 – Cross-language Comparison 17
+6.1 Purpose and scope . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+6.2 Shared behavioral speciﬁcations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+6.3 Template Method mapping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.4 Strategy mapping . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.5 Execution results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+6.6 Static comparison . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
 i
 
 --- PAGE 3 ---
 23CSE455 – Design Pattern Case Study Team A7
-7 LLM Records and Human V eriﬁcation 16
-7.1 Role of LLM assistance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
-7.2 Retained records . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
-7.3 Human veriﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
-8 Limitations 17
-9 Findings and Contributions 17
-9.1 Finding 1 – A single baseline pattern is defensible . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
-9.2 Finding 2 – False positives matter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
-9.3 Finding 3 – Requirements create diﬀerent design pressures . . . . . . . . . . . . . . . . . . . . . . . . 17
-9.4 Finding 4 – Cancellation is a strong Strategy case . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
-9.5 Finding 5 – Cross-language mechanisms diﬀer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-9.6 Finding 6 – Evidence reduces pattern inﬂation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-9.7 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-10 Conclusion 18
-11 References 18
-A Detailed Source Evidence 19
-A.1 CrudConcern evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
-A.2 Booking evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
-B Part 2 Change Acceptance 20
-B.1 Change 1 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-B.2 Change 2 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-B.3 Change 3 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-C Cross-language T est Speciﬁcation 20
-D Submission and Evidence Audit 20
+6.7 Performance measurements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+6.8 Language-speciﬁc observations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+7 LLM Records and Human V eriﬁcation 19
+7.1 Role of LLM assistance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+7.2 Retained records . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+7.3 Human veriﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+8 Limitations 20
+9 Findings and Contributions 21
+9.1 Finding 1 – A single baseline pattern is defensible . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.2 Finding 2 – False positives matter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.3 Finding 3 – Requirements create diﬀerent design pressures . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.4 Finding 4 – Cancellation is a strong Strategy case . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.5 Finding 5 – Cross-language mechanisms diﬀer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.6 Finding 6 – Evidence reduces pattern inﬂation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.7 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+10 Conclusion 22
+11 References 22
+A Detailed Source Evidence 22
+A.1 CrudConcern evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+A.2 Booking evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+B Part 2 Change Acceptance 23
+B.1 Change 1 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+B.2 Change 2 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+B.3 Change 3 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+C Cross-language T est Speciﬁcation 24
+D Submission and Evidence Audit 24
 ii
 
 --- PAGE 4 ---
@@ -112,10 +117,14 @@ cies denote include CrudConcern, not class inheritance; controller hooks special
 skeleton. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
 2 Baseline application architecture reconstructed from the inspected Rails source. External integrations
 are shown as boundaries; their internal implementations are not assumed. . . . . . . . . . . . . . . . 3
-3 Additional-service design for breakfast and airport transfer. . . . . . . . . . . . . . . . . . . . . . . . 9
-4 Cancellation Strategy collaboration. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
-5 Cancellation sequence showing context-to-policy delegation. . . . . . . . . . . . . . . . . . . . . . . . 12
-6 Evolved architecture with additional services, room upgrade and cancellation policy. . . . . . . . . . 12
+3 Additional-service design for breakfast and airport transfer. . . . . . . . . . . . . . . . . . . . . . . . 10
+4 Change2 room upgrade and its active-reservation dependency. Editable source:
+Part2/diagrams/room_upgrade.puml. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+5 Cancellation Strategy collaboration. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+6 Cancellation sequence showing context-to-policy delegation. . . . . . . . . . . . . . . . . . . . . . . . 14
+7 Retained original architecture before the three cumulative changes. Editable source:
+Part2/diagrams/original_architecture.puml. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+8 Evolved architecture with additional services, room upgrade and cancellation policy. . . . . . . . . . 15
 iii
 
 --- PAGE 5 ---
@@ -126,16 +135,18 @@ List of Tables
 3 Template Method source evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
 4 Rejected or uncertain baseline candidates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
 5 Evolution requirements and design response . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
-6 Pattern evolution across the three changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
-7 Final Rails veriﬁcation evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
-8 Strategy behavioral speciﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-9 Template Method mapping across languages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-10 Strategy mapping across languages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-11 Part 3 execution veriﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-12 Cross-language static metrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-13 Median process-level timing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-14 LLM evidence and veriﬁcation status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
-15 Final evidence audit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+6 Pattern evolution across the three changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+7 Current source-review counts for each saved version . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+8 Measured cumulative application source (app Ruby ﬁles only) . . . . . . . . . . . . . . . . . . . . . . 16
+9 Fresh suite receipt and retained earlier Rails veriﬁcation artifacts . . . . . . . . . . . . . . . . . . . . 17
+10 Strategy behavioral speciﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+11 Template Method mapping across languages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+12 Strategy mapping across languages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+13 Part 3 execution veriﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+14 Cross-language static metrics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+15 Median process-level timing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+16 LLM evidence and veriﬁcation status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+17 Final evidence audit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
 iv
 
 --- PAGE 6 ---
@@ -197,7 +208,7 @@ The present study therefore treats pattern identiﬁcation as an evidence proble
 nizable participant roles, interactions between those participants, a behavioral or structural purpose corresponding
 to the pattern intent, and source evidence that demonstrates the collaboration. A class name such as Policy is not
 enough to prove Strategy; a callback is not automatically Observer; and a concern is not automatically Decorator.
-1 of 20
+1 of 24
 
 --- PAGE 7 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -249,7 +260,7 @@ The complete baseline source is retained under code/; the complete evolved Rails
 Part2/code/. The inspected application areas include the main domain models, controllers and controller concerns,
 routing, schema, selected model speciﬁcations and the relevant dependency conﬁguration. External-library internals
 were not treated as observable application source.
-2 of 20
+2 of 24
 
 --- PAGE 8 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -280,7 +291,7 @@ Active Storage Stimulus/Turbo Integromat/Make web-
 hook
 Figure 2: Baseline application architecture reconstructed from the inspected Rails source. External integrations
 are shown as boundaries; their internal implementations are not assumed.
-3 of 20
+3 of 24
 
 --- PAGE 9 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -329,7 +340,7 @@ each controller; it is not a superclass, and no CrudTemplate interface exists in
 preserve the algorithmic skeleton while private helper methods and controller hook overrides supply resource-speciﬁc
 behavior. All three controllers inherit ApplicationController independently of module inclusion. This collaboration
 is the strongest baseline GoF pattern evidence.
-4 of 20
+4 of 24
 
 --- PAGE 10 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -376,7 +387,7 @@ the inspected source.
 4.1 Discovery method
 The pattern-discovery method follows a source-ﬁrst procedure:
 1. Establish an immutable source baseline.
-5 of 20
+5 of 24
 
 --- PAGE 11 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -420,7 +431,7 @@ The extension points include:
 • strong_params
 • model_params
 • use_slug?
-6 of 20
+6 of 24
 
 --- PAGE 12 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -475,7 +486,7 @@ resource-speciﬁc behavior is localized.
 4.5 Why this is more than ordinary reuse
 A generic helper function could reduce duplication without being Template Method. The distinguishing evidence
 here is that the shared concern owns the workﬂow and explicitly deﬁnes a family of operations that concrete
-7 of 20
+7 of 24
 
 --- PAGE 13 ---
 23CSE455 – Design Pattern Case Study Team A7
@@ -562,12 +573,31 @@ idence of an application-owned Singleton im-
 plementation.
 The rejected-candidate analysis is not a claim that these patterns are impossible in Rails. It is a claim about
 what can be defended from this particular baseline source.
-8 of 20
+8 of 24
 
 --- PAGE 14 ---
 23CSE455 – Design Pattern Case Study Team A7
 5 Part 2 – Evolution and Refactoring
-5.1 Requirement evolution
+5.1 Assignment scope and interpretation
+This section follows the Part2 records and snapshot-count requirements in the supplied DP_Csestudy-2 and
+DP_Csestudy-3 PDFs. Part2/verification/assignment_compliance.md records coverage and unresolved evidence
+gaps. The PDFs disagree about per-part reports and duplicate datasets; this package keeps one main report and
+canonical data/ folder, with synchronized supporting CSV mirrors retained at the user’s explicit request. The user-
+selected repository remains the target. Layout examples do not authorize fabricated historical commits, prompts,
+dates, faculty approval, contribution attribution or test results.
+5.2 Reproducible source checkpoints and provenance
+The retained repository did not contain historical commits for the three separate changes. Four cumulative
+source checkpoints now make the analysis reproducible: Part2/checkpoints/original/, Part2/checkpoints/Change1/,
+Part2/checkpoints/Change2/, and Part2/checkpoints/Change3/. Original copies the retained upstream baseline and
+Change3 matches the ﬁnal Part2/code/ application. Change1 and Change2 are explicitly reconstructed pedagog-
+ical stages, not historical commits. Existing migration ﬁlenames are identiﬁers, not veriﬁed execution dates. No
+historical prompt wording or model/date metadata is reconstructed.
+tools/rebuild_part2.py records every checkpoint ﬁle in Part2/checkpoint_manifest.json, generates true
+adjacent-stage uniﬁed patches, and synchronizes the three count CSV copies. tools/check_part2.py checks exact
+bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next checkpoint.
+Evolution CSV references identify each stage’s own source rather than the ﬁnal application. The original baseline
+remains immutable.
+5.3 Requirement evolution
 The evolved requirements are:
 1. Breakfast package.
 2. Airport transfer.
@@ -586,20 +616,20 @@ service association
 availability and price-diﬀerence logic
 3 Cancellation policy Cancellation context plus Strategy-based policy
 hierarchy
-5.2 Change 1 – Additional services
+5.4 Change 1 – Additional services
 Breakfast and airport transfer are optional booking-level services. Representing each as a permanent attribute
 of Room or Booking would increase conditional logic and make every new service require schema and business-rule
 changes to the core booking object.
 The evolved design introduces an AdditionalService base class, with concrete BreakfastPackage and
 AirportTransfer services. The base class is instantiable rather than a Ruby abstract class. BookingService records
 belong to a booking and store a captured service_type, quantity and unit_price; they do not have an Active
-Record association to an AdditionalService object. Their subtotal method multiplies captured price by quantity,
-and AdditionalServicePricing.total sums those record subtotals.
-Figure 3: Additional-service design for breakfast and airport transfer.
-9 of 20
+9 of 24
 
 --- PAGE 15 ---
 23CSE455 – Design Pattern Case Study Team A7
+Record association to an AdditionalService object. Their subtotal method multiplies captured price by quantity,
+and AdditionalServicePricing.total sums those record subtotals.
+Figure 3: Additional-service design for breakfast and airport transfer.
 The key design decision is domain modeling, not pattern labeling. The abstraction allows optional services to
 grow without turning the core booking record into a list of unrelated boolean or numeric attributes.
 The implementation also separates pricing calculation from the controller workﬂow. The booking total can be
@@ -608,12 +638,30 @@ domain concern that can be tested independently.
 The design is not classiﬁed as Decorator, Composite, Strategy or Factory. Although the service abstraction
 could be combined with other patterns in a larger system, the implemented structure does not require those pattern
 claims.
-5.3 Change 2 – Room upgrade
+CH01 acceptance and before/after record. Observable criteria are captured service type/price/quantity,
+persisted selection with a booking foreign key, independent subtotals, refresh after quantity changes/removal,
+unchanged captured prices, refreshed pending-payment amount/identity and unchanged paid-payment amount.
+The complete criteria are Part2/changes/Change1/requirement.md. Before: Part2/checkpoints/original/; after:
+Part2/checkpoints/Change1/; exact changed paths/content: Part2/changes/Change1/diff.patch. New records/pric-
+ing and changes to Booking/HasPriceConcern address responsibility growth. The original callback’s date-change-
+only guard would miss service-only updates; central recomputation on save corrects that concrete coupling. Tem-
+plate Method’s Shared CRUD Controller Workﬂow remains preserved; no new GoF instance is counted.
+Run bundle exec rspec spec –format documentation from the after-checkpoint.
+Part2/verification/Change1_rails.txt records 13 examples, zero failures, including the same ﬁve baseline
+model and seven feature examples. The before receipt Part2/verification/original_rails.txt records 5/0.
+Under the same application-Ruby scope and Ripper tool, SLOC changes 495 to 556. New feature tests are not
+retroactively claimed to have run on original code. Shared bundle/eager-loading corrections are explicitly assigned
+to CH01 and visible in its patch.
+5.5 Change 2 – Room upgrade
 A room upgrade diﬀers from an additional service because it changes the core reservation target. The operation
 must:
 1. identify the requested target room;
 2. verify that the target room is available for the booking interval;
 3. calculate the nightly price diﬀerence;
+10 of 24
+
+--- PAGE 16 ---
+23CSE455 – Design Pattern Case Study Team A7
 4. change the booking’s room;
 5. recalculate the booking totals;
 6. persist the updated booking; and
@@ -622,12 +670,35 @@ The implementation isolates this workﬂow in RoomUpgrade. The service receives 
 validates the requested change, computes the diﬀerence, applies the new room and persists it. Saving the booking
 runs the pricing callbacks that recalculate totals, including selected service charges. The retained original-room
 association survives repeated upgrades; it is a reference to the ﬁrst room, not a complete event-history ledger.
+Dependency boundary: Change2 introduces Booking.active before RoomUpgrade calls it. The baseline al-
+ready supports a cancellation timestamp. Change2 also uses the scope in booking availability validation and
+Room#booked_dates, and rejects upgrades of canceled bookings. Change3 inherits these availability semantics and
+introduces the refund Strategy. The complete Change2 checkpoint is therefore runnable without Change3 classes
+or its refund migration.
 This avoids adding a large conditional branch to Booking#cancel! or to controller actions. It also keeps the
 semantic distinction between “an optional service attached to a booking” and “a replacement of the room being
 booked. ”
 The operation is not classiﬁed as Command, State or Strategy. The presence of an operation object does not
 automatically create Command; the implementation is primarily a domain responsibility extraction.
-5.4 Change 3 – Cancellation Strategy
+CH02 acceptance and before/after record. The target rejects overlapping active stays without changing per-
+sisted room/totals, allows adjacent or canceled stays, computes the nightly pre-V AT diﬀerence, recalculates total/-
+payment amounts, retains services and the ﬁrst original room, rolls back invalid changes and rejects canceled-booking
+upgrades. Complete criteria: Part2/changes/Change2/requirement.md. Before: Part2/checkpoints/Change1/; after:
+Part2/checkpoints/Change2/; exact source delta: Part2/changes/Change2/diff.patch. The operation/scope extract
+new workﬂow responsibilities from an already broad Booking model. A vailability queries still occur in both Book-
+ing validation and RoomUpgrade; duplication remains, rather than being claimed eliminated. Template Method is
+preserved; no new GoF instance is counted.
+Run the same complete RSpec command from Change2. Part2/verification/Change2_rails.txt records 21/0,
+including all earlier examples and eight upgrade examples; the before-stage receipt records 13/0. Same-scope
+SLOC changes 556 to 596. Conﬁrmed reservation means persisted, not necessarily paid. RoomUpgrade is a callable
+domain service; no upgrade controller route or external upgrade payment is claimed.
+Figure 4: Change2 room upgrade and its active-reservation dependency. Editable source:
+Part2/diagrams/room_upgrade.puml.
+11 of 24
+
+--- PAGE 17 ---
+23CSE455 – Design Pattern Case Study Team A7
+5.6 Change 3 – Cancellation Strategy
 Cancellation is diﬀerent because the business rule can vary while the overall cancellation workﬂow remains stable.
 A hotel may oﬀer ﬂexible cancellation, partial refund, or no refund. The core application should not need a growing
 conditional tree such as:
@@ -640,11 +711,7 @@ Listing 3: Illustrative anti-pattern avoided by the evolution
 6 ...
 7 end
 Instead, the evolved design uses:
-10 of 20
-
---- PAGE 16 ---
-23CSE455 – Design Pattern Case Study Team A7
-Figure 4: Cancellation Strategy collaboration.
+Figure 5: Cancellation Strategy collaboration.
 The context is CancellationService. The Strategy interface is CancellationPolicy. The concrete strategies are:
 • FlexibleCancellationPolicy
 • PartialRefundCancellationPolicy
@@ -668,6 +735,10 @@ Listing 4: Evolved Strategy context and delegation from the ﬁnal source
 9 raise ArgumentError, "Booking␣is␣already␣canceled"if @booking.canceled?
 10 raise ArgumentError, "Cancellation␣is␣not␣permitted"unless @policy.cancellable?(@booking, at:
 at)
+12 of 24
+
+--- PAGE 18 ---
+23CSE455 – Design Pattern Case Study Team A7
 11
 12 refund = @policy.refund_amount(@booking, at: at)
 13 @booking.update!(canceled_at: at, cancellation_refund_amount: refund)
@@ -675,30 +746,45 @@ at)
 15 end
 16 end
 17 end
-5.5 Why cancellation is genuinely Strategy
+CH03 acceptance and before/after record. Conﬁgured policies return full, fractional or zero refunds; the
+context delegates both rule methods, rejects denied/repeated cancellations and atomically records refund/time. The
+real route authenticates, scopes, authorizes and ignores client policy choices. Services belong to the refund basis;
+canceled stays inherit CH02 availability semantics. Complete criteria: Part2/changes/Change3/requirement.md. Be-
+fore: Part2/checkpoints/Change2/; after: Part2/checkpoints/Change3/, identical to ﬁnal Part2/code/; exact source
+delta: Part2/changes/Change3/diff.patch.
+Original cancellation only recorded a timestamp. Refund variation is new: the actual technique introduces
+Strategy and injects a policy into a separate context, rather than deleting a historical refund conditional that never
+existed. Cancellation Refund Policy is newly introduced; Shared CRUD Controller Workﬂow is preserved. Run
+the same complete RSpec command from Change3. Part2/verification/Change3_rails.txt records 36/0, including
+earlier examples plus nine service and six route examples; before-stage receipt: 21/0. Same-scope SLOC changes
+596 to 654. Atomic local recording and unchanged paid-payment records are tested; no external Stripe refund is
+implemented.
+5.7 Why cancellation is genuinely Strategy
 The classiﬁcation follows the GoF intent rather than the class names:
 1. There is a family of related algorithms: cancellation/refund rules.
 2. The algorithms perform the same conceptual operation for a common context.
 3. The context can receive diﬀerent policy implementations.
 4. The context delegates the variable behavior instead of containing all policy branches.
-11 of 20
-
---- PAGE 17 ---
-23CSE455 – Design Pattern Case Study Team A7
 5. A new policy can be added without changing the central cancellation orchestration.
 The Strategy collaboration is therefore substantially stronger than the rejected baseline Pundit-as-Strategy
 candidate.
-Figure 5: Cancellation sequence showing context-to-policy delegation.
-5.6 Before and after architecture
-Figure 6: Evolved architecture with additional services, room upgrade and cancellation policy.
+13 of 24
+
+--- PAGE 19 ---
+23CSE455 – Design Pattern Case Study Team A7
+Figure 6: Cancellation sequence showing context-to-policy delegation.
+5.8 Before and after architecture
+Figure 7: Retained original architecture before the three cumulative changes. Editable source:
+Part2/diagrams/original_architecture.puml.
+14 of 24
+
+--- PAGE 20 ---
+23CSE455 – Design Pattern Case Study Team A7
+Figure 8: Evolved architecture with additional services, room upgrade and cancellation policy.
 The baseline architecture centered most reservation behavior around Booking and reusable Rails concerns. The
 evolved architecture introduces explicit application-service/domain boundaries for the new requirements. This is a
 responsibility-separation decision rather than a claim that every new class is a design pattern.
-12 of 20
-
---- PAGE 18 ---
-23CSE455 – Design Pattern Case Study Team A7
-5.7 Pattern evolution
+5.9 Pattern evolution
 Table 6: Pattern evolution across the three changes
 Version Pattern Instance Status
 Original Template Method Shared CRUD Controller Workﬂow Baseline conﬁrmed
@@ -709,7 +795,28 @@ After Change 3 Strategy Cancellation Refund Policy Newly introduced
 The package’s evolution CSV records Template Method as preserved and Strategy as newly introduced. Part2/code/
 contains the full application with the new models, migrations, application services, server-conﬁgured policy selection
 and real cancellation-route integration. The existing CRUD concern and its resource-speciﬁc hooks remain present.
-5.8 Refactoring analysis
+5.10 Updated participant and observation counts
+Table 7: Current source-review counts for each saved version
+Snapshot Types Instances Concrete classes Symbols Rejected Uncertain
+Original 1 1 3 4 13 2
+Change1 1 1 3 4 17 2
+Change2 1 1 3 4 20 2
+Change3 2 2 6 10 21 2
+Counts come from Part2/evidence/snapshot_summary.csv and Part2/evidence/pattern_observations.csv, repro-
+duced by tools/summarize_part2.py. Three controllers implement Template Method’s variable roles; Change3
+adds three concrete refund policies. Original has four unique mapped symbols (concern plus controllers); ﬁnal has
+ten (those four, ﬁve Strategy classes, conﬁgured policy callable). Shared BookingsController counts once. This
+counts named participants, not every method call or application class.
+15 of 24
+
+--- PAGE 21 ---
+23CSE455 – Design Pattern Case Study Team A7
+Rejected/uncertain totals are current documented candidate observations within each source scope, not distinct
+pattern types or recovered historical review events. Dependency Adapter/Facade claims remain uncertain because
+internals were excluded; other recorded candidates are rejected in the application scope. Optional-service and
+upgrade guesses remain rejected even when a separate cancellation collaboration becomes conﬁrmed Strategy. Each
+observation has reasons and bounded source references; no minimum pattern quota is imposed.
+5.11 Refactoring analysis
 The primary design pressure is responsibility growth. The original Booking model already combines associations,
 availability validation, cancellation state, pricing behavior via a concern, payment integration and notiﬁcation
 behavior. New requirements would increase this concentration if implemented directly in the model and controllers.
@@ -720,15 +827,43 @@ The evolution responds by extracting responsibilities:
 • the existing controller Template Method remains responsible for the common CRUD lifecycle.
 The resulting design is not claimed to be universally superior. It introduces more classes and indirection. That
 trade-oﬀ is justiﬁed only when the business rules are expected to vary or grow.
-5.9 Part 2 veriﬁcation status
-The ﬁnal application was tested with Ruby 2.7.5, Rails 7.0.6, Bundler 2.4.17 and PostgreSQL 15.10. A dedicated
-test database was recreated from scratch, all 12 migrations completed, and the complete RSpec suite passed
-36 examples, zero failures . This total comprises ﬁve baseline model examples, 30 feature examples and one
-eager-loading example. The three feature receipts report Change 1: 7/0, Change 2: 8/0, and Change 3: 15/0
-(examples/failures). Change 3 includes nine cancellation service examples and six requests through the real Rails
-POST route.
-Table 7: Final Rails veriﬁcation evidence
+5.12 Measured before/after source metrics
+tools/measure_part2.py invokes Ruby Ripper through tools/ruby_metrics.rb on every application Ruby ﬁle
+in each checkpoint. Part2/metrics/before_after.csv records per-ﬁle source paths and SHA-256 values;
+Part2/metrics/ruby_ast_metrics.json records method names, source lines, decisions and explicit application de-
+pendencies.
+Table 8: Measured cumulative application source (app Ruby ﬁles only)
+Stage SLOC Methods Sum method CC Max CC Explicit refs.
+Original 495 95 127 4 27
+Change1 556 105 145 5 31
+Change2 596 110 154 6 31
+Change3 654 121 171 6 35
+SLOC excludes blank and comment-only lines. Method CC starts at one and counts AST conditionals (including
+elsif), loops, ternaries, each case/rescue branch and short-circuit Boolean decisions; blocks belong to their enclosing
+method. Explicit references are a bounded coupling proxy: distinct application-owned constant references per
+ﬁle, summed across ﬁles. They exclude declarations and do not capture implicit Rails associations, framework or
+runtime-dispatch dependencies. The complete rules are in Part2/metrics/README.md.
+These measurements describe cumulative requirements, not equivalent competing implementations. Source size,
+total method complexity and explicit references increase. Responsibility separation and Strategy do not establish
+an overall numerical complexity reduction or runtime performance improvement. All Part2 diagrams now have
+editable PlantUML sources alongside their rendered images, including original architecture and Change2 room
+upgrade.
+5.13 Part 2 veriﬁcation status
+Fresh repair veriﬁcation used Ruby 2.7.5 and the checkpoint bundles with an isolated PostgreSQL server. Separate
+checkpoint databases were created and migrated; the ﬁnal full RSpec suite passed 36 examples, zero failures .
+This total comprises ﬁve baseline model examples, 30 feature examples and one eager-loading example. Cumulative
+checkpoint suites report original: 5/0, Change1: 13/0, Change2: 21/0 and Change3: 36/0. Change3 includes nine
+cancellation service examples and six real cancellation-route request examples. Actual command/output/exit-code
+receipts are in Part2/verification/; tools/run_part2_tests.ps1 reproduces them. Earlier retained feature receipts
+(7/0, 8/0, 15/0) and HTTP/boot logs remain historical artifacts and are not presented as fresh runs or as historical
+executions of the reconstructed stages.
+16 of 24
+
+--- PAGE 22 ---
+23CSE455 – Design Pattern Case Study Team A7
+Table 9: Fresh suite receipt and retained earlier Rails veriﬁcation artifacts
 Veriﬁcation Retained evidence
+Fresh ﬁnal suite: 36/0 Part2/verification/final_rails.txt
 Complete RSpec suite: 36/0 test_result/part2_rspec.txt
 Clean migration rebuild test_result/test_db_migrations.txt
 Twelve migrations up test_result/test_db_migration_status.txt
@@ -742,13 +877,10 @@ Boot regression before ﬁx: 1/1 test_result/boot_regression_before.txt
 The suite exercises persisted room upgrades, original-room retention, availability boundaries, service totals,
 cancellation state/refund recording, conﬁgured policy selection, authentication, ownership and repeated cancellation.
 The eager-loading check required explicitly declaring active_model_serializers, a dependency used by the upstream
-Payify integration. The retained logs contain duplicate-constant warnings from net/protocol; the successful test and
-migration commands exit with status zero. These results establish the tested application behavior on the dedicated
-test database; production deployment and external payment/webhook delivery are outside that veriﬁcation scope.
-13 of 20
-
---- PAGE 19 ---
-23CSE455 – Design Pattern Case Study Team A7
+Payify integration; this support is assigned to reconstructed Change1. The logs contain duplicate-constant warnings
+from net/protocol; fresh successful test and migration commands exit zero. Earlier HTTP/boot logs in the table
+are retained artifacts, not rerun proof. Production deployment and external payment/webhook delivery remain
+outside the veriﬁcation scope.
 6 Part 3 – Cross-language Comparison
 6.1 Purpose and scope
 The cross-language exercise does not attempt to port the complete Rails application. It isolates the two conﬁrmed
@@ -762,14 +894,18 @@ For Template Method, the common workﬂow creates a resource-speciﬁc represent
 Room and Settings. The common algorithm remains in the template while the concrete resource implementations
 supply details.
 For Strategy, a booking amount of 430 is passed to three policies. The expected outputs are:
-Table 8: Strategy behavioral speciﬁcation
+Table 10: Strategy behavioral speciﬁcation
 Policy Rule Expected refund
 Flexible Full eligible refund 430
 Partial refund 50% refund 215
 No refund No refund 0
 All four language implementations use the same representative behavior.
+17 of 24
+
+--- PAGE 23 ---
+23CSE455 – Design Pattern Case Study Team A7
 6.3 T emplate Method mapping
-Table 9: Template Method mapping across languages
+Table 11: Template Method mapping across languages
 Language Main abstraction Language-speciﬁc expression
 Ruby CrudConcern ActiveSupport concern with shared workﬂow
 and hook methods.
@@ -782,7 +918,7 @@ The language implementations are analogous, not source-identical. Ruby’s conce
 from the other four because the original application integrates shared behavior through a module included into
 controllers.
 6.4 Strategy mapping
-Table 10: Strategy mapping across languages
+Table 12: Strategy mapping across languages
 Language Strategy abstraction Concrete policies
 Java Policy interface/abstract contract Flexible, PartialRefund, NoRefund
 Python ABC-based policy contract Flexible, PartialRefund, NoRefund
@@ -791,13 +927,9 @@ C++ Abstract policy class / shared ownership Flexible, PartialRefund, NoRefund
 The common structure is:
 CancellationService -> CancellationPolicy -> Flexible / PartialRefund / NoRefund
 The important cross-language invariant is delegation: the service does not encode each refund algorithm directly.
-14 of 20
-
---- PAGE 20 ---
-23CSE455 – Design Pattern Case Study Team A7
 6.5 Execution results
 Eight snippets were executed: Template Method and Strategy in each of four languages.
-Table 11: Part 3 execution veriﬁcation
+Table 13: Part 3 execution veriﬁcation
 Pattern Language Command family Result
 Template Method Java javac Main.java && java Main Passed 1/1
 Template Method Python python3 Main.py Passed 1/1
@@ -811,7 +943,11 @@ The test results are behavioral smoke checks for the isolated snippets, not proo
 cation behaves identically across languages.
 6.6 Static comparison
 The oﬃcial cross-language dataset reports the following source LOC and maximum function cyclomatic complexity:
-Table 12: Cross-language static metrics
+18 of 24
+
+--- PAGE 24 ---
+23CSE455 – Design Pattern Case Study Team A7
+Table 14: Cross-language static metrics
 Pattern Language Source LOC Max function CC
 Template Method Java 9 1
 Template Method Python 17 1
@@ -827,7 +963,7 @@ logic.
 6.7 Performance measurements
 Each snippet was measured using one warmup process followed by ﬁve measured process runs. The median process
 time is reported. Timing includes process startup and snippet execution.
-Table 13: Median process-level timing
+Table 15: Median process-level timing
 Language Template Method (ms) Strategy (ms)
 Java 39.494 50.372
 Python 672.008 595.258
@@ -840,10 +976,6 @@ process-level timings.
 6.8 Language-speciﬁc observations
 Java. Java makes the pattern contracts explicit through interfaces and abstract classes. Static typing makes
 participant relationships visible in declarations, at the cost of more syntactic structure.
-15 of 20
-
---- PAGE 21 ---
-23CSE455 – Design Pattern Case Study Team A7
 Python. Python can express the same abstraction using ABCs, but its dynamic dispatch makes some contracts
 less syntactically prominent. The implementation is concise in conceptual terms while retaining explicit abstract
 methods.
@@ -858,6 +990,10 @@ LLMs were used as analytical assistants in several project stages:
 2. architecture extraction;
 3. pattern discovery;
 4. evolution analysis;
+19 of 24
+
+--- PAGE 25 ---
+23CSE455 – Design Pattern Case Study Team A7
 5. cross-language implementation;
 6. ﬁnal audit.
 The methodological boundary was that an LLM output was treated as a hypothesis rather than as primary
@@ -868,7 +1004,7 @@ exact historical wording for Prompts 02 and 03 could not be recovered as indepen
 than reconstructing those prompts and presenting the reconstruction as historical evidence, the package records
 the limitation.
 Historical model/date metadata is also marked unknown where it could not be independently veriﬁed.
-Table 14: LLM evidence and veriﬁcation status
+Table 16: LLM evidence and veriﬁcation status
 Stage Retained evidence Veriﬁcation
 Pattern discovery Source-analysis result and evidence matrix Source locations checked independently.
 Evolution Evolution analysis, change diﬀs and Rails
@@ -888,10 +1024,6 @@ The most important human-veriﬁcation outcomes were:
 • Pundit was not inﬂated into Strategy.
 • callbacks were not inﬂated into Observer.
 • Payify was not inﬂated into Adapter/Facade.
-16 of 20
-
---- PAGE 22 ---
-23CSE455 – Design Pattern Case Study Team A7
 • concerns were not inﬂated into Decorator.
 • Part 2 Strategy was implemented as actual delegation rather than inferred from a class name.
 • Part 3 timing values were collected rather than invented.
@@ -908,6 +1040,10 @@ tence, date availability, money representation and cancellation timing.
 5. T est environment scope. Migrations, persisted feature behavior, model tests, actual-route requests and eager
 loading were veriﬁed on a dedicated PostgreSQL test database. Production deployment and live external-service
 operation were not exercised.
+20 of 24
+
+--- PAGE 26 ---
+23CSE455 – Design Pattern Case Study Team A7
 6. Refund delivery scope. Cancellation persists the calculated refund amount and timestamp. It does not issue
 an external Stripe refund or claim settlement of money.
 7. Timing scope. Process-level timings include startup and are based on tiny programs. They are comparative
@@ -936,10 +1072,6 @@ identically would obscure their diﬀerent design pressures.
 The cancellation requirement creates interchangeable algorithms with a stable context. CancellationService dele-
 gates to CancellationPolicy, allowing ﬂexible, partial-refund and no-refund implementations. This is the strongest
 new pattern introduced by the evolution.
-17 of 20
-
---- PAGE 23 ---
-23CSE455 – Design Pattern Case Study Team A7
 9.5 Finding 5 – Cross-language mechanisms diﬀer
 The same design intent appears through Java interfaces/abstract classes, Python ABCs, JavaScript class-based
 dynamic dispatch and C++ pure virtual functions. The pattern concept is therefore more stable than its language-
@@ -949,14 +1081,16 @@ The project demonstrates a general methodological lesson: a defensible design-pa
 to contain only one baseline pattern when only one collaboration is actually established. Academic quality is
 improved by rejecting unsupported candidates rather than maximizing the pattern count.
 9.7 Contributions
-The project brief identiﬁes Kurt Sony Rebello as the primary contributor for the overall case-study work, in-
-cluding source repository investigation, architecture analysis, pattern investigation, source-code veriﬁcation, Part
-1 identiﬁcation, Part 2 evolution/design analysis and coordination, cancellation Strategy design, four-language
-implementation, testing/veriﬁcation coordination, metrics, LLM-assisted analysis, report preparation, repository
-organization and ﬁnal submission preparation.
+The inherited report attributed the overall case-study work primarily to Kurt Sony Rebello. The supporting project
+brief and independent contribution evidence are unavailable in the supplied inputs, so this repair cannot conﬁrm
+that historical attribution. It is not presented as a veriﬁed contribution record.
 For Kavya Penikalapati, E. Abhijith Krishna and Guduru Akshaya Giri, the retained project records available
 for this report do not contain independently veriﬁed, speciﬁc technical contribution assignments. Their names and
 team membership are therefore reported exactly, but no unsupported technical tasks are attributed to them.
+21 of 24
+
+--- PAGE 27 ---
+23CSE455 – Design Pattern Case Study Team A7
 10 Conclusion
 This case study examined an existing Ruby on Rails hotel booking application using a source-ﬁrst, evidence-based
 design-pattern methodology. The baseline was ﬁxed to an immutable commit so that the pattern inventory could
@@ -991,10 +1125,6 @@ Software, Addison-Wesley, 1994.
 3. Ruby on Rails, Rails Guides: Getting Started, Active Record and Active Support , oﬃcial Rails documentation.
 4. Pundit, Pundit Authorization for Ruby Applications , project documentation.
 5. Devise, Flexible authentication solution for Rails , project documentation.
-18 of 20
-
---- PAGE 24 ---
-23CSE455 – Design Pattern Case Study Team A7
 6. Payify, payment integration dependency referenced by the baseline application.
 7. Stripe, Stripe API Documentation , payment platform documentation.
 8. PlantUML, PlantUML Language Reference Guide , documentation for editable UML diagrams.
@@ -1007,6 +1137,10 @@ A.1 CrudConcern evidence
 The veriﬁed baseline CrudConcern contains the common CRUD algorithm and the hook methods used by the concrete
 controllers. The source is code/app/controllers/concerns/crud_concern.rb:1–149. The critical structural evidence
 is:
+22 of 24
+
+--- PAGE 28 ---
+23CSE455 – Design Pattern Case Study Team A7
 Listing 5: Core Template Method structure in CrudConcern
 1 def create
 2 authorize object_class
@@ -1042,10 +1176,6 @@ The baseline Booking source establishes:
 • price access through total_ttc
 • after_save :create_payment
 • after_create :notify_booking
-19 of 20
-
---- PAGE 25 ---
-23CSE455 – Design Pattern Case Study Team A7
 The cancellation implementation is intentionally simple:
 Listing 6: Baseline cancellation behavior
 1 def cancel!
@@ -1058,6 +1188,10 @@ B.1 Change 1 acceptance
 The implementation is considered structurally satisﬁed when a booking can be associated with breakfast or airport-
 transfer service objects/records and the service subtotal participates in the total calculation without modifying the
 original room amenity list.
+23 of 24
+
+--- PAGE 29 ---
+23CSE455 – Design Pattern Case Study Team A7
 B.2 Change 2 acceptance
 The room-upgrade operation must reject an unavailable target room, calculate the target/base price diﬀerence,
 replace the booking room when valid, and recalculate the booking total.
@@ -1072,7 +1206,7 @@ The execution evidence stored under Part3/evidence/ records the actual output fo
 ﬁcial data/cross_language.csv records source LOC, maximum function cyclomatic complexity, runtime/compiler,
 command, result, median process time and language notes.
 D Submission and Evidence Audit
-Table 15: Final evidence audit
+Table 17: Final evidence audit
 Item Evidence Status
 Team metadata Master project brief Veriﬁed
 Baseline commit Original GitHub repository Veriﬁed
@@ -1096,4 +1230,4 @@ LLM records data/llm.csv and retained
 prompts/results
 Partial; historical metadata gaps disclosed
 Prompt 02/03 verbatim history Not retained Not veriﬁed
-20 of 20
+24 of 24

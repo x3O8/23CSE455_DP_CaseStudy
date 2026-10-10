@@ -1,0 +1,68 @@
+Checkpoint: Change2
+Source: C:\Users\abhij\Desktop\A7\A7\Part2\checkpoints\Change2
+Database: a7_part2_Change2_test
+Executed at: 2026-10-11T00:29:11.1517123+05:30
+Runtime: C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/bin/ruby.exe
+Bundle: checkpoint's own Gemfile/lockfile
+Command: ruby bin/rails db:create
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+Database 'a7_part2_Change2_test' already exists
+Exit code: 0
+Command: ruby bin/rails db:migrate
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+Exit code: 0
+Command: ruby -rbundler/setup -e load Gem.bin_path("rspec-core", "rspec") -- spec --format documentation
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+Evolved application boot
+  eager loads the application and payment engine without unresolved constants
+
+Booking
+  When checking the booking price
+    Book a room and check price
+  When checking booking dates
+    Should require start and end dates
+    should be valid if there are no conflicting bookings
+    should be invalid if there are conflicting bookings
+
+Room
+  Create a room
+
+AdditionalServicePricing
+  includes captured breakfast and transfer charges in saved booking and payment totals
+  recalculates prices after quantity updates and removal without changing dates
+  keeps the captured unit price independent of later catalogue prices
+  rejects zero and negative quantities without altering the booking total
+  rejects negative unit prices and unrecognized service types
+  keeps the original room-only total when no services are selected
+  updates the existing pending payment rather than creating a replacement
+
+RoomUpgrade
+  rejects overlapping reservations without changing persisted room or totals
+  persists an available room, its original room and the independently calculated difference
+  allows adjacent checkout/check-in dates
+  ignores canceled reservations in the target room
+  retains service charges when the room price changes
+  preserves the first original room across multiple upgrades
+  restores the original persisted state when validation fails
+  rejects upgrades of a canceled booking
+
+Finished in 7.9 seconds (files took 15.99 seconds to load)
+21 examples, 0 failures
+
+Exit code: 0

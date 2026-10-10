@@ -1,0 +1,35 @@
+@startuml
+title Change3 - cancellation refund Strategy
+skinparam classAttributeIconSize 0
+class BookingsController {
+  cancel()
+}
+class CancellationService {
+  initialize(booking, policy:)
+  call(at: Time.current)
+}
+class CancellationPolicy {
+  cancellable?(booking, at:)
+  refund_amount(booking, at:)
+}
+class FlexibleCancellationPolicy
+class PartialRefundCancellationPolicy {
+  initialize(rate: 0.5)
+}
+class NoRefundCancellationPolicy
+class Booking {
+  canceled_at
+  cancellation_refund_amount
+}
+BookingsController ..> CancellationService : authorized client
+CancellationService --> CancellationPolicy : injected policy
+CancellationService --> Booking : locks and updates
+CancellationPolicy <|-- FlexibleCancellationPolicy
+CancellationPolicy <|-- PartialRefundCancellationPolicy
+CancellationPolicy <|-- NoRefundCancellationPolicy
+note bottom of CancellationService
+  Delegates both rule methods.
+  Stores calculated refund; no Stripe transfer.
+  Source: checkpoints/Change3/app/services/
+end note
+@enduml

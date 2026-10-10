@@ -1,0 +1,362 @@
+diff --git a/Gemfile b/Gemfile
+--- a/Gemfile
++++ b/Gemfile
+@@ -99,3 +99,6 @@
+ gem "dotenv-rails", "~> 2.8.1"
+ gem "integromat", "~> 0.1"
+ gem "payify", "~> 0.1"
++
++# Payify's serializer needs this dependency loaded before Rails eager loading.
++gem "active_model_serializers", "~> 0.10.13"
+diff --git a/Gemfile.lock b/Gemfile.lock
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -128,6 +128,7 @@
+       ruby2_keywords (>= 0.0.4)
+     faraday-net_http (3.0.2)
+     ffi (1.15.5)
++    ffi (1.15.5-x64-mingw32)
+     glob (0.4.0)
+     globalid (1.1.0)
+       activesupport (>= 5.0)
+@@ -181,7 +182,6 @@
+     method_source (1.0.0)
+     mini_magick (4.12.0)
+     mini_mime (1.1.2)
+-    mini_portile2 (2.8.2)
+     minitest (5.18.1)
+     money (6.16.0)
+       i18n (>= 0.6.4, <= 2)
+@@ -196,8 +196,7 @@
+     net-smtp (0.3.3)
+       net-protocol
+     nio4r (2.5.9)
+-    nokogiri (1.15.3)
+-      mini_portile2 (~> 2.8.2)
++    nokogiri (1.15.3-x64-mingw32)
+       racc (~> 1.4)
+     nokogiri (1.15.3-x86_64-linux)
+       racc (~> 1.4)
+@@ -209,6 +208,7 @@
+       rails (~> 7.0)
+       stripe (~> 8.5.0)
+     pg (1.5.3)
++    pg (1.5.3-x64-mingw32)
+     popper_js (2.11.7)
+     public_suffix (5.0.3)
+     puma (5.6.6)
+@@ -284,6 +284,8 @@
+     rubyzip (2.3.2)
+     sassc (2.4.0)
+       ffi (~> 1.9)
++    sassc (2.4.0-x64-mingw32)
++      ffi (~> 1.9)
+     sassc-rails (2.1.2)
+       railties (>= 4.0.0)
+       sassc (>= 2.0)
+@@ -317,6 +319,8 @@
+       railties (>= 6.0.0)
+     tzinfo (2.0.6)
+       concurrent-ruby (~> 1.0)
++    tzinfo-data (1.2026.5)
++      tzinfo (>= 1.0.0)
+     warden (1.2.9)
+       rack (>= 2.0.9)
+     web-console (4.2.0)
+@@ -337,10 +341,11 @@
+     zeitwerk (2.6.8)
+ 
+ PLATFORMS
+-  ruby
++  x64-mingw32
+   x86_64-linux
+ 
+ DEPENDENCIES
++  active_model_serializers (~> 0.10.13)
+   bootsnap
+   bootstrap (~> 5.1.3)
+   capybara
+diff --git a/SOURCE_PROVENANCE.md b/SOURCE_PROVENANCE.md
+deleted file mode 100644
+--- a/SOURCE_PROVENANCE.md
++++ /dev/null
+@@ -1,13 +0,0 @@
+-# Original application snapshot
+-
+-Repository: https://github.com/andrewdsilva/rails-room-booking
+-
+-Commit: `5e15551ee646871b4bed32c982fa17da319d3ee3`
+-
+-All 170 files in the public commit archive were copied here, including dotfiles,
+-Gemfile/Gemfile.lock, configuration, migrations, views, assets, and baseline specs.
+-The upstream README is retained unchanged. This provenance note is an added file.
+-
+-`../data/baseline_source_manifest.json` records SHA-256 for every upstream file.
+-The final verification compares the included snapshot with that manifest.
+-The complete evolved application lives separately in `../Part2/code/`.
+diff --git a/app/models/additional_service.rb b/app/models/additional_service.rb
+new file mode 100644
+--- /dev/null
++++ b/app/models/additional_service.rb
+@@ -0,0 +1,12 @@
++class AdditionalService
++  attr_reader :name, :unit_price
++
++  def initialize(name:, unit_price:)
++    @name = name
++    @unit_price = BigDecimal(unit_price.to_s)
++  end
++
++  def price(quantity: 1)
++    unit_price * quantity
++  end
++end
+diff --git a/app/models/airport_transfer.rb b/app/models/airport_transfer.rb
+new file mode 100644
+--- /dev/null
++++ b/app/models/airport_transfer.rb
+@@ -0,0 +1,5 @@
++class AirportTransfer < AdditionalService
++  def initialize(unit_price: 40)
++    super(name: "Airport transfer", unit_price: unit_price)
++  end
++end
+diff --git a/app/models/booking.rb b/app/models/booking.rb
+--- a/app/models/booking.rb
++++ b/app/models/booking.rb
+@@ -9,6 +9,7 @@
+ 
+   belongs_to :user
+   belongs_to :room
++  has_many :booking_services, dependent: :destroy
+ 
+   validates :start_date, :end_date, :room_id, :user_id, presence: true
+   validate :end_date_greater_than_start_date
+@@ -19,6 +20,8 @@
+   end
+ 
+   def dates_are_available
++    return if room.nil? || start_date.nil? || end_date.nil?
++
+     conflicting_bookings = room.bookings.where.not(id: id).where("(? < end_date) AND (? > start_date)", start_date, end_date)
+ 
+     errors.add(:base, I18n.t("activerecord.errors.models.booking.unavailable_dates")) if conflicting_bookings.exists?
+@@ -64,6 +67,25 @@
+     total_ttc
+   end
+ 
++  def compute_price_ht
++    super + AdditionalServicePricing.total(booking_services)
++  end
++
++  def add_service(service, quantity: 1)
++    booking_services.create!(service_type: service.class.name, unit_price: service.unit_price, quantity: quantity)
++  end
++
++  def create_payment
++    return payment if canceled?
++
++    if payment
++      payment.update!(amount: amount_to_pay) if payment.pending? && !payment.paid?
++      payment
++    else
++      build_payment(amount: amount_to_pay).tap(&:save!)
++    end
++  end
++
+   def notify_booking
+     return unless Integromat.config.web_hooks.key?(:booking)
+ 
+diff --git a/app/models/booking_service.rb b/app/models/booking_service.rb
+new file mode 100644
+--- /dev/null
++++ b/app/models/booking_service.rb
+@@ -0,0 +1,25 @@
++class BookingService < ApplicationRecord
++  belongs_to :booking
++
++  validates :service_type, inclusion: { in: %w[BreakfastPackage AirportTransfer] }
++  validates :quantity, numericality: { only_integer: true, greater_than: 0 }
++  validates :unit_price, numericality: { greater_than_or_equal_to: 0 }
++
++  after_save :refresh_booking_prices
++  after_destroy :refresh_booking_prices
++
++  def subtotal
++    unit_price * quantity
++  end
++
++  private
++
++  def refresh_booking_prices
++    return if destroyed_by_association
++
++    booking.with_lock do
++      booking.booking_services.reset
++      booking.save!
++    end
++  end
++end
+diff --git a/app/models/breakfast_package.rb b/app/models/breakfast_package.rb
+new file mode 100644
+--- /dev/null
++++ b/app/models/breakfast_package.rb
+@@ -0,0 +1,5 @@
++class BreakfastPackage < AdditionalService
++  def initialize(unit_price: 30)
++    super(name: "Breakfast package", unit_price: unit_price)
++  end
++end
+diff --git a/app/models/concerns/has_price_concern.rb b/app/models/concerns/has_price_concern.rb
+--- a/app/models/concerns/has_price_concern.rb
++++ b/app/models/concerns/has_price_concern.rb
+@@ -2,7 +2,7 @@
+   extend ActiveSupport::Concern
+ 
+   included do
+-    before_save :set_price_ht, :set_price_ttc, if: :start_or_end_changed?
++    before_save :set_price_ht, :set_price_ttc
+   end
+ 
+   def compute_price_ht
+diff --git a/app/services/additional_service_pricing.rb b/app/services/additional_service_pricing.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/additional_service_pricing.rb
+@@ -0,0 +1,5 @@
++class AdditionalServicePricing
++  def self.total(services)
++    services.sum { |service| service.subtotal }
++  end
++end
+diff --git a/db/migrate/20261004170000_create_booking_services.rb b/db/migrate/20261004170000_create_booking_services.rb
+new file mode 100644
+--- /dev/null
++++ b/db/migrate/20261004170000_create_booking_services.rb
+@@ -0,0 +1,11 @@
++class CreateBookingServices < ActiveRecord::Migration[7.0]
++  def change
++    create_table :booking_services do |t|
++      t.references :booking, null: false, foreign_key: true
++      t.string :service_type, null: false
++      t.integer :quantity, null: false, default: 1
++      t.decimal :unit_price, precision: 10, scale: 2, null: false
++      t.timestamps
++    end
++  end
++end
+diff --git a/db/schema.rb b/db/schema.rb
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -10,7 +10,7 @@
+ #
+ # It's strongly recommended that you check this file into your version control system.
+ 
+-ActiveRecord::Schema[7.0].define(version: 2023_06_18_133901) do
++ActiveRecord::Schema[7.0].define(version: 2026_10_04_170000) do
+   # These are extensions that must be enabled in order to support this database
+   enable_extension "plpgsql"
+ 
+@@ -40,6 +40,16 @@
+     t.bigint "blob_id", null: false
+     t.string "variation_digest", null: false
+     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
++  end
++
++  create_table "booking_services", force: :cascade do |t|
++    t.bigint "booking_id", null: false
++    t.string "service_type", null: false
++    t.integer "quantity", default: 1, null: false
++    t.decimal "unit_price", precision: 10, scale: 2, null: false
++    t.datetime "created_at", null: false
++    t.datetime "updated_at", null: false
++    t.index ["booking_id"], name: "index_booking_services_on_booking_id"
+   end
+ 
+   create_table "bookings", force: :cascade do |t|
+@@ -126,4 +136,5 @@
+ 
+   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
++  add_foreign_key "booking_services", "bookings"
+ end
+diff --git a/spec/boot/eager_loading_spec.rb b/spec/boot/eager_loading_spec.rb
+new file mode 100644
+--- /dev/null
++++ b/spec/boot/eager_loading_spec.rb
+@@ -0,0 +1,7 @@
++require "rails_helper"
++
++RSpec.describe "Evolved application boot" do
++  it "eager loads the application and payment engine without unresolved constants" do
++    expect { Rails.application.eager_load! }.not_to raise_error
++  end
++end
+diff --git a/spec/services/additional_service_pricing_spec.rb b/spec/services/additional_service_pricing_spec.rb
+new file mode 100644
+--- /dev/null
++++ b/spec/services/additional_service_pricing_spec.rb
+@@ -0,0 +1,63 @@
++require "rails_helper"
++
++RSpec.describe AdditionalServicePricing, type: :model do
++  let(:user) { create(:user_1) }
++  let(:room) { create(:room_1, user: user, day_price: 100) }
++  let(:booking) { create(:booking_1, user: user, room: room, start_date: Date.new(2026, 11, 10), end_date: Date.new(2026, 11, 13)) }
++
++  it "includes captured breakfast and transfer charges in saved booking and payment totals" do
++    booking.add_service(BreakfastPackage.new, quantity: 2)
++    booking.add_service(AirportTransfer.new)
++    expect(booking.booking_services.pluck(:service_type)).to contain_exactly("BreakfastPackage", "AirportTransfer")
++    expect(described_class.total(booking.booking_services)).to eq(100)
++    expect(booking.reload.total_ht).to eq(400)
++    expect(booking.total_ttc).to eq(480)
++    expect(booking.payment.amount).to eq(480)
++  end
++
++  it "recalculates prices after quantity updates and removal without changing dates" do
++    selection = booking.add_service(BreakfastPackage.new, quantity: 2)
++    selection.update!(quantity: 3)
++    expect(booking.reload.total_ht).to eq(390)
++    expect(booking.total_ttc).to eq(468)
++    selection.destroy!
++    expect(booking.reload.total_ht).to eq(300)
++    expect(booking.total_ttc).to eq(360)
++    expect(booking.payment.amount).to eq(360)
++  end
++
++  it "keeps the captured unit price independent of later catalogue prices" do
++    selection = booking.add_service(BreakfastPackage.new(unit_price: "30.10"), quantity: 2)
++    expect(selection.reload.unit_price).to eq(BigDecimal("30.10"))
++    expect(booking.reload.total_ht).to eq(BigDecimal("360.20"))
++    expect(BreakfastPackage.new(unit_price: 40).price).to eq(40)
++    expect(selection.reload.subtotal).to eq(BigDecimal("60.20"))
++  end
++
++  it "rejects zero and negative quantities without altering the booking total" do
++    [0, -1].each do |quantity|
++      expect { booking.add_service(BreakfastPackage.new, quantity: quantity) }.to raise_error(ActiveRecord::RecordInvalid)
++    end
++    expect(booking.reload.total_ttc).to eq(360)
++    expect(booking.booking_services.count).to eq(0)
++  end
++
++  it "rejects negative unit prices and unrecognized service types" do
++    expect { booking.add_service(BreakfastPackage.new(unit_price: -1)) }.to raise_error(ActiveRecord::RecordInvalid)
++    expect { booking.booking_services.create!(service_type: "Unknown", unit_price: 1, quantity: 1) }.to raise_error(ActiveRecord::RecordInvalid)
++    expect(booking.reload.total_ht).to eq(300)
++  end
++
++  it "keeps the original room-only total when no services are selected" do
++    expect(described_class.total(booking.booking_services)).to eq(0)
++    expect(booking.total_ht).to eq(300)
++    expect(booking.total_ttc).to eq(360)
++  end
++
++  it "updates the existing pending payment rather than creating a replacement" do
++    payment_id = booking.payment.id
++    booking.add_service(AirportTransfer.new)
++    expect(booking.reload.payment.id).to eq(payment_id)
++    expect(booking.payment.amount).to eq(408)
++  end
++end

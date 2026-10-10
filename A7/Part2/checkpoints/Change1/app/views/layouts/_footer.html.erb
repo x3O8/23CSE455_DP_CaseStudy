@@ -1,0 +1,54 @@
+<footer class="bg-primary text-white px-4 py-5">
+  <div class="container my-4">
+    <div class="px-3">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+            <%= image_tag "logo-white.svg", alt: I18n.t('application.name'), height: '100px' %>
+          </a>
+          <p class="fw-bold mb-2"><%= I18n.t('application.name') %></p>
+        </div>
+
+        <div class="col-12 col-md-3">
+        </div>
+
+        <div class="col-12 col-md-3">
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="mb-4 fw-bold text-light"><%= I18n.t("footer.account") %></h5>
+
+          <ul class="nav flex-column">
+            <% if user_signed_in? %>
+              <li class="nav-item mb-2">
+                <%= link_to I18n.t('auth.logout'), destroy_user_session_path(locale: @page_lang), :class => 'nav-link p-0 text-white' %>
+              </li>
+
+              <% if current_user.admin? %>
+              <% end %>
+            <% else %>
+              <li class="nav-item mb-2">
+                <%= link_to I18n.t('auth.register'), new_user_registration_path(locale: @page_lang), :class => 'nav-link p-0 text-white' %>
+              </li>
+              <li class="nav-item mb-2">
+                <%= link_to I18n.t('auth.login'), new_user_session_path(locale: @page_lang), :class => 'nav-link p-0 text-white' %>
+              </li>
+            <% end %>
+
+            <li class="nav-item mb-2 mt-1">
+              <div class="dropdown">
+                <button class="btn btn-light bg-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                  <%= I18n.t('language.current') %>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="<%= @fr_path %>"><%= I18n.t('language.fr') %></a>
+                  <a class="dropdown-item" href="<%= @en_path %>"><%= I18n.t('language.en') %></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

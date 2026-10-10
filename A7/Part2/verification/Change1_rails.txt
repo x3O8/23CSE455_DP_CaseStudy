@@ -1,0 +1,120 @@
+Checkpoint: Change1
+Source: C:\Users\abhij\Desktop\A7\A7\Part2\checkpoints\Change1
+Database: a7_part2_Change1_test
+Executed at: 2026-10-11T00:28:15.9150119+05:30
+Runtime: C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/bin/ruby.exe
+Bundle: checkpoint's own Gemfile/lockfile
+Command: ruby bin/rails db:create
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+Created database 'a7_part2_Change1_test'
+Exit code: 0
+Command: ruby bin/rails db:migrate
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+== 20230518121724 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -> 0.0109s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0037s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0037s
+== 20230518121724 DeviseCreateUsers: migrated (0.0185s) =======================
+
+== 20230521044444 CreateRooms: migrating ======================================
+-- create_table(:rooms)
+   -> 0.0158s
+== 20230521044444 CreateRooms: migrated (0.0158s) =============================
+
+== 20230521044712 CreateBooking: migrating ====================================
+-- create_table(:bookings)
+   -> 0.0128s
+== 20230521044712 CreateBooking: migrated (0.0129s) ===========================
+
+== 20230531042741 CreateActiveStorageTables: migrating ========================
+-- create_table(:active_storage_blobs, {:id=>:primary_key})
+   -> 0.0122s
+-- create_table(:active_storage_attachments, {:id=>:primary_key})
+   -> 0.0186s
+-- create_table(:active_storage_variant_records, {:id=>:primary_key})
+   -> 0.0135s
+== 20230531042741 CreateActiveStorageTables: migrated (0.0445s) ===============
+
+== 20230608045813 AddTotalPriceToBooking: migrating ===========================
+-- add_column(:bookings, :total_ht, :decimal, {:default=>0.0})
+   -> 0.0053s
+-- add_column(:bookings, :total_ttc, :decimal, {:default=>0.0})
+   -> 0.0006s
+== 20230608045813 AddTotalPriceToBooking: migrated (0.0059s) ==================
+
+== 20230609044940 AddCancelToBooking: migrating ===============================
+-- add_column(:bookings, :canceled_at, :datetime, {:null=>true})
+   -> 0.0005s
+== 20230609044940 AddCancelToBooking: migrated (0.0005s) ======================
+
+== 20230610114044 CreateSettingsTable: migrating ==============================
+-- create_table(:settings)
+   -> 0.0122s
+== 20230610114044 CreateSettingsTable: migrated (0.0123s) =====================
+
+== 20230618133900 CreatePayment: migrating ====================================
+-- create_table(:payify_payments)
+   -> 0.0105s
+== 20230618133900 CreatePayment: migrated (0.0105s) ===========================
+
+== 20230618133901 AddStripePaymentIntentId: migrating =========================
+-- add_column(:payify_payments, :stripe_payment_inent_id, :string)
+   -> 0.0008s
+-- add_column(:payify_payments, :stripe_client_secret, :string)
+   -> 0.0004s
+== 20230618133901 AddStripePaymentIntentId: migrated (0.0012s) ================
+
+== 20261004170000 CreateBookingServices: migrating ============================
+-- create_table(:booking_services)
+   -> 0.0142s
+== 20261004170000 CreateBookingServices: migrated (0.0142s) ===================
+
+Exit code: 0
+Command: ruby -rbundler/setup -e load Gem.bin_path("rspec-core", "rspec") -- spec --format documentation
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+Evolved application boot
+  eager loads the application and payment engine without unresolved constants
+
+Booking
+  When checking the booking price
+    Book a room and check price
+  When checking booking dates
+    Should require start and end dates
+    should be valid if there are no conflicting bookings
+    should be invalid if there are conflicting bookings
+
+Room
+  Create a room
+
+AdditionalServicePricing
+  includes captured breakfast and transfer charges in saved booking and payment totals
+  recalculates prices after quantity updates and removal without changing dates
+  keeps the captured unit price independent of later catalogue prices
+  rejects zero and negative quantities without altering the booking total
+  rejects negative unit prices and unrecognized service types
+  keeps the original room-only total when no services are selected
+  updates the existing pending payment rather than creating a replacement
+
+Finished in 7.94 seconds (files took 13.86 seconds to load)
+13 examples, 0 failures
+
+Exit code: 0

@@ -1,0 +1,296 @@
+diff --git a/.env.dist b/.env.dist
+--- a/.env.dist
++++ b/.env.dist
+@@ -9,3 +9,5 @@
+ DATABASE_PASSWORD=""
+ DATABASE_HOST=""
+ DATABASE_PORT=""
++
++CANCELLATION_POLICY="flexible"
+diff --git a/app/controllers/bookings_controller.rb b/app/controllers/bookings_controller.rb
+--- a/app/controllers/bookings_controller.rb
++++ b/app/controllers/bookings_controller.rb
+@@ -2,14 +2,21 @@
+   include ::CrudConcern
+ 
+   before_action :stripe_init_intent, only: [:show]
++  before_action :authenticate_user!, only: [:cancel]
+ 
+   def cancel
+     set_object
++    return if performed?
+ 
+     authorize @object
+ 
+-    @object.cancel!
++    policy = Rails.application.config.x.cancellation_policy.call
++    result = CancellationService.new(@object, policy: policy).call
++    flash[:notice] = "Booking canceled. Calculated refund: #{result[:refund_amount]}"
+ 
++    redirect_to_show(@object)
++  rescue ArgumentError => e
++    flash[:alert] = e.message
+     redirect_to_show(@object)
+   end
+ 
+diff --git a/app/services/cancellation_policy.rb b/app/services/cancellation_policy.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/cancellation_policy.rb
+@@ -0,0 +1,9 @@
++class CancellationPolicy
++  def cancellable?(_booking, at:)
++    raise NotImplementedError
++  end
++
++  def refund_amount(_booking, at:)
++    raise NotImplementedError
++  end
++end
+diff --git a/app/services/cancellation_service.rb b/app/services/cancellation_service.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/cancellation_service.rb
+@@ -0,0 +1,17 @@
++class CancellationService
++  def initialize(booking, policy:)
++    @booking = booking
++    @policy = policy
++  end
++
++  def call(at: Time.current)
++    @booking.with_lock do
++      raise ArgumentError, "Booking is already canceled" if @booking.canceled?
++      raise ArgumentError, "Cancellation is not permitted" unless @policy.cancellable?(@booking, at: at)
++
++      refund = @policy.refund_amount(@booking, at: at)
++      @booking.update!(canceled_at: at, cancellation_refund_amount: refund)
++      { booking: @booking, refund_amount: refund }
++    end
++  end
++end
+diff --git a/app/services/flexible_cancellation_policy.rb b/app/services/flexible_cancellation_policy.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/flexible_cancellation_policy.rb
+@@ -0,0 +1,9 @@
++class FlexibleCancellationPolicy < CancellationPolicy
++  def cancellable?(_booking, at:)
++    true
++  end
++
++  def refund_amount(booking, at:)
++    booking.amount_to_pay
++  end
++end
+diff --git a/app/services/no_refund_cancellation_policy.rb b/app/services/no_refund_cancellation_policy.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/no_refund_cancellation_policy.rb
+@@ -0,0 +1,9 @@
++class NoRefundCancellationPolicy < CancellationPolicy
++  def cancellable?(_booking, at:)
++    true
++  end
++
++  def refund_amount(_booking, at:)
++    0
++  end
++end
+diff --git a/app/services/partial_refund_cancellation_policy.rb b/app/services/partial_refund_cancellation_policy.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/partial_refund_cancellation_policy.rb
+@@ -0,0 +1,14 @@
++class PartialRefundCancellationPolicy < CancellationPolicy
++  def initialize(rate: 0.5)
++    @rate = BigDecimal(rate.to_s)
++    raise ArgumentError, "Refund rate must be between zero and one" unless @rate.finite? && @rate.between?(0, 1)
++  end
++
++  def cancellable?(_booking, at:)
++    true
++  end
++
++  def refund_amount(booking, at:)
++    (booking.amount_to_pay * @rate).round(2)
++  end
++end
+diff --git a/config/initializers/cancellation_policy.rb b/config/initializers/cancellation_policy.rb
+new file mode 100644
+--- /dev/null
++++ b/config/initializers/cancellation_policy.rb
+@@ -0,0 +1,10 @@
++# Policy selection is server configuration, never a client-supplied parameter.
++policy_classes = {
++  "flexible" => "FlexibleCancellationPolicy",
++  "partial" => "PartialRefundCancellationPolicy",
++  "no_refund" => "NoRefundCancellationPolicy"
++}.freeze
++
++Rails.application.config.x.cancellation_policy = lambda do
++  policy_classes.fetch(ENV.fetch("CANCELLATION_POLICY", "flexible")).constantize.new
++end
+diff --git a/db/migrate/20261010190000_add_cancellation_refund_amount_to_bookings.rb b/db/migrate/20261010190000_add_cancellation_refund_amount_to_bookings.rb
+new file mode 100644
+--- /dev/null
++++ b/db/migrate/20261010190000_add_cancellation_refund_amount_to_bookings.rb
+@@ -0,0 +1,5 @@
++class AddCancellationRefundAmountToBookings < ActiveRecord::Migration[7.0]
++  def change
++    add_column :bookings, :cancellation_refund_amount, :decimal, precision: 10, scale: 2
++  end
++end
+diff --git a/db/schema.rb b/db/schema.rb
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -10,7 +10,7 @@
+ #
+ # It's strongly recommended that you check this file into your version control system.
+ 
+-ActiveRecord::Schema[7.0].define(version: 2026_10_04_171000) do
++ActiveRecord::Schema[7.0].define(version: 2026_10_10_190000) do
+   # These are extensions that must be enabled in order to support this database
+   enable_extension "plpgsql"
+ 
+@@ -64,6 +64,7 @@
+     t.decimal "total_ttc", default: "0.0"
+     t.datetime "canceled_at"
+     t.bigint "upgraded_from_room_id"
++    t.decimal "cancellation_refund_amount", precision: 10, scale: 2
+     t.index ["room_id"], name: "index_bookings_on_room_id"
+     t.index ["upgraded_from_room_id"], name: "index_bookings_on_upgraded_from_room_id"
+     t.index ["user_id"], name: "index_bookings_on_user_id"
+diff --git a/spec/requests/booking_cancellations_spec.rb b/spec/requests/booking_cancellations_spec.rb
+new file mode 100644
+--- /dev/null
++++ b/spec/requests/booking_cancellations_spec.rb
+@@ -0,0 +1,63 @@
++require "rails_helper"
++
++RSpec.describe "Rails booking cancellation", type: :request do
++  include Devise::Test::IntegrationHelpers
++
++  let(:user) { create(:user_1) }
++  let(:room) { create(:room_1, user: user, day_price: 100) }
++  let(:booking) { create(:booking_1, user: user, room: room, start_date: Date.new(2026, 11, 10), end_date: Date.new(2026, 11, 13)) }
++
++  around do |example|
++    original = Rails.application.config.x.cancellation_policy
++    example.run
++  ensure
++    Rails.application.config.x.cancellation_policy = original
++  end
++
++  it "uses the configured Strategy through the real POST route" do
++    Rails.application.config.x.cancellation_policy = -> { PartialRefundCancellationPolicy.new }
++    sign_in user
++    post cancel_booking_path(booking, locale: :fr)
++    expect(response).to redirect_to(booking_path(booking, locale: :fr))
++    expect(booking.reload).to be_canceled
++    expect(booking.cancellation_refund_amount).to eq(180)
++    expect(flash[:notice]).to include("180")
++  end
++
++  it "uses flexible cancellation by default" do
++    sign_in user
++    post cancel_booking_path(booking, locale: :fr)
++    expect(booking.reload.cancellation_refund_amount).to eq(360)
++  end
++
++  it "does not let request parameters choose a more generous policy" do
++    Rails.application.config.x.cancellation_policy = -> { NoRefundCancellationPolicy.new }
++    sign_in user
++    post cancel_booking_path(booking, locale: :fr), params: { policy: "flexible" }
++    expect(booking.reload.cancellation_refund_amount).to eq(0)
++  end
++
++  it "does not cancel another user's booking" do
++    other = create(:user_1, email: "other@example.test")
++    booking
++    sign_in other
++    post cancel_booking_path(booking, locale: :fr)
++    expect(response).to have_http_status(:not_found)
++    expect(booking.reload).not_to be_canceled
++  end
++
++  it "redirects guests to authentication without canceling" do
++    post cancel_booking_path(booking, locale: :fr)
++    expect(response).to redirect_to(new_user_session_path(locale: :fr))
++    expect(booking.reload).not_to be_canceled
++  end
++
++  it "reports repeated cancellation without changing the refund" do
++    sign_in user
++    post cancel_booking_path(booking, locale: :fr)
++    post cancel_booking_path(booking, locale: :fr)
++    expect(response).to be_redirect
++    expect(flash[:alert]).to be_present
++    expect(booking.reload.cancellation_refund_amount).to eq(360)
++  end
++end
+diff --git a/spec/services/cancellation_service_spec.rb b/spec/services/cancellation_service_spec.rb
+new file mode 100644
+--- /dev/null
++++ b/spec/services/cancellation_service_spec.rb
+@@ -0,0 +1,60 @@
++require "rails_helper"
++
++RSpec.describe CancellationService, type: :model do
++  let(:user) { create(:user_1) }
++  let(:room) { create(:room_1, user: user, day_price: 100) }
++  let(:booking) { create(:booking_1, user: user, room: room, start_date: Date.new(2026, 11, 10), end_date: Date.new(2026, 11, 13)) }
++  let(:at) { Time.zone.local(2026, 10, 10, 12, 0, 0) }
++
++  [[FlexibleCancellationPolicy, 360], [PartialRefundCancellationPolicy, 180], [NoRefundCancellationPolicy, 0]].each do |policy_class, refund|
++    it "calculates and persists #{refund} with #{policy_class}" do
++      result = described_class.new(booking, policy: policy_class.new).call(at: at)
++      expect(result[:refund_amount]).to eq(refund)
++      expect(booking.reload.canceled_at).to eq(at)
++      expect(booking.cancellation_refund_amount).to eq(refund)
++    end
++  end
++
++  it "includes optional service charges in the refund basis" do
++    booking.add_service(AirportTransfer.new)
++    result = described_class.new(booking, policy: FlexibleCancellationPolicy.new).call(at: at)
++    expect(result[:refund_amount]).to eq(408)
++    expect(booking.reload.cancellation_refund_amount).to eq(408)
++  end
++
++  it "supports a non-default partial refund rate" do
++    result = described_class.new(booking, policy: PartialRefundCancellationPolicy.new(rate: 0.25)).call(at: at)
++    expect(result[:refund_amount]).to eq(90)
++  end
++
++  it "leaves a denied booking uncanceled" do
++    denied_policy = Class.new(CancellationPolicy) do
++      def cancellable?(_booking, at:); false; end
++    end.new
++    expect { described_class.new(booking, policy: denied_policy).call(at: at) }.to raise_error(ArgumentError)
++    expect(booking.reload).not_to be_canceled
++    expect(booking.cancellation_refund_amount).to be_nil
++  end
++
++  it "rejects repeated cancellation without replacing the original audit record" do
++    described_class.new(booking, policy: FlexibleCancellationPolicy.new).call(at: at)
++    expect { described_class.new(booking, policy: NoRefundCancellationPolicy.new).call(at: at + 1.day) }.to raise_error(ArgumentError)
++    expect(booking.reload.canceled_at).to eq(at)
++    expect(booking.cancellation_refund_amount).to eq(360)
++  end
++
++  it "rejects invalid partial refund rates" do
++    [-0.1, 1.1].each do |rate|
++      expect { PartialRefundCancellationPolicy.new(rate: rate) }.to raise_error(ArgumentError)
++    end
++  end
++
++  it "preserves a paid payment record when canceling" do
++    payment = booking.payment
++    payment.update!(status: :paid, paid_at: at - 1.day)
++    described_class.new(booking, policy: FlexibleCancellationPolicy.new).call(at: at)
++    expect(booking.reload.payment.id).to eq(payment.id)
++    expect(booking.payment).to be_paid
++    expect(booking.payment.amount).to eq(360)
++  end
++end

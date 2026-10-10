@@ -1,0 +1,5 @@
+source_version,pattern_types,pattern_instances,concrete_participant_classes,unique_participant_symbols,rejected_observations,uncertain_observations,participant_symbols,source_locations
+Original baseline 5e15551,1,1,3,4,13,2,CrudConcern; BookingsController; RoomsController; SettingsController,Part2/checkpoints/original/
+After Change1,1,1,3,4,17,2,CrudConcern; BookingsController; RoomsController; SettingsController,Part2/checkpoints/Change1/
+After Change2,1,1,3,4,20,2,CrudConcern; BookingsController; RoomsController; SettingsController,Part2/checkpoints/Change2/
+After Change3,2,2,6,10,21,2,CrudConcern; BookingsController; RoomsController; SettingsController; CancellationService; CancellationPolicy; FlexibleCancellationPolicy; PartialRefundCancellationPolicy; NoRefundCancellationPolicy; Rails.application.config.x.cancellation_policy,Part2/checkpoints/Change3/

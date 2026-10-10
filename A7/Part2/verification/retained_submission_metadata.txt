@@ -1,0 +1,4 @@
+PASS: Team A7 in final report, slides, README, checklist and PDF author metadata.
+PASS: submission date remains 6 September 2027; requested member order preserved.
+PASS: all 35 pages rendered, rebuilt covers/header visually inspected; remaining page content unchanged by pixel comparison.
+PASS: team folder, PDF/source filenames, CSV references and packaging tools use A7.

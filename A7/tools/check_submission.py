@@ -89,6 +89,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--zip", type=Path)
     args = parser.parse_args()
+    from check_part2 import verify
+    verify()
     files = list(submission_files())
     print(check_baseline())
     print(check_secrets(files))

@@ -1,0 +1,202 @@
+diff --git a/app/models/booking.rb b/app/models/booking.rb
+--- a/app/models/booking.rb
++++ b/app/models/booking.rb
+@@ -9,7 +9,10 @@
+ 
+   belongs_to :user
+   belongs_to :room
++  belongs_to :upgraded_from_room, class_name: "Room", optional: true
+   has_many :booking_services, dependent: :destroy
++
++  scope :active, -> { where(canceled_at: nil) }
+ 
+   validates :start_date, :end_date, :room_id, :user_id, presence: true
+   validate :end_date_greater_than_start_date
+@@ -20,9 +23,9 @@
+   end
+ 
+   def dates_are_available
+-    return if room.nil? || start_date.nil? || end_date.nil?
++    return if room.nil? || start_date.nil? || end_date.nil? || canceled?
+ 
+-    conflicting_bookings = room.bookings.where.not(id: id).where("(? < end_date) AND (? > start_date)", start_date, end_date)
++    conflicting_bookings = room.bookings.active.where.not(id: id).where("(? < end_date) AND (? > start_date)", start_date, end_date)
+ 
+     errors.add(:base, I18n.t("activerecord.errors.models.booking.unavailable_dates")) if conflicting_bookings.exists?
+   end
+diff --git a/app/models/room.rb b/app/models/room.rb
+--- a/app/models/room.rb
++++ b/app/models/room.rb
+@@ -33,7 +33,7 @@
+   end
+ 
+   def booked_dates
+-    bookings.where("end_date >= ?", Date.today)
++    bookings.active.where("end_date >= ?", Date.today)
+     .pluck(:start_date, :end_date)
+     .map { |start_date, end_date| [start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")] }
+   end
+diff --git a/app/services/room_upgrade.rb b/app/services/room_upgrade.rb
+new file mode 100644
+--- /dev/null
++++ b/app/services/room_upgrade.rb
+@@ -0,0 +1,44 @@
++class RoomUpgrade
++  Result = Struct.new(:success?, :booking, :difference, :error, keyword_init: true)
++
++  def initialize(booking, target_room)
++    @booking = booking
++    @target_room = target_room
++  end
++
++  def call
++    @target_room.with_lock do
++      @booking.with_lock do
++        if @booking.canceled?
++          failure("Canceled bookings cannot be upgraded")
++        elsif !available?
++          failure("Target room is unavailable for the booking dates")
++        else
++          difference = price_difference
++          @booking.upgraded_from_room ||= @booking.room
++          @booking.room = @target_room
++          @booking.save!
++          Result.new(success?: true, booking: @booking, difference: difference, error: nil)
++        end
++      end
++    end
++  rescue ActiveRecord::RecordInvalid => e
++    @booking.reload
++    failure(e.message)
++  end
++
++  private
++
++  def available?
++    @target_room.bookings.active.where.not(id: @booking.id).where("(? < end_date) AND (? > start_date)", @booking.start_date, @booking.end_date).none?
++  end
++
++  def price_difference
++    nights = (@booking.end_date - @booking.start_date).to_i
++    (@target_room.day_price - @booking.room.day_price) * nights
++  end
++
++  def failure(message)
++    Result.new(success?: false, booking: @booking, difference: 0, error: message)
++  end
++end
+diff --git a/db/migrate/20261004171000_add_room_upgrade_fields_to_bookings.rb b/db/migrate/20261004171000_add_room_upgrade_fields_to_bookings.rb
+new file mode 100644
+--- /dev/null
++++ b/db/migrate/20261004171000_add_room_upgrade_fields_to_bookings.rb
+@@ -0,0 +1,5 @@
++class AddRoomUpgradeFieldsToBookings < ActiveRecord::Migration[7.0]
++  def change
++    add_reference :bookings, :upgraded_from_room, foreign_key: { to_table: :rooms }, null: true
++  end
++end
+diff --git a/db/schema.rb b/db/schema.rb
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -10,7 +10,7 @@
+ #
+ # It's strongly recommended that you check this file into your version control system.
+ 
+-ActiveRecord::Schema[7.0].define(version: 2026_10_04_170000) do
++ActiveRecord::Schema[7.0].define(version: 2026_10_04_171000) do
+   # These are extensions that must be enabled in order to support this database
+   enable_extension "plpgsql"
+ 
+@@ -63,7 +63,9 @@
+     t.decimal "total_ht", default: "0.0"
+     t.decimal "total_ttc", default: "0.0"
+     t.datetime "canceled_at"
++    t.bigint "upgraded_from_room_id"
+     t.index ["room_id"], name: "index_bookings_on_room_id"
++    t.index ["upgraded_from_room_id"], name: "index_bookings_on_upgraded_from_room_id"
+     t.index ["user_id"], name: "index_bookings_on_user_id"
+   end
+ 
+@@ -137,4 +139,5 @@
+   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+   add_foreign_key "booking_services", "bookings"
++  add_foreign_key "bookings", "rooms", column: "upgraded_from_room_id"
+ end
+diff --git a/spec/services/room_upgrade_spec.rb b/spec/services/room_upgrade_spec.rb
+new file mode 100644
+--- /dev/null
++++ b/spec/services/room_upgrade_spec.rb
+@@ -0,0 +1,72 @@
++require "rails_helper"
++
++RSpec.describe RoomUpgrade, type: :model do
++  let(:user) { create(:user_1) }
++  let(:room) { create(:room_1, user: user, day_price: 100) }
++  let(:target) { create(:room_1, user: user, title: "Upgrade", slug: "upgrade", day_price: 150) }
++  let(:booking) { create(:booking_1, user: user, room: room, start_date: Date.new(2026, 11, 10), end_date: Date.new(2026, 11, 13)) }
++
++  it "rejects overlapping reservations without changing persisted room or totals" do
++    create(:booking_1, user: user, room: target, start_date: Date.new(2026, 11, 12), end_date: Date.new(2026, 11, 14))
++    result = described_class.new(booking, target).call
++    expect(result).not_to be_success
++    expect(result.error).to be_present
++    expect(booking.reload.room).to eq(room)
++    expect(booking.total_ht).to eq(300)
++    expect(booking.total_ttc).to eq(360)
++    expect(booking.upgraded_from_room).to be_nil
++  end
++
++  it "persists an available room, its original room and the independently calculated difference" do
++    result = described_class.new(booking, target).call
++    expect(result).to be_success
++    expect(result.difference).to eq(150)
++    expect(booking.reload.room).to eq(target)
++    expect(booking.upgraded_from_room).to eq(room)
++    expect(booking.total_ht).to eq(450)
++    expect(booking.total_ttc).to eq(540)
++    expect(booking.payment.amount).to eq(540)
++  end
++
++  it "allows adjacent checkout/check-in dates" do
++    create(:booking_1, user: user, room: target, start_date: Date.new(2026, 11, 13), end_date: Date.new(2026, 11, 14))
++    expect(described_class.new(booking, target).call).to be_success
++  end
++
++  it "ignores canceled reservations in the target room" do
++    occupied = create(:booking_1, user: user, room: target, start_date: booking.start_date, end_date: booking.end_date)
++    occupied.cancel!
++    expect(described_class.new(booking, target).call).to be_success
++  end
++
++  it "retains service charges when the room price changes" do
++    booking.add_service(BreakfastPackage.new, quantity: 2)
++    result = described_class.new(booking, target).call
++    expect(result.difference).to eq(150)
++    expect(booking.reload.total_ht).to eq(510)
++    expect(booking.total_ttc).to eq(612)
++  end
++
++  it "preserves the first original room across multiple upgrades" do
++    described_class.new(booking, target).call
++    second = create(:room_1, user: user, title: "Suite", slug: "suite", day_price: 200)
++    expect(described_class.new(booking, second).call).to be_success
++    expect(booking.reload.upgraded_from_room).to eq(room)
++    expect(booking.room).to eq(second)
++  end
++
++  it "restores the original persisted state when validation fails" do
++    booking.update_column(:end_date, booking.start_date)
++    result = described_class.new(booking, target).call
++    expect(result).not_to be_success
++    expect(booking.reload.room).to eq(room)
++    expect(booking.upgraded_from_room).to be_nil
++    expect(booking.total_ttc).to eq(360)
++  end
++
++  it "rejects upgrades of a canceled booking" do
++    booking.cancel!
++    expect(described_class.new(booking, target).call).not_to be_success
++    expect(booking.reload.room).to eq(room)
++  end
++end

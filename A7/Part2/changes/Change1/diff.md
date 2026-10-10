@@ -1,4 +1,6 @@
-Change 1 diff summary
+# Change1: additional services
+
+The machine-applicable diff is `diff.patch`, from `Part2/checkpoints/original/` to `Part2/checkpoints/Change1/`. This is a reconstructed review stage, not a historical commit. Bundle/platform and eager-loading support are assigned to this first runnable evolved stage. The copied provenance note is removed from evolved checkpoints; baseline provenance remains retained. Test counts below describe the feature specification; consult fresh stage receipts for executed results.
 
 + app/models/additional_service.rb
 + app/models/breakfast_package.rb

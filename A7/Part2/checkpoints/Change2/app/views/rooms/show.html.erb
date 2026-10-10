@@ -1,0 +1,80 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-7">
+      <div class="rounded-3 bg-light bg-image mb-3" style="height: 40vh; background-image: url('<%= url_for(@object.main_image&.variant(resize_to_fit: [1000, 1000])) %>');">
+      </div>
+
+      <div class="d-flex">
+        <% @object.other_images.each do |image| %>
+          <div class="rounded-3 bg-light bg-image mb-3 me-3" style="height: 6rem; width: 6rem; background-image: url('<%= url_for(image.variant(resize_to_fit: [200, 200])) %>');">
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-md-5">
+      <div class="d-flex flex-row justify-content-between">
+        <div>
+          <h1><%= @object.title %></h1>
+          <p><%= @object.location %></p>
+        </div>
+
+        <div>
+          <div class="d-flex flex-row">
+            <% if policy(@object).edit? %>
+              <%= link_to edit_room_path(@object, locale: @page_lang), class: 'btn btn-light text-primary ms-2', 'data-bs-toggle': 'tooltip', title: t('rooms.edit') do %>
+                <i class="far fa-edit"></i>
+              <% end %>
+            <% end %>
+
+            <% if policy(@object).destroy? %>
+              <%= link_to room_path(@object, locale: @page_lang), class: 'btn btn-light text-primary ms-2', 'data-bs-toggle': 'tooltip', title: t('rooms.delete'),
+                data: { turbo_method: :delete, turbo_confirm: I18n.t('rooms.delete_confirm') } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row mb-4">
+        <%= render "rooms/numbers", room: @object %>
+      </div>
+
+      <div class="d-flex flex-row">
+        <div>
+          <span class="text-primary fw-bold text-big-2"><%= currency_str(@object.day_price) %> </span><%= I18n.t('rooms.per_day') %>
+        </div>
+      </div>
+
+      <legend class="mt-4 mb-3 fw-bold text-normal"><%= I18n.t('rooms.overview') %></legend>
+
+      <div><%= @object.description %></div>
+
+      <legend class="mt-4 mb-3 fw-bold text-normal"><%= I18n.t('rooms.options') %></legend>
+
+      <div class="row">
+        <% @object.options_enabled.each do |option| %>
+          <div class="col-12 col-md-6">
+            <div class="d-flex flex-row align-items-center mb-3">
+              <div class="bg-light text-muted text-center p-3 me-3 rounded" style="width: 50px;">
+                <i class="<%= I18n.t('rooms.room_options.' + option + '.icon') %>"></i>
+              </div>
+
+              <div><%= I18n.t('rooms.room_options.' + option + '.label') %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @object.location_description.present? %>
+        <legend class="mt-4 mb-3 fw-bold text-normal"><%= I18n.t('rooms.location') %></legend>
+
+        <div><%= @object.location_description %></div>
+      <% end %>
+
+      <% if policy(:booking).new? %>
+        <%= render "bookings/form", room: @object, booking: @booking %>
+      <% end %>
+    </div>
+  </div>
+</div>

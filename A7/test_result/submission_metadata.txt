@@ -1,4 +1,5 @@
-PASS: Team A7 in final report, slides, README, checklist and PDF author metadata.
-PASS: submission date remains 6 September 2027; requested member order preserved.
-PASS: all 35 pages rendered, rebuilt covers/header visually inspected; remaining page content unchanged by pixel comparison.
-PASS: team folder, PDF/source filenames, CSV references and packaging tools use A7.
+Current repair metadata: original submission date is not verified from retained inputs.
+The previously declared 6 September 2027 date remains recorded only in the retained metadata artifact.
+Report and slides now state that the submission date is unverified.
+Team/member names remain as supplied in the retained report source.
+Fresh verification is recorded under Part2/verification; prior receipts are not new test executions.

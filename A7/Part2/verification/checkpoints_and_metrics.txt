@@ -1,0 +1,11 @@
+PASS original: 171 files match recipe and SHA-256 manifest
+PASS Change1: 178 files match recipe and SHA-256 manifest
+PASS Change2: 181 files match recipe and SHA-256 manifest
+PASS Change3: 190 files match recipe and SHA-256 manifest
+PASS Booking.active introduced in Change2 before use; Change3 only introduces refund Strategy
+PASS Change1: real unified patch applies and reproduces next checkpoint (LF-normalized)
+PASS Change2: real unified patch applies and reproduces next checkpoint (LF-normalized)
+PASS Change3: real unified patch applies and reproduces next checkpoint (LF-normalized)
+PASS canonical/Part1/Part2 count copies and canonical/Part2 evolution copies are synchronized
+PASS metric source coverage/hashes/SLOC, JSON/CSV aggregates, and report/slides tables agree
+PASS participant/observation source records, counts, report and slide tables agree

@@ -1,0 +1,41 @@
+@startuml
+title Change3 - cumulative architecture
+skinparam classAttributeIconSize 0
+class ApplicationController
+class BookingsController
+class RoomsController
+class SettingsController
+class CrudConcern <<mixin>>
+class Booking
+class Room
+class User
+class BookingService
+class AdditionalServicePricing
+class RoomUpgrade
+class CancellationService
+class CancellationPolicy
+ApplicationController <|-- BookingsController
+ApplicationController <|-- RoomsController
+ApplicationController <|-- SettingsController
+BookingsController ..> CrudConcern : include
+RoomsController ..> CrudConcern : include
+SettingsController ..> CrudConcern : include
+BookingsController ..> Booking
+BookingsController ..> CancellationService
+Booking --> User
+Booking --> Room : current / original room
+Booking *-- BookingService
+Booking ..> AdditionalServicePricing
+RoomUpgrade --> Booking
+RoomUpgrade --> Room
+CancellationService --> Booking
+CancellationService --> CancellationPolicy
+note bottom of RoomUpgrade
+  Domain operation; no controller route added.
+  Availability uses Booking.active from Change2.
+end note
+note right of CrudConcern
+  Preserved Template Method.
+  Mixin inclusion is not class inheritance.
+end note
+@enduml

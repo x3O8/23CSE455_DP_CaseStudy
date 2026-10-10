@@ -12,4 +12,4 @@ Before
 Baseline commit 5e15551: Booking has room/user/date/price responsibilities and no booking_services association.
 
 After
-This submission snapshot: Part2/code adds AdditionalService, BreakfastPackage, AirportTransfer, BookingService and pricing service.
+The reconstructed Part2/checkpoints/Change1 stage adds AdditionalService, BreakfastPackage, AirportTransfer, BookingService and pricing service. It includes the shared bundle/eager-loading support needed by evolved checkpoints. It does not include Booking.active, RoomUpgrade or cancellation refund policies. Final Part2/code contains all three cumulative changes.

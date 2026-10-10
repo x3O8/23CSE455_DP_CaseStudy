@@ -1,0 +1,11 @@
+.verification/
+A7/Part2/checkpoints/*/log/*
+A7/Part2/checkpoints/*/tmp/*
+A7/Part2/checkpoints/*/storage/*
+A7/Part2/code/log/*
+A7/Part2/code/tmp/*
+A7/Part2/code/storage/*
+!**/.keep
+A7_submission.zip
+A7_submission.validation.txt
+__pycache__/

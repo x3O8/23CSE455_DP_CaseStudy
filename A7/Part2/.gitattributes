@@ -1,0 +1,3 @@
+# Preserve checkpoint SHA-256 bytes, including mixed retained text line endings.
+checkpoints/** -text
+changes/*/diff.patch text eol=lf

@@ -1,0 +1,3759 @@
+{
+  "original": [
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "sha256": "38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "sha256": "d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "sha256": "73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3",
+      "sloc": 11,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AuthConcern",
+        "LocaleConcern",
+        "PageConcern"
+      ],
+      "methods": [
+        {
+          "name": "set_layout",
+          "line": 11,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/bookings_controller.rb",
+      "sha256": "9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef",
+      "sloc": 33,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "Booking",
+        "CrudConcern"
+      ],
+      "methods": [
+        {
+          "name": "cancel",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 18,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 22,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 28,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 34,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 38,
+          "cc": 1
+        },
+        {
+          "name": "stripe_init_intent",
+          "line": 42,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/auth_concern.rb",
+      "sha256": "196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d",
+      "sloc": 6,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "set_current_scope",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/crud_concern.rb",
+      "sha256": "41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662",
+      "sloc": 107,
+      "method_count": 24,
+      "sum_method_cc": 31,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "index",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "show",
+          "line": 16,
+          "cc": 2
+        },
+        {
+          "name": "new",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "create",
+          "line": 28,
+          "cc": 2
+        },
+        {
+          "name": "edit",
+          "line": 42,
+          "cc": 1
+        },
+        {
+          "name": "update",
+          "line": 48,
+          "cc": 2
+        },
+        {
+          "name": "destroy",
+          "line": 62,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_list",
+          "line": 72,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 76,
+          "cc": 1
+        },
+        {
+          "name": "initial_value",
+          "line": 80,
+          "cc": 1
+        },
+        {
+          "name": "total_objects",
+          "line": 84,
+          "cc": 1
+        },
+        {
+          "name": "init_pagination",
+          "line": 88,
+          "cc": 3
+        },
+        {
+          "name": "set_page_url",
+          "line": 97,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 101,
+          "cc": 1
+        },
+        {
+          "name": "url_allowed_params",
+          "line": 104,
+          "cc": 1
+        },
+        {
+          "name": "url_params",
+          "line": 108,
+          "cc": 1
+        },
+        {
+          "name": "form_values",
+          "line": 112,
+          "cc": 1
+        },
+        {
+          "name": "per_page",
+          "line": 116,
+          "cc": 1
+        },
+        {
+          "name": "objects_query",
+          "line": 120,
+          "cc": 1
+        },
+        {
+          "name": "objects_paginated",
+          "line": 124,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 130,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 134,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 138,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 142,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/locale_concern.rb",
+      "sha256": "801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1",
+      "sloc": 27,
+      "method_count": 4,
+      "sum_method_cc": 7,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "language_redirection",
+          "line": 9,
+          "cc": 1
+        },
+        {
+          "name": "switch_locale",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "locale",
+          "line": 21,
+          "cc": 3
+        },
+        {
+          "name": "set_language_path",
+          "line": 25,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/page_concern.rb",
+      "sha256": "842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9",
+      "sloc": 19,
+      "method_count": 3,
+      "sum_method_cc": 3,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "page_title",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "page_description",
+          "line": 14,
+          "cc": 1
+        },
+        {
+          "name": "set_page_variables",
+          "line": 18,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/home_controller.rb",
+      "sha256": "fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065",
+      "sloc": 4,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "index",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/payify/payments_controller.rb",
+      "sha256": "71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "set_booking",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/rooms_controller.rb",
+      "sha256": "a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 7,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Room"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 24,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "init_booking_form",
+          "line": 36,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/settings_controller.rb",
+      "sha256": "119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226",
+      "sloc": 30,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Setting"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 10,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 26,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 30,
+          "cc": 2
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 36,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "sha256": "d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f",
+      "sloc": 7,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "currency_str",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "sha256": "d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722",
+      "sloc": 2,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/mailers/application_mailer.rb",
+      "sha256": "51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "sha256": "12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/booking.rb",
+      "sha256": "ca5fd15dbf3d42bf0137ebef14a1d83840424bd68782cf554e7478f7a925ebff",
+      "sloc": 53,
+      "method_count": 13,
+      "sum_method_cc": 20,
+      "max_method_cc": 4,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasOwnerConcern",
+        "HasPriceConcern",
+        "Payify"
+      ],
+      "methods": [
+        {
+          "name": "end_date_greater_than_start_date",
+          "line": 17,
+          "cc": 4
+        },
+        {
+          "name": "dates_are_available",
+          "line": 21,
+          "cc": 2
+        },
+        {
+          "name": "default_sort",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "start_formated",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "end_formated",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "formated_dates",
+          "line": 39,
+          "cc": 1
+        },
+        {
+          "name": "start_or_end_changed?",
+          "line": 43,
+          "cc": 2
+        },
+        {
+          "name": "canceled?",
+          "line": 47,
+          "cc": 1
+        },
+        {
+          "name": "payment_pending?",
+          "line": 51,
+          "cc": 2
+        },
+        {
+          "name": "paid?",
+          "line": 55,
+          "cc": 1
+        },
+        {
+          "name": "cancel!",
+          "line": 59,
+          "cc": 1
+        },
+        {
+          "name": "amount_to_pay",
+          "line": 63,
+          "cc": 1
+        },
+        {
+          "name": "notify_booking",
+          "line": 67,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_owner_concern.rb",
+      "sha256": "8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 3,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "User"
+      ],
+      "methods": [
+        {
+          "name": "assign_owner",
+          "line": 10,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_price_concern.rb",
+      "sha256": "82e5b44ec0b4d40378d4a56b441f20b4c7e6ca4537070e1167074bc626b7228c",
+      "sloc": 21,
+      "method_count": 5,
+      "sum_method_cc": 6,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "compute_price_ht",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "vat",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "compute_price_ttc",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ht",
+          "line": 20,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ttc",
+          "line": 24,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_settings_concern.rb",
+      "sha256": "32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431",
+      "sloc": 7,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/room.rb",
+      "sha256": "0a4534881c7975fffc8f65842e6e818c586192467d1cd43dec84732b2720049d",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 5,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasOwnerConcern"
+      ],
+      "methods": [
+        {
+          "name": "default_sort",
+          "line": 17,
+          "cc": 1
+        },
+        {
+          "name": "options_enabled",
+          "line": 21,
+          "cc": 1
+        },
+        {
+          "name": "main_image",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "other_images",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "booked_dates",
+          "line": 35,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/setting.rb",
+      "sha256": "801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": []
+    },
+    {
+      "path": "app/models/user.rb",
+      "sha256": "407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80",
+      "sloc": 13,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasSettingsConcern"
+      ],
+      "methods": [
+        {
+          "name": "admin?",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "current",
+          "line": 14,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/application_policy.rb",
+      "sha256": "e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13",
+      "sloc": 39,
+      "method_count": 10,
+      "sum_method_cc": 10,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "index?",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "show?",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "create?",
+          "line": 19,
+          "cc": 1
+        },
+        {
+          "name": "new?",
+          "line": 23,
+          "cc": 1
+        },
+        {
+          "name": "update?",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "edit?",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "destroy?",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "initialize",
+          "line": 40,
+          "cc": 1
+        },
+        {
+          "name": "resolve",
+          "line": 45,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/booking_policy.rb",
+      "sha256": "31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        },
+        {
+          "name": "cancel?",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/room_policy.rb",
+      "sha256": "e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/setting_policy.rb",
+      "sha256": "2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    }
+  ],
+  "Change1": [
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "sha256": "38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "sha256": "d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "sha256": "73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3",
+      "sloc": 11,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AuthConcern",
+        "LocaleConcern",
+        "PageConcern"
+      ],
+      "methods": [
+        {
+          "name": "set_layout",
+          "line": 11,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/bookings_controller.rb",
+      "sha256": "9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef",
+      "sloc": 33,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "Booking",
+        "CrudConcern"
+      ],
+      "methods": [
+        {
+          "name": "cancel",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 18,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 22,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 28,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 34,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 38,
+          "cc": 1
+        },
+        {
+          "name": "stripe_init_intent",
+          "line": 42,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/auth_concern.rb",
+      "sha256": "196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d",
+      "sloc": 6,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "set_current_scope",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/crud_concern.rb",
+      "sha256": "41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662",
+      "sloc": 107,
+      "method_count": 24,
+      "sum_method_cc": 31,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "index",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "show",
+          "line": 16,
+          "cc": 2
+        },
+        {
+          "name": "new",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "create",
+          "line": 28,
+          "cc": 2
+        },
+        {
+          "name": "edit",
+          "line": 42,
+          "cc": 1
+        },
+        {
+          "name": "update",
+          "line": 48,
+          "cc": 2
+        },
+        {
+          "name": "destroy",
+          "line": 62,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_list",
+          "line": 72,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 76,
+          "cc": 1
+        },
+        {
+          "name": "initial_value",
+          "line": 80,
+          "cc": 1
+        },
+        {
+          "name": "total_objects",
+          "line": 84,
+          "cc": 1
+        },
+        {
+          "name": "init_pagination",
+          "line": 88,
+          "cc": 3
+        },
+        {
+          "name": "set_page_url",
+          "line": 97,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 101,
+          "cc": 1
+        },
+        {
+          "name": "url_allowed_params",
+          "line": 104,
+          "cc": 1
+        },
+        {
+          "name": "url_params",
+          "line": 108,
+          "cc": 1
+        },
+        {
+          "name": "form_values",
+          "line": 112,
+          "cc": 1
+        },
+        {
+          "name": "per_page",
+          "line": 116,
+          "cc": 1
+        },
+        {
+          "name": "objects_query",
+          "line": 120,
+          "cc": 1
+        },
+        {
+          "name": "objects_paginated",
+          "line": 124,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 130,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 134,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 138,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 142,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/locale_concern.rb",
+      "sha256": "801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1",
+      "sloc": 27,
+      "method_count": 4,
+      "sum_method_cc": 7,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "language_redirection",
+          "line": 9,
+          "cc": 1
+        },
+        {
+          "name": "switch_locale",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "locale",
+          "line": 21,
+          "cc": 3
+        },
+        {
+          "name": "set_language_path",
+          "line": 25,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/page_concern.rb",
+      "sha256": "842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9",
+      "sloc": 19,
+      "method_count": 3,
+      "sum_method_cc": 3,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "page_title",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "page_description",
+          "line": 14,
+          "cc": 1
+        },
+        {
+          "name": "set_page_variables",
+          "line": 18,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/home_controller.rb",
+      "sha256": "fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065",
+      "sloc": 4,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "index",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/payify/payments_controller.rb",
+      "sha256": "71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "set_booking",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/rooms_controller.rb",
+      "sha256": "a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 7,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Room"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 24,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "init_booking_form",
+          "line": 36,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/settings_controller.rb",
+      "sha256": "119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226",
+      "sloc": 30,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Setting"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 10,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 26,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 30,
+          "cc": 2
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 36,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "sha256": "d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f",
+      "sloc": 7,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "currency_str",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "sha256": "d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722",
+      "sloc": 2,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/mailers/application_mailer.rb",
+      "sha256": "51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/additional_service.rb",
+      "sha256": "9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c",
+      "sloc": 10,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 4,
+          "cc": 1
+        },
+        {
+          "name": "price",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/airport_transfer.rb",
+      "sha256": "59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "sha256": "12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/booking.rb",
+      "sha256": "eaa15f208131351bac9acb879a78b363442855ad92866c0aca5eb935366e3d6a",
+      "sloc": 70,
+      "method_count": 16,
+      "sum_method_cc": 30,
+      "max_method_cc": 5,
+      "explicit_app_dependencies": [
+        "AdditionalServicePricing",
+        "ApplicationRecord",
+        "HasOwnerConcern",
+        "HasPriceConcern",
+        "Payify"
+      ],
+      "methods": [
+        {
+          "name": "end_date_greater_than_start_date",
+          "line": 18,
+          "cc": 4
+        },
+        {
+          "name": "dates_are_available",
+          "line": 22,
+          "cc": 5
+        },
+        {
+          "name": "default_sort",
+          "line": 30,
+          "cc": 1
+        },
+        {
+          "name": "start_formated",
+          "line": 34,
+          "cc": 1
+        },
+        {
+          "name": "end_formated",
+          "line": 38,
+          "cc": 1
+        },
+        {
+          "name": "formated_dates",
+          "line": 42,
+          "cc": 1
+        },
+        {
+          "name": "start_or_end_changed?",
+          "line": 46,
+          "cc": 2
+        },
+        {
+          "name": "canceled?",
+          "line": 50,
+          "cc": 1
+        },
+        {
+          "name": "payment_pending?",
+          "line": 54,
+          "cc": 2
+        },
+        {
+          "name": "paid?",
+          "line": 58,
+          "cc": 1
+        },
+        {
+          "name": "cancel!",
+          "line": 62,
+          "cc": 1
+        },
+        {
+          "name": "amount_to_pay",
+          "line": 66,
+          "cc": 1
+        },
+        {
+          "name": "compute_price_ht",
+          "line": 70,
+          "cc": 1
+        },
+        {
+          "name": "add_service",
+          "line": 74,
+          "cc": 1
+        },
+        {
+          "name": "create_payment",
+          "line": 78,
+          "cc": 5
+        },
+        {
+          "name": "notify_booking",
+          "line": 89,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/booking_service.rb",
+      "sha256": "1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705",
+      "sloc": 19,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": [
+        {
+          "name": "subtotal",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "refresh_booking_prices",
+          "line": 17,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/breakfast_package.rb",
+      "sha256": "70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_owner_concern.rb",
+      "sha256": "8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 3,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "User"
+      ],
+      "methods": [
+        {
+          "name": "assign_owner",
+          "line": 10,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_price_concern.rb",
+      "sha256": "1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034",
+      "sloc": 21,
+      "method_count": 5,
+      "sum_method_cc": 6,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "compute_price_ht",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "vat",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "compute_price_ttc",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ht",
+          "line": 20,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ttc",
+          "line": 24,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_settings_concern.rb",
+      "sha256": "32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431",
+      "sloc": 7,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/room.rb",
+      "sha256": "0a4534881c7975fffc8f65842e6e818c586192467d1cd43dec84732b2720049d",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 5,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasOwnerConcern"
+      ],
+      "methods": [
+        {
+          "name": "default_sort",
+          "line": 17,
+          "cc": 1
+        },
+        {
+          "name": "options_enabled",
+          "line": 21,
+          "cc": 1
+        },
+        {
+          "name": "main_image",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "other_images",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "booked_dates",
+          "line": 35,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/setting.rb",
+      "sha256": "801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": []
+    },
+    {
+      "path": "app/models/user.rb",
+      "sha256": "407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80",
+      "sloc": 13,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasSettingsConcern"
+      ],
+      "methods": [
+        {
+          "name": "admin?",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "current",
+          "line": 14,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/application_policy.rb",
+      "sha256": "e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13",
+      "sloc": 39,
+      "method_count": 10,
+      "sum_method_cc": 10,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "index?",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "show?",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "create?",
+          "line": 19,
+          "cc": 1
+        },
+        {
+          "name": "new?",
+          "line": 23,
+          "cc": 1
+        },
+        {
+          "name": "update?",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "edit?",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "destroy?",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "initialize",
+          "line": 40,
+          "cc": 1
+        },
+        {
+          "name": "resolve",
+          "line": 45,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/booking_policy.rb",
+      "sha256": "31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        },
+        {
+          "name": "cancel?",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/room_policy.rb",
+      "sha256": "e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/setting_policy.rb",
+      "sha256": "2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/services/additional_service_pricing.rb",
+      "sha256": "d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "total",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    }
+  ],
+  "Change2": [
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "sha256": "38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "sha256": "d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "sha256": "73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3",
+      "sloc": 11,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AuthConcern",
+        "LocaleConcern",
+        "PageConcern"
+      ],
+      "methods": [
+        {
+          "name": "set_layout",
+          "line": 11,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/bookings_controller.rb",
+      "sha256": "9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef",
+      "sloc": 33,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "Booking",
+        "CrudConcern"
+      ],
+      "methods": [
+        {
+          "name": "cancel",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 18,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 22,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 28,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 34,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 38,
+          "cc": 1
+        },
+        {
+          "name": "stripe_init_intent",
+          "line": 42,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/auth_concern.rb",
+      "sha256": "196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d",
+      "sloc": 6,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "set_current_scope",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/crud_concern.rb",
+      "sha256": "41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662",
+      "sloc": 107,
+      "method_count": 24,
+      "sum_method_cc": 31,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "index",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "show",
+          "line": 16,
+          "cc": 2
+        },
+        {
+          "name": "new",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "create",
+          "line": 28,
+          "cc": 2
+        },
+        {
+          "name": "edit",
+          "line": 42,
+          "cc": 1
+        },
+        {
+          "name": "update",
+          "line": 48,
+          "cc": 2
+        },
+        {
+          "name": "destroy",
+          "line": 62,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_list",
+          "line": 72,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 76,
+          "cc": 1
+        },
+        {
+          "name": "initial_value",
+          "line": 80,
+          "cc": 1
+        },
+        {
+          "name": "total_objects",
+          "line": 84,
+          "cc": 1
+        },
+        {
+          "name": "init_pagination",
+          "line": 88,
+          "cc": 3
+        },
+        {
+          "name": "set_page_url",
+          "line": 97,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 101,
+          "cc": 1
+        },
+        {
+          "name": "url_allowed_params",
+          "line": 104,
+          "cc": 1
+        },
+        {
+          "name": "url_params",
+          "line": 108,
+          "cc": 1
+        },
+        {
+          "name": "form_values",
+          "line": 112,
+          "cc": 1
+        },
+        {
+          "name": "per_page",
+          "line": 116,
+          "cc": 1
+        },
+        {
+          "name": "objects_query",
+          "line": 120,
+          "cc": 1
+        },
+        {
+          "name": "objects_paginated",
+          "line": 124,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 130,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 134,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 138,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 142,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/locale_concern.rb",
+      "sha256": "801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1",
+      "sloc": 27,
+      "method_count": 4,
+      "sum_method_cc": 7,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "language_redirection",
+          "line": 9,
+          "cc": 1
+        },
+        {
+          "name": "switch_locale",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "locale",
+          "line": 21,
+          "cc": 3
+        },
+        {
+          "name": "set_language_path",
+          "line": 25,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/page_concern.rb",
+      "sha256": "842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9",
+      "sloc": 19,
+      "method_count": 3,
+      "sum_method_cc": 3,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "page_title",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "page_description",
+          "line": 14,
+          "cc": 1
+        },
+        {
+          "name": "set_page_variables",
+          "line": 18,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/home_controller.rb",
+      "sha256": "fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065",
+      "sloc": 4,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "index",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/payify/payments_controller.rb",
+      "sha256": "71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "set_booking",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/rooms_controller.rb",
+      "sha256": "a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 7,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Room"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 24,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "init_booking_form",
+          "line": 36,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/settings_controller.rb",
+      "sha256": "119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226",
+      "sloc": 30,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Setting"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 10,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 26,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 30,
+          "cc": 2
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 36,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "sha256": "d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f",
+      "sloc": 7,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "currency_str",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "sha256": "d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722",
+      "sloc": 2,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/mailers/application_mailer.rb",
+      "sha256": "51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/additional_service.rb",
+      "sha256": "9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c",
+      "sloc": 10,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 4,
+          "cc": 1
+        },
+        {
+          "name": "price",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/airport_transfer.rb",
+      "sha256": "59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "sha256": "12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/booking.rb",
+      "sha256": "33c545149828c042d786d91a808a4b6fe4fb9222d8cdb36ad338085057354bec",
+      "sloc": 72,
+      "method_count": 16,
+      "sum_method_cc": 31,
+      "max_method_cc": 6,
+      "explicit_app_dependencies": [
+        "AdditionalServicePricing",
+        "ApplicationRecord",
+        "HasOwnerConcern",
+        "HasPriceConcern",
+        "Payify"
+      ],
+      "methods": [
+        {
+          "name": "end_date_greater_than_start_date",
+          "line": 21,
+          "cc": 4
+        },
+        {
+          "name": "dates_are_available",
+          "line": 25,
+          "cc": 6
+        },
+        {
+          "name": "default_sort",
+          "line": 33,
+          "cc": 1
+        },
+        {
+          "name": "start_formated",
+          "line": 37,
+          "cc": 1
+        },
+        {
+          "name": "end_formated",
+          "line": 41,
+          "cc": 1
+        },
+        {
+          "name": "formated_dates",
+          "line": 45,
+          "cc": 1
+        },
+        {
+          "name": "start_or_end_changed?",
+          "line": 49,
+          "cc": 2
+        },
+        {
+          "name": "canceled?",
+          "line": 53,
+          "cc": 1
+        },
+        {
+          "name": "payment_pending?",
+          "line": 57,
+          "cc": 2
+        },
+        {
+          "name": "paid?",
+          "line": 61,
+          "cc": 1
+        },
+        {
+          "name": "cancel!",
+          "line": 65,
+          "cc": 1
+        },
+        {
+          "name": "amount_to_pay",
+          "line": 69,
+          "cc": 1
+        },
+        {
+          "name": "compute_price_ht",
+          "line": 73,
+          "cc": 1
+        },
+        {
+          "name": "add_service",
+          "line": 77,
+          "cc": 1
+        },
+        {
+          "name": "create_payment",
+          "line": 81,
+          "cc": 5
+        },
+        {
+          "name": "notify_booking",
+          "line": 92,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/booking_service.rb",
+      "sha256": "1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705",
+      "sloc": 19,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": [
+        {
+          "name": "subtotal",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "refresh_booking_prices",
+          "line": 17,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/breakfast_package.rb",
+      "sha256": "70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_owner_concern.rb",
+      "sha256": "8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 3,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "User"
+      ],
+      "methods": [
+        {
+          "name": "assign_owner",
+          "line": 10,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_price_concern.rb",
+      "sha256": "1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034",
+      "sloc": 21,
+      "method_count": 5,
+      "sum_method_cc": 6,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "compute_price_ht",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "vat",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "compute_price_ttc",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ht",
+          "line": 20,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ttc",
+          "line": 24,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_settings_concern.rb",
+      "sha256": "32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431",
+      "sloc": 7,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/room.rb",
+      "sha256": "684fda3ded0459672576fd4c3b17364b1d2557296eb9c54cf2154bcad5a2d601",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 5,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasOwnerConcern"
+      ],
+      "methods": [
+        {
+          "name": "default_sort",
+          "line": 17,
+          "cc": 1
+        },
+        {
+          "name": "options_enabled",
+          "line": 21,
+          "cc": 1
+        },
+        {
+          "name": "main_image",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "other_images",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "booked_dates",
+          "line": 35,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/setting.rb",
+      "sha256": "801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": []
+    },
+    {
+      "path": "app/models/user.rb",
+      "sha256": "407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80",
+      "sloc": 13,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasSettingsConcern"
+      ],
+      "methods": [
+        {
+          "name": "admin?",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "current",
+          "line": 14,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/application_policy.rb",
+      "sha256": "e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13",
+      "sloc": 39,
+      "method_count": 10,
+      "sum_method_cc": 10,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "index?",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "show?",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "create?",
+          "line": 19,
+          "cc": 1
+        },
+        {
+          "name": "new?",
+          "line": 23,
+          "cc": 1
+        },
+        {
+          "name": "update?",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "edit?",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "destroy?",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "initialize",
+          "line": 40,
+          "cc": 1
+        },
+        {
+          "name": "resolve",
+          "line": 45,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/booking_policy.rb",
+      "sha256": "31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        },
+        {
+          "name": "cancel?",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/room_policy.rb",
+      "sha256": "e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/setting_policy.rb",
+      "sha256": "2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/services/additional_service_pricing.rb",
+      "sha256": "d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "total",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/room_upgrade.rb",
+      "sha256": "bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503",
+      "sloc": 38,
+      "method_count": 5,
+      "sum_method_cc": 8,
+      "max_method_cc": 4,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 4,
+          "cc": 1
+        },
+        {
+          "name": "call",
+          "line": 9,
+          "cc": 4
+        },
+        {
+          "name": "available?",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "price_difference",
+          "line": 36,
+          "cc": 1
+        },
+        {
+          "name": "failure",
+          "line": 41,
+          "cc": 1
+        }
+      ]
+    }
+  ],
+  "Change3": [
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "sha256": "38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "sha256": "d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "sha256": "73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3",
+      "sloc": 11,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AuthConcern",
+        "LocaleConcern",
+        "PageConcern"
+      ],
+      "methods": [
+        {
+          "name": "set_layout",
+          "line": 11,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/bookings_controller.rb",
+      "sha256": "80c0786ad3598be9bec4289d29999afbd0a86a0a4ddd834f3c2abce388135dd5",
+      "sloc": 40,
+      "method_count": 7,
+      "sum_method_cc": 11,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "Booking",
+        "CancellationService",
+        "CrudConcern"
+      ],
+      "methods": [
+        {
+          "name": "cancel",
+          "line": 7,
+          "cc": 3
+        },
+        {
+          "name": "base_class",
+          "line": 25,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 29,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 41,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 45,
+          "cc": 1
+        },
+        {
+          "name": "stripe_init_intent",
+          "line": 49,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/auth_concern.rb",
+      "sha256": "196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d",
+      "sloc": 6,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "set_current_scope",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/crud_concern.rb",
+      "sha256": "41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662",
+      "sloc": 107,
+      "method_count": 24,
+      "sum_method_cc": 31,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "index",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "show",
+          "line": 16,
+          "cc": 2
+        },
+        {
+          "name": "new",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "create",
+          "line": 28,
+          "cc": 2
+        },
+        {
+          "name": "edit",
+          "line": 42,
+          "cc": 1
+        },
+        {
+          "name": "update",
+          "line": 48,
+          "cc": 2
+        },
+        {
+          "name": "destroy",
+          "line": 62,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_list",
+          "line": 72,
+          "cc": 1
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 76,
+          "cc": 1
+        },
+        {
+          "name": "initial_value",
+          "line": 80,
+          "cc": 1
+        },
+        {
+          "name": "total_objects",
+          "line": 84,
+          "cc": 1
+        },
+        {
+          "name": "init_pagination",
+          "line": 88,
+          "cc": 3
+        },
+        {
+          "name": "set_page_url",
+          "line": 97,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 101,
+          "cc": 1
+        },
+        {
+          "name": "url_allowed_params",
+          "line": 104,
+          "cc": 1
+        },
+        {
+          "name": "url_params",
+          "line": 108,
+          "cc": 1
+        },
+        {
+          "name": "form_values",
+          "line": 112,
+          "cc": 1
+        },
+        {
+          "name": "per_page",
+          "line": 116,
+          "cc": 1
+        },
+        {
+          "name": "objects_query",
+          "line": 120,
+          "cc": 1
+        },
+        {
+          "name": "objects_paginated",
+          "line": 124,
+          "cc": 1
+        },
+        {
+          "name": "base_class",
+          "line": 130,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 134,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 138,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 142,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/locale_concern.rb",
+      "sha256": "801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1",
+      "sloc": 27,
+      "method_count": 4,
+      "sum_method_cc": 7,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "language_redirection",
+          "line": 9,
+          "cc": 1
+        },
+        {
+          "name": "switch_locale",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "locale",
+          "line": 21,
+          "cc": 3
+        },
+        {
+          "name": "set_language_path",
+          "line": 25,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/concerns/page_concern.rb",
+      "sha256": "842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9",
+      "sloc": 19,
+      "method_count": 3,
+      "sum_method_cc": 3,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "page_title",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "page_description",
+          "line": 14,
+          "cc": 1
+        },
+        {
+          "name": "set_page_variables",
+          "line": 18,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/home_controller.rb",
+      "sha256": "fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065",
+      "sloc": 4,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "index",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/payify/payments_controller.rb",
+      "sha256": "71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationController"
+      ],
+      "methods": [
+        {
+          "name": "set_booking",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/rooms_controller.rb",
+      "sha256": "a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 7,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Room"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 24,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "init_booking_form",
+          "line": 36,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/controllers/settings_controller.rb",
+      "sha256": "119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226",
+      "sloc": 30,
+      "method_count": 7,
+      "sum_method_cc": 9,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationController",
+        "CrudConcern",
+        "Setting"
+      ],
+      "methods": [
+        {
+          "name": "base_class",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "object_class",
+          "line": 10,
+          "cc": 2
+        },
+        {
+          "name": "strong_params",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "model_params",
+          "line": 22,
+          "cc": 1
+        },
+        {
+          "name": "use_slug?",
+          "line": 26,
+          "cc": 1
+        },
+        {
+          "name": "set_object",
+          "line": 30,
+          "cc": 2
+        },
+        {
+          "name": "redirect_to_show",
+          "line": 36,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "sha256": "d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f",
+      "sloc": 7,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "currency_str",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "sha256": "d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722",
+      "sloc": 2,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/mailers/application_mailer.rb",
+      "sha256": "51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7",
+      "sloc": 4,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/additional_service.rb",
+      "sha256": "9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c",
+      "sloc": 10,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 4,
+          "cc": 1
+        },
+        {
+          "name": "price",
+          "line": 9,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/airport_transfer.rb",
+      "sha256": "59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "sha256": "12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/booking.rb",
+      "sha256": "33c545149828c042d786d91a808a4b6fe4fb9222d8cdb36ad338085057354bec",
+      "sloc": 72,
+      "method_count": 16,
+      "sum_method_cc": 31,
+      "max_method_cc": 6,
+      "explicit_app_dependencies": [
+        "AdditionalServicePricing",
+        "ApplicationRecord",
+        "HasOwnerConcern",
+        "HasPriceConcern",
+        "Payify"
+      ],
+      "methods": [
+        {
+          "name": "end_date_greater_than_start_date",
+          "line": 21,
+          "cc": 4
+        },
+        {
+          "name": "dates_are_available",
+          "line": 25,
+          "cc": 6
+        },
+        {
+          "name": "default_sort",
+          "line": 33,
+          "cc": 1
+        },
+        {
+          "name": "start_formated",
+          "line": 37,
+          "cc": 1
+        },
+        {
+          "name": "end_formated",
+          "line": 41,
+          "cc": 1
+        },
+        {
+          "name": "formated_dates",
+          "line": 45,
+          "cc": 1
+        },
+        {
+          "name": "start_or_end_changed?",
+          "line": 49,
+          "cc": 2
+        },
+        {
+          "name": "canceled?",
+          "line": 53,
+          "cc": 1
+        },
+        {
+          "name": "payment_pending?",
+          "line": 57,
+          "cc": 2
+        },
+        {
+          "name": "paid?",
+          "line": 61,
+          "cc": 1
+        },
+        {
+          "name": "cancel!",
+          "line": 65,
+          "cc": 1
+        },
+        {
+          "name": "amount_to_pay",
+          "line": 69,
+          "cc": 1
+        },
+        {
+          "name": "compute_price_ht",
+          "line": 73,
+          "cc": 1
+        },
+        {
+          "name": "add_service",
+          "line": 77,
+          "cc": 1
+        },
+        {
+          "name": "create_payment",
+          "line": 81,
+          "cc": 5
+        },
+        {
+          "name": "notify_booking",
+          "line": 92,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/booking_service.rb",
+      "sha256": "1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705",
+      "sloc": 19,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": [
+        {
+          "name": "subtotal",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "refresh_booking_prices",
+          "line": 17,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/models/breakfast_package.rb",
+      "sha256": "70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "AdditionalService"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_owner_concern.rb",
+      "sha256": "8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf",
+      "sloc": 10,
+      "method_count": 1,
+      "sum_method_cc": 3,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "User"
+      ],
+      "methods": [
+        {
+          "name": "assign_owner",
+          "line": 10,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_price_concern.rb",
+      "sha256": "1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034",
+      "sloc": 21,
+      "method_count": 5,
+      "sum_method_cc": 6,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "compute_price_ht",
+          "line": 8,
+          "cc": 1
+        },
+        {
+          "name": "vat",
+          "line": 12,
+          "cc": 2
+        },
+        {
+          "name": "compute_price_ttc",
+          "line": 16,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ht",
+          "line": 20,
+          "cc": 1
+        },
+        {
+          "name": "set_price_ttc",
+          "line": 24,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/concerns/has_settings_concern.rb",
+      "sha256": "32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431",
+      "sloc": 7,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [],
+      "methods": []
+    },
+    {
+      "path": "app/models/room.rb",
+      "sha256": "684fda3ded0459672576fd4c3b17364b1d2557296eb9c54cf2154bcad5a2d601",
+      "sloc": 30,
+      "method_count": 5,
+      "sum_method_cc": 5,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasOwnerConcern"
+      ],
+      "methods": [
+        {
+          "name": "default_sort",
+          "line": 17,
+          "cc": 1
+        },
+        {
+          "name": "options_enabled",
+          "line": 21,
+          "cc": 1
+        },
+        {
+          "name": "main_image",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "other_images",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "booked_dates",
+          "line": 35,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/models/setting.rb",
+      "sha256": "801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88",
+      "sloc": 3,
+      "method_count": 0,
+      "sum_method_cc": 0,
+      "max_method_cc": 0,
+      "explicit_app_dependencies": [
+        "ApplicationRecord"
+      ],
+      "methods": []
+    },
+    {
+      "path": "app/models/user.rb",
+      "sha256": "407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80",
+      "sloc": 13,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationRecord",
+        "HasSettingsConcern"
+      ],
+      "methods": [
+        {
+          "name": "admin?",
+          "line": 10,
+          "cc": 1
+        },
+        {
+          "name": "current",
+          "line": 14,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/application_policy.rb",
+      "sha256": "e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13",
+      "sloc": 39,
+      "method_count": 10,
+      "sum_method_cc": 10,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 6,
+          "cc": 1
+        },
+        {
+          "name": "index?",
+          "line": 11,
+          "cc": 1
+        },
+        {
+          "name": "show?",
+          "line": 15,
+          "cc": 1
+        },
+        {
+          "name": "create?",
+          "line": 19,
+          "cc": 1
+        },
+        {
+          "name": "new?",
+          "line": 23,
+          "cc": 1
+        },
+        {
+          "name": "update?",
+          "line": 27,
+          "cc": 1
+        },
+        {
+          "name": "edit?",
+          "line": 31,
+          "cc": 1
+        },
+        {
+          "name": "destroy?",
+          "line": 35,
+          "cc": 1
+        },
+        {
+          "name": "initialize",
+          "line": 40,
+          "cc": 1
+        },
+        {
+          "name": "resolve",
+          "line": 45,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/booking_policy.rb",
+      "sha256": "31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 3,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        },
+        {
+          "name": "cancel?",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/policies/room_policy.rb",
+      "sha256": "e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/policies/setting_policy.rb",
+      "sha256": "2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 2,
+      "max_method_cc": 2,
+      "explicit_app_dependencies": [
+        "ApplicationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "update?",
+          "line": 2,
+          "cc": 2
+        }
+      ]
+    },
+    {
+      "path": "app/services/additional_service_pricing.rb",
+      "sha256": "d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561",
+      "sloc": 5,
+      "method_count": 1,
+      "sum_method_cc": 1,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "total",
+          "line": 2,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/cancellation_policy.rb",
+      "sha256": "276d9f37c8a238a496f53d0d3001e3bfab601efda0ed2055e2efa25960360689",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "cancellable?",
+          "line": 2,
+          "cc": 1
+        },
+        {
+          "name": "refund_amount",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/cancellation_service.rb",
+      "sha256": "3927fab03617807b83e7a376060952b85416eead321016c73ac476857fd64399",
+      "sloc": 15,
+      "method_count": 2,
+      "sum_method_cc": 4,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 1
+        },
+        {
+          "name": "call",
+          "line": 7,
+          "cc": 3
+        }
+      ]
+    },
+    {
+      "path": "app/services/flexible_cancellation_policy.rb",
+      "sha256": "9278d501836795ec8b31c11eb7defe47deb80299f82dbe05177e3d35ed8de1e0",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "CancellationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "cancellable?",
+          "line": 2,
+          "cc": 1
+        },
+        {
+          "name": "refund_amount",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/no_refund_cancellation_policy.rb",
+      "sha256": "c3065dcc7238a63da1fa453deef62f9133cf157d95ca51d085d59aae81976e8d",
+      "sloc": 8,
+      "method_count": 2,
+      "sum_method_cc": 2,
+      "max_method_cc": 1,
+      "explicit_app_dependencies": [
+        "CancellationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "cancellable?",
+          "line": 2,
+          "cc": 1
+        },
+        {
+          "name": "refund_amount",
+          "line": 6,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/partial_refund_cancellation_policy.rb",
+      "sha256": "cc8b30896f309f0e81bf98049981b36cd08beb723b9a88d89f20feebc473dfca",
+      "sloc": 12,
+      "method_count": 3,
+      "sum_method_cc": 5,
+      "max_method_cc": 3,
+      "explicit_app_dependencies": [
+        "CancellationPolicy"
+      ],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 2,
+          "cc": 3
+        },
+        {
+          "name": "cancellable?",
+          "line": 7,
+          "cc": 1
+        },
+        {
+          "name": "refund_amount",
+          "line": 11,
+          "cc": 1
+        }
+      ]
+    },
+    {
+      "path": "app/services/room_upgrade.rb",
+      "sha256": "bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503",
+      "sloc": 38,
+      "method_count": 5,
+      "sum_method_cc": 8,
+      "max_method_cc": 4,
+      "explicit_app_dependencies": [],
+      "methods": [
+        {
+          "name": "initialize",
+          "line": 4,
+          "cc": 1
+        },
+        {
+          "name": "call",
+          "line": 9,
+          "cc": 4
+        },
+        {
+          "name": "available?",
+          "line": 32,
+          "cc": 1
+        },
+        {
+          "name": "price_difference",
+          "line": 36,
+          "cc": 1
+        },
+        {
+          "name": "failure",
+          "line": 41,
+          "cc": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <%= image_tag "logo.svg", alt: I18n.t('application.name'), height: '60px' %>
+    </a>
+
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-menu">
+      <ul class="nav ms-md-auto">
+        <li>
+          <%= link_to I18n.t('nav.rooms'), rooms_path(locale: @page_lang), class: 'nav-link px-3 link-dark' %>
+        </li>
+
+        <% if user_signed_in? %>
+
+          <li>
+            <%= link_to I18n.t('nav.my_rooms'), scoped_rooms_path(locale: @page_lang, scope: "my"), class: 'nav-link px-3 link-dark' %>
+          </li>
+          <li>
+            <%= link_to I18n.t('nav.my_bookings'), bookings_path(locale: @page_lang), class: 'nav-link px-3 link-dark' %>
+          </li>
+
+          <li class="dropdown d-flex align-items-center ms-md-5">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="<%= image_path "avatar.png" %>" alt="" width="32" height="32" class="rounded-circle me-2">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><%= link_to I18n.t('nav.settings'), edit_settings_path(locale: @page_lang), class: 'dropdown-item' %></li>
+              <li><%= button_to I18n.t('nav.logout'), destroy_user_session_path(locale: @page_lang), method: :delete, class: 'dropdown-item' %></li>
+            </ul>
+          </li>
+
+        <% else %>
+
+          <li>
+            <%= link_to I18n.t('nav.login'), new_user_session_path(locale: @page_lang), class: 'nav-link px-3 link-dark' %>
+          </li>
+          <li class="ms-3">
+            <%= link_to I18n.t('nav.register'), new_user_registration_path(locale: @page_lang), class: 'btn btn-primary nav-link px-3 link-light' %>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

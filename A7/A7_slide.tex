@@ -12,7 +12,7 @@
 \subtitle{Source evidence, requirement evolution and four-language comparison}
 \author{Team A7\\\small Kavya Penikalapati \quad E. Abhijith Krishna\\\small Guduru Akshaya Giri \quad Kurt Sony Rebello}
 \institute{23CSE455 -- B.Tech Artificial Intelligence \& Data Science}
-\date{6 September 2027}
+\date{Submission date not verified from retained inputs}
 \begin{document}
 \begin{frame}\titlepage\end{frame}
 \begin{frame}{A fixed baseline makes the findings reproducible}
@@ -129,10 +129,43 @@ One warmup, then five measured processes; median reported. Startup is included. 
 \begin{itemize}
 \item Source traces establish Template Method and the introduced Strategy.
 \item Part 3 outputs establish behavior of the eight isolated examples.
-\item Rails: 36 examples, zero failures; all 12 migrations up; real HTTP startup returns the expected redirect.
+\item Fresh Rails verification: 36 examples, zero failures; all 12 migrations applied. Earlier HTTP startup receipt is retained separately.
 \item Historical Prompt 02/03 wording and some model/date metadata were not retained; gaps are disclosed.
 \end{itemize}
 \vspace{0.3cm}
 \textbf{Finding:} use a pattern when the collaboration and design pressure justify it. A smaller evidence-backed inventory is easier to defend.
+\end{frame}
+\begin{frame}{Cumulative source checkpoints make evolution reproducible}
+\begin{itemize}
+\item original: retained upstream source; Change3: final Rails application.
+\item Change1/Change2 are reconstructed review stages, not historical commits.
+\item Booking.active belongs to Change2, before RoomUpgrade calls it.
+\item True unified patches replay each transition; hashes bind every source file.
+\item Fresh cumulative RSpec suites: 5/0, 13/0, 21/0 and 36/0.
+\end{itemize}
+\end{frame}
+\begin{frame}{Added functionality increases measured source complexity}
+\centering
+\begin{tabular}{lrrrr}
+\toprule Stage & SLOC & Methods & Sum method CC & Explicit refs.\\\midrule
+original & 495 & 95 & 127 & 27\\
+Change1 & 556 & 105 & 145 & 31\\
+Change2 & 596 & 110 & 154 & 31\\
+Change3 & 654 & 121 & 171 & 35\\\bottomrule
+\end{tabular}\par
+\vspace{0.3cm}\raggedright
+Ruby Ripper measurements of application Ruby files. Explicit constant references are a bounded coupling proxy, excluding implicit Rails dependencies. Cumulative stages add requirements; these are not quality scores or timing claims.
+\end{frame}
+\begin{frame}{Snapshot counts separate collaborations and participants}
+\centering
+\begin{tabular}{lrrrrr}
+\toprule Snapshot & Types/instances & Concrete & Symbols & Rejected & Uncertain\\\midrule
+original & 1/1 & 3 & 4 & 13 & 2\\
+Change1 & 1/1 & 3 & 4 & 17 & 2\\
+Change2 & 1/1 & 3 & 4 & 20 & 2\\
+Change3 & 2/2 & 6 & 10 & 21 & 2\\\bottomrule
+\end{tabular}\par
+\vspace{0.3cm}\raggedright
+Current source-review observations with reasons and source bounds. Shared symbols count once; the final policy selector is a callable, not an invented class. These are not recovered historical review events.
 \end{frame}
 \end{document}

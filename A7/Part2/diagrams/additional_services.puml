@@ -1,0 +1,38 @@
+@startuml
+title Change1 - optional service selection and pricing
+skinparam classAttributeIconSize 0
+class Booking {
+  add_service(service, quantity: 1)
+  compute_price_ht()
+  create_payment()
+}
+class BookingService {
+  service_type: String
+  quantity: Integer
+  unit_price: Decimal
+  subtotal()
+  refresh_booking_prices()
+}
+class AdditionalService {
+  name
+  unit_price
+  price(quantity: 1)
+}
+class BreakfastPackage
+class AirportTransfer
+class AdditionalServicePricing {
+  {static} total(services)
+}
+Booking "1" *-- "0..*" BookingService : dependent destroy
+AdditionalService <|-- BreakfastPackage
+AdditionalService <|-- AirportTransfer
+Booking ..> AdditionalService : captures class name / price
+Booking ..> AdditionalServicePricing
+AdditionalServicePricing ..> BookingService : sums subtotal
+BookingService ..> Booking : callback saves under lock
+note bottom of BookingService
+  service_type is a captured string.
+  No AR association to AdditionalService.
+  Source: checkpoints/Change1/app/models/
+end note
+@enduml

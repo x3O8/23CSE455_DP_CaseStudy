@@ -1,0 +1,135 @@
+stage,file,sha256,source_loc,method_count,sum_method_cc,max_method_cc,explicit_app_dependency_count,explicit_app_dependencies
+original,Part2/checkpoints/original/app/channels/application_cable/channel.rb,38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed,4,0,0,0,0,
+original,Part2/checkpoints/original/app/channels/application_cable/connection.rb,d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb,4,0,0,0,0,
+original,Part2/checkpoints/original/app/controllers/application_controller.rb,73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3,11,1,1,1,3,AuthConcern; LocaleConcern; PageConcern
+original,Part2/checkpoints/original/app/controllers/bookings_controller.rb,9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef,33,7,9,2,3,ApplicationController; Booking; CrudConcern
+original,Part2/checkpoints/original/app/controllers/concerns/auth_concern.rb,196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d,6,1,2,2,0,
+original,Part2/checkpoints/original/app/controllers/concerns/crud_concern.rb,41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662,107,24,31,3,0,
+original,Part2/checkpoints/original/app/controllers/concerns/locale_concern.rb,801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1,27,4,7,3,0,
+original,Part2/checkpoints/original/app/controllers/concerns/page_concern.rb,842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9,19,3,3,1,0,
+original,Part2/checkpoints/original/app/controllers/home_controller.rb,fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065,4,1,1,1,1,ApplicationController
+original,Part2/checkpoints/original/app/controllers/payify/payments_controller.rb,71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a,10,1,1,1,1,ApplicationController
+original,Part2/checkpoints/original/app/controllers/rooms_controller.rb,a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c,30,5,7,2,3,ApplicationController; CrudConcern; Room
+original,Part2/checkpoints/original/app/controllers/settings_controller.rb,119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226,30,7,9,2,3,ApplicationController; CrudConcern; Setting
+original,Part2/checkpoints/original/app/helpers/application_helper.rb,d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f,7,1,2,2,0,
+original,Part2/checkpoints/original/app/jobs/application_job.rb,d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722,2,0,0,0,0,
+original,Part2/checkpoints/original/app/mailers/application_mailer.rb,51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7,4,0,0,0,0,
+original,Part2/checkpoints/original/app/models/application_record.rb,12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1,3,0,0,0,0,
+original,Part2/checkpoints/original/app/models/booking.rb,ca5fd15dbf3d42bf0137ebef14a1d83840424bd68782cf554e7478f7a925ebff,53,13,20,4,4,ApplicationRecord; HasOwnerConcern; HasPriceConcern; Payify
+original,Part2/checkpoints/original/app/models/concerns/has_owner_concern.rb,8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf,10,1,3,3,1,User
+original,Part2/checkpoints/original/app/models/concerns/has_price_concern.rb,82e5b44ec0b4d40378d4a56b441f20b4c7e6ca4537070e1167074bc626b7228c,21,5,6,2,0,
+original,Part2/checkpoints/original/app/models/concerns/has_settings_concern.rb,32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431,7,0,0,0,0,
+original,Part2/checkpoints/original/app/models/room.rb,0a4534881c7975fffc8f65842e6e818c586192467d1cd43dec84732b2720049d,30,5,5,1,2,ApplicationRecord; HasOwnerConcern
+original,Part2/checkpoints/original/app/models/setting.rb,801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88,3,0,0,0,1,ApplicationRecord
+original,Part2/checkpoints/original/app/models/user.rb,407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80,13,2,3,2,2,ApplicationRecord; HasSettingsConcern
+original,Part2/checkpoints/original/app/policies/application_policy.rb,e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13,39,10,10,1,0,
+original,Part2/checkpoints/original/app/policies/booking_policy.rb,31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a,8,2,3,2,1,ApplicationPolicy
+original,Part2/checkpoints/original/app/policies/room_policy.rb,e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d,5,1,2,2,1,ApplicationPolicy
+original,Part2/checkpoints/original/app/policies/setting_policy.rb,2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a,5,1,2,2,1,ApplicationPolicy
+original,TOTAL app/**/*.rb,,495,95,127,4,27,sum of per-file distinct explicit references
+Change1,Part2/checkpoints/Change1/app/channels/application_cable/channel.rb,38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed,4,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/channels/application_cable/connection.rb,d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb,4,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/controllers/application_controller.rb,73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3,11,1,1,1,3,AuthConcern; LocaleConcern; PageConcern
+Change1,Part2/checkpoints/Change1/app/controllers/bookings_controller.rb,9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef,33,7,9,2,3,ApplicationController; Booking; CrudConcern
+Change1,Part2/checkpoints/Change1/app/controllers/concerns/auth_concern.rb,196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d,6,1,2,2,0,
+Change1,Part2/checkpoints/Change1/app/controllers/concerns/crud_concern.rb,41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662,107,24,31,3,0,
+Change1,Part2/checkpoints/Change1/app/controllers/concerns/locale_concern.rb,801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1,27,4,7,3,0,
+Change1,Part2/checkpoints/Change1/app/controllers/concerns/page_concern.rb,842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9,19,3,3,1,0,
+Change1,Part2/checkpoints/Change1/app/controllers/home_controller.rb,fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065,4,1,1,1,1,ApplicationController
+Change1,Part2/checkpoints/Change1/app/controllers/payify/payments_controller.rb,71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a,10,1,1,1,1,ApplicationController
+Change1,Part2/checkpoints/Change1/app/controllers/rooms_controller.rb,a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c,30,5,7,2,3,ApplicationController; CrudConcern; Room
+Change1,Part2/checkpoints/Change1/app/controllers/settings_controller.rb,119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226,30,7,9,2,3,ApplicationController; CrudConcern; Setting
+Change1,Part2/checkpoints/Change1/app/helpers/application_helper.rb,d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f,7,1,2,2,0,
+Change1,Part2/checkpoints/Change1/app/jobs/application_job.rb,d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722,2,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/mailers/application_mailer.rb,51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7,4,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/models/additional_service.rb,9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c,10,2,2,1,0,
+Change1,Part2/checkpoints/Change1/app/models/airport_transfer.rb,59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67,5,1,1,1,1,AdditionalService
+Change1,Part2/checkpoints/Change1/app/models/application_record.rb,12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1,3,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/models/booking.rb,eaa15f208131351bac9acb879a78b363442855ad92866c0aca5eb935366e3d6a,70,16,30,5,5,AdditionalServicePricing; ApplicationRecord; HasOwnerConcern; HasPriceConcern; Payify
+Change1,Part2/checkpoints/Change1/app/models/booking_service.rb,1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705,19,2,3,2,1,ApplicationRecord
+Change1,Part2/checkpoints/Change1/app/models/breakfast_package.rb,70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120,5,1,1,1,1,AdditionalService
+Change1,Part2/checkpoints/Change1/app/models/concerns/has_owner_concern.rb,8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf,10,1,3,3,1,User
+Change1,Part2/checkpoints/Change1/app/models/concerns/has_price_concern.rb,1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034,21,5,6,2,0,
+Change1,Part2/checkpoints/Change1/app/models/concerns/has_settings_concern.rb,32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431,7,0,0,0,0,
+Change1,Part2/checkpoints/Change1/app/models/room.rb,0a4534881c7975fffc8f65842e6e818c586192467d1cd43dec84732b2720049d,30,5,5,1,2,ApplicationRecord; HasOwnerConcern
+Change1,Part2/checkpoints/Change1/app/models/setting.rb,801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88,3,0,0,0,1,ApplicationRecord
+Change1,Part2/checkpoints/Change1/app/models/user.rb,407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80,13,2,3,2,2,ApplicationRecord; HasSettingsConcern
+Change1,Part2/checkpoints/Change1/app/policies/application_policy.rb,e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13,39,10,10,1,0,
+Change1,Part2/checkpoints/Change1/app/policies/booking_policy.rb,31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a,8,2,3,2,1,ApplicationPolicy
+Change1,Part2/checkpoints/Change1/app/policies/room_policy.rb,e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d,5,1,2,2,1,ApplicationPolicy
+Change1,Part2/checkpoints/Change1/app/policies/setting_policy.rb,2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a,5,1,2,2,1,ApplicationPolicy
+Change1,Part2/checkpoints/Change1/app/services/additional_service_pricing.rb,d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561,5,1,1,1,0,
+Change1,TOTAL app/**/*.rb,,556,105,145,5,31,sum of per-file distinct explicit references
+Change2,Part2/checkpoints/Change2/app/channels/application_cable/channel.rb,38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed,4,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/channels/application_cable/connection.rb,d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb,4,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/controllers/application_controller.rb,73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3,11,1,1,1,3,AuthConcern; LocaleConcern; PageConcern
+Change2,Part2/checkpoints/Change2/app/controllers/bookings_controller.rb,9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef,33,7,9,2,3,ApplicationController; Booking; CrudConcern
+Change2,Part2/checkpoints/Change2/app/controllers/concerns/auth_concern.rb,196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d,6,1,2,2,0,
+Change2,Part2/checkpoints/Change2/app/controllers/concerns/crud_concern.rb,41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662,107,24,31,3,0,
+Change2,Part2/checkpoints/Change2/app/controllers/concerns/locale_concern.rb,801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1,27,4,7,3,0,
+Change2,Part2/checkpoints/Change2/app/controllers/concerns/page_concern.rb,842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9,19,3,3,1,0,
+Change2,Part2/checkpoints/Change2/app/controllers/home_controller.rb,fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065,4,1,1,1,1,ApplicationController
+Change2,Part2/checkpoints/Change2/app/controllers/payify/payments_controller.rb,71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a,10,1,1,1,1,ApplicationController
+Change2,Part2/checkpoints/Change2/app/controllers/rooms_controller.rb,a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c,30,5,7,2,3,ApplicationController; CrudConcern; Room
+Change2,Part2/checkpoints/Change2/app/controllers/settings_controller.rb,119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226,30,7,9,2,3,ApplicationController; CrudConcern; Setting
+Change2,Part2/checkpoints/Change2/app/helpers/application_helper.rb,d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f,7,1,2,2,0,
+Change2,Part2/checkpoints/Change2/app/jobs/application_job.rb,d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722,2,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/mailers/application_mailer.rb,51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7,4,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/models/additional_service.rb,9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c,10,2,2,1,0,
+Change2,Part2/checkpoints/Change2/app/models/airport_transfer.rb,59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67,5,1,1,1,1,AdditionalService
+Change2,Part2/checkpoints/Change2/app/models/application_record.rb,12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1,3,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/models/booking.rb,33c545149828c042d786d91a808a4b6fe4fb9222d8cdb36ad338085057354bec,72,16,31,6,5,AdditionalServicePricing; ApplicationRecord; HasOwnerConcern; HasPriceConcern; Payify
+Change2,Part2/checkpoints/Change2/app/models/booking_service.rb,1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705,19,2,3,2,1,ApplicationRecord
+Change2,Part2/checkpoints/Change2/app/models/breakfast_package.rb,70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120,5,1,1,1,1,AdditionalService
+Change2,Part2/checkpoints/Change2/app/models/concerns/has_owner_concern.rb,8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf,10,1,3,3,1,User
+Change2,Part2/checkpoints/Change2/app/models/concerns/has_price_concern.rb,1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034,21,5,6,2,0,
+Change2,Part2/checkpoints/Change2/app/models/concerns/has_settings_concern.rb,32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431,7,0,0,0,0,
+Change2,Part2/checkpoints/Change2/app/models/room.rb,684fda3ded0459672576fd4c3b17364b1d2557296eb9c54cf2154bcad5a2d601,30,5,5,1,2,ApplicationRecord; HasOwnerConcern
+Change2,Part2/checkpoints/Change2/app/models/setting.rb,801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88,3,0,0,0,1,ApplicationRecord
+Change2,Part2/checkpoints/Change2/app/models/user.rb,407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80,13,2,3,2,2,ApplicationRecord; HasSettingsConcern
+Change2,Part2/checkpoints/Change2/app/policies/application_policy.rb,e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13,39,10,10,1,0,
+Change2,Part2/checkpoints/Change2/app/policies/booking_policy.rb,31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a,8,2,3,2,1,ApplicationPolicy
+Change2,Part2/checkpoints/Change2/app/policies/room_policy.rb,e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d,5,1,2,2,1,ApplicationPolicy
+Change2,Part2/checkpoints/Change2/app/policies/setting_policy.rb,2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a,5,1,2,2,1,ApplicationPolicy
+Change2,Part2/checkpoints/Change2/app/services/additional_service_pricing.rb,d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561,5,1,1,1,0,
+Change2,Part2/checkpoints/Change2/app/services/room_upgrade.rb,bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503,38,5,8,4,0,
+Change2,TOTAL app/**/*.rb,,596,110,154,6,31,sum of per-file distinct explicit references
+Change3,Part2/checkpoints/Change3/app/channels/application_cable/channel.rb,38d579eae4970bc9bb298cc8d4bfb0e4d6390d94e5d4e3068be6c8479c5551ed,4,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/channels/application_cable/connection.rb,d7498ba24c43e669bdbf01d29b058514fe3c4a26d439992e54a8e56acd07a8fb,4,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/controllers/application_controller.rb,73707e9484d76dc383f8cf11c3417ef451d557f7c76b5029b426dea5acbfbba3,11,1,1,1,3,AuthConcern; LocaleConcern; PageConcern
+Change3,Part2/checkpoints/Change3/app/controllers/bookings_controller.rb,80c0786ad3598be9bec4289d29999afbd0a86a0a4ddd834f3c2abce388135dd5,40,7,11,3,4,ApplicationController; Booking; CancellationService; CrudConcern
+Change3,Part2/checkpoints/Change3/app/controllers/concerns/auth_concern.rb,196fc45f655e43e1edb284bc2a411beeaeb39c49c220c2ac2b222848c8e3ba4d,6,1,2,2,0,
+Change3,Part2/checkpoints/Change3/app/controllers/concerns/crud_concern.rb,41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662,107,24,31,3,0,
+Change3,Part2/checkpoints/Change3/app/controllers/concerns/locale_concern.rb,801b0452a28e69d61928f1e94809895dce0515b8a5179ea9631ed28662c76fa1,27,4,7,3,0,
+Change3,Part2/checkpoints/Change3/app/controllers/concerns/page_concern.rb,842058d9c1292dbc0b7b5bf775737d1e766c2c2e0cff39bc417e536312588db9,19,3,3,1,0,
+Change3,Part2/checkpoints/Change3/app/controllers/home_controller.rb,fcb3f9556075572378727aec4e4d266f3e4fc1329f58485f4eee80bd77285065,4,1,1,1,1,ApplicationController
+Change3,Part2/checkpoints/Change3/app/controllers/payify/payments_controller.rb,71e731351273e3bf54f174c7fd76692e42b6ead92ae87464fc00c86fd10ac65a,10,1,1,1,1,ApplicationController
+Change3,Part2/checkpoints/Change3/app/controllers/rooms_controller.rb,a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c,30,5,7,2,3,ApplicationController; CrudConcern; Room
+Change3,Part2/checkpoints/Change3/app/controllers/settings_controller.rb,119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226,30,7,9,2,3,ApplicationController; CrudConcern; Setting
+Change3,Part2/checkpoints/Change3/app/helpers/application_helper.rb,d91b8eb3260246db53c17d02aee0476c8227418bc9affcad95f5032bfa62011f,7,1,2,2,0,
+Change3,Part2/checkpoints/Change3/app/jobs/application_job.rb,d51e125007521b0f59765422cf3cf949b59b2054cdac6567a95b4a7aeaf1d722,2,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/mailers/application_mailer.rb,51b58ee6215d29f50f4f35b309e849766e40f584016e48ec9ea66558ab352fa7,4,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/models/additional_service.rb,9a2d8e3e1a1a52917aa464c055b60d499678f01fffaec51a28aa460ab3959a0c,10,2,2,1,0,
+Change3,Part2/checkpoints/Change3/app/models/airport_transfer.rb,59c19fb1c22803703b0595ad7f08097e578364e1f2597d4d98b6af9b479f7f67,5,1,1,1,1,AdditionalService
+Change3,Part2/checkpoints/Change3/app/models/application_record.rb,12bf7d0eaefce4d50e0719991e19b48a36a7865aeb7ac745980584806155fdc1,3,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/models/booking.rb,33c545149828c042d786d91a808a4b6fe4fb9222d8cdb36ad338085057354bec,72,16,31,6,5,AdditionalServicePricing; ApplicationRecord; HasOwnerConcern; HasPriceConcern; Payify
+Change3,Part2/checkpoints/Change3/app/models/booking_service.rb,1830673832bb2bf63160e0445fa27ebf8b9b627ee1fe3c9bb70bd2cbd1002705,19,2,3,2,1,ApplicationRecord
+Change3,Part2/checkpoints/Change3/app/models/breakfast_package.rb,70e7a376a5e6b170cc1c5cba99a91248bb038cb7e28daa98c9aada17726e3120,5,1,1,1,1,AdditionalService
+Change3,Part2/checkpoints/Change3/app/models/concerns/has_owner_concern.rb,8b4a648c71e28e3dbbeb804ee11d85669d68919fcba6bf554f0ccd8891de3acf,10,1,3,3,1,User
+Change3,Part2/checkpoints/Change3/app/models/concerns/has_price_concern.rb,1dbf312d4b5c0f92335c54d02ac696f4992eaec402c80c163640b9397614b034,21,5,6,2,0,
+Change3,Part2/checkpoints/Change3/app/models/concerns/has_settings_concern.rb,32944466ae715888fd9fa36f9f9ae8ed9e91ee2e2c7b858d39ddbb3dbf50a431,7,0,0,0,0,
+Change3,Part2/checkpoints/Change3/app/models/room.rb,684fda3ded0459672576fd4c3b17364b1d2557296eb9c54cf2154bcad5a2d601,30,5,5,1,2,ApplicationRecord; HasOwnerConcern
+Change3,Part2/checkpoints/Change3/app/models/setting.rb,801ea03d206630824ec51bb18c0392ca401fa4588c002922a3541b8a50a83d88,3,0,0,0,1,ApplicationRecord
+Change3,Part2/checkpoints/Change3/app/models/user.rb,407742a08ff6e7e016d8132bf9813067ff40adc7c373a5bac6c73392aa850a80,13,2,3,2,2,ApplicationRecord; HasSettingsConcern
+Change3,Part2/checkpoints/Change3/app/policies/application_policy.rb,e7837b25064329e4717e783ce6fca9eb740cccfbe5c4625ca94f804195a41a13,39,10,10,1,0,
+Change3,Part2/checkpoints/Change3/app/policies/booking_policy.rb,31a268ac6cb0d33a52b2e56805d1cf582a12288fc0abc906ca24386aa4583c6a,8,2,3,2,1,ApplicationPolicy
+Change3,Part2/checkpoints/Change3/app/policies/room_policy.rb,e7fcf6ee33738eb1f64d3bd4f9c3a5ed5ce828b409cc544accd34e9d784cc18d,5,1,2,2,1,ApplicationPolicy
+Change3,Part2/checkpoints/Change3/app/policies/setting_policy.rb,2585e3a49ae8d8a823177dcea7801da47d386d40f8010a77f1d8c8c47508254a,5,1,2,2,1,ApplicationPolicy
+Change3,Part2/checkpoints/Change3/app/services/additional_service_pricing.rb,d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561,5,1,1,1,0,
+Change3,Part2/checkpoints/Change3/app/services/cancellation_policy.rb,276d9f37c8a238a496f53d0d3001e3bfab601efda0ed2055e2efa25960360689,8,2,2,1,0,
+Change3,Part2/checkpoints/Change3/app/services/cancellation_service.rb,3927fab03617807b83e7a376060952b85416eead321016c73ac476857fd64399,15,2,4,3,0,
+Change3,Part2/checkpoints/Change3/app/services/flexible_cancellation_policy.rb,9278d501836795ec8b31c11eb7defe47deb80299f82dbe05177e3d35ed8de1e0,8,2,2,1,1,CancellationPolicy
+Change3,Part2/checkpoints/Change3/app/services/no_refund_cancellation_policy.rb,c3065dcc7238a63da1fa453deef62f9133cf157d95ca51d085d59aae81976e8d,8,2,2,1,1,CancellationPolicy
+Change3,Part2/checkpoints/Change3/app/services/partial_refund_cancellation_policy.rb,cc8b30896f309f0e81bf98049981b36cd08beb723b9a88d89f20feebc473dfca,12,3,5,3,1,CancellationPolicy
+Change3,Part2/checkpoints/Change3/app/services/room_upgrade.rb,bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503,38,5,8,4,0,
+Change3,TOTAL app/**/*.rb,,654,121,171,6,35,sum of per-file distinct explicit references

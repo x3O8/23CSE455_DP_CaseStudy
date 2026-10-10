@@ -1,0 +1,26 @@
+@startuml
+title Original - retained upstream architecture
+class CrudConcern <<mixin>>
+class BookingsController
+class RoomsController
+class SettingsController
+class Booking {
+  cancel!()
+  dates_are_available()
+}
+class Room
+class User
+class HasPriceConcern <<mixin>>
+BookingsController ..> CrudConcern : include
+RoomsController ..> CrudConcern : include
+SettingsController ..> CrudConcern : include
+BookingsController ..> Booking
+Booking --> Room
+Booking --> User
+Booking ..> HasPriceConcern : include
+note bottom of Booking
+  Cancellation timestamp already exists.
+  No Booking.active, upgrades or refund Strategy.
+  Source: checkpoints/original/app/
+end note
+@enduml
