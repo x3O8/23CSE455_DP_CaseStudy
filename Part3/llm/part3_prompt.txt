@@ -1,0 +1,1 @@
+See retained full cross-language analysis prompt at ../../llm-analysis/prompts/prompt-05-cross-language.md. The prompt file is not duplicated here to avoid two potentially diverging records.

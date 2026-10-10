@@ -1,0 +1,19 @@
+Compiled: 2026-10-10T20:38:45.6923569+05:30
+Compiler: C:/Users/abhij/Desktop/Design Patterns Case Study/tools/pdf-runtime/015/tectonic.exe
+note: using only cached resource files
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: A7_slide.tex:17: Missing character: There is no 5 ("35) in font nullfont!
+warning: could not represent character "5" (0x35) in font "nullfont"
+warning:   you may need to load the `fontspec` package and use (e.g.) \setmainfont to
+warning:   choose a different font that covers the unrepresentable character(s)
+note: Rerunning TeX because "A7_slide.nav" changed ...
+warning: A7_slide.tex:17: 
+Missing character: There is no 5 ("35) in font nullfont!
+warning: could not represent character "5" (0x35) in font "nullfont"
+warning:   you may need to load the `fontspec` package and use (e.g.) \setmainfont to
+warning:   choose a different font that covers the unrepresentable character(s)
+note: Running xdvipdfmx ...
+note: Writing `A7_slide.log` (32.09 KiB)
+note: Writing `A7_slide.pdf` (34.03 KiB)
+note: Skipped writing 5 intermediate files (use --keep-intermediates to keep them)

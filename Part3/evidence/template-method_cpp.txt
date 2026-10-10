@@ -1,0 +1,8 @@
+compile/run command: ./main
+warmup: passed
+measured_ms: 1.190, 1.097, 1.111, 1.070, 1.041
+median_process_ms: 1.097
+output:
+Booking form: reservation
+Room form: room
+Settings form: settings

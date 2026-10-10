@@ -1,0 +1,30 @@
+@startuml
+title Successful cancellation through the real Rails route
+actor User
+participant BookingsController
+participant "Rails configuration" as Config
+participant CancellationService
+participant CancellationPolicy
+participant Booking
+User -> BookingsController: POST /:locale/bookings/:id/cancel
+BookingsController -> BookingsController: authenticate, find scoped booking, authorize
+BookingsController -> Config: configured policy factory
+Config --> BookingsController: selected policy object
+BookingsController -> CancellationService: new(booking, policy: policy).call
+group Booking.with_lock transaction (repeated cancellation rejected)
+CancellationService -> Booking: with_lock
+Booking --> CancellationService: row lock acquired
+CancellationService -> CancellationPolicy: cancellable?(booking, at: at)
+CancellationPolicy --> CancellationService: true
+CancellationService -> CancellationPolicy: refund_amount(booking, at: at)
+CancellationPolicy --> CancellationService: refund
+CancellationService -> Booking: update!(canceled_at: at,\n cancellation_refund_amount: refund)
+Booking --> CancellationService: persisted booking
+end
+CancellationService --> BookingsController: booking + refund_amount result
+BookingsController --> User: redirect to booking; refund notice
+note over CancellationService, Booking
+  Records the calculated refund amount.
+  Does not send a Stripe refund request.
+end note
+@enduml

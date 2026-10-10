@@ -1,0 +1,8 @@
+compile/run command: java Main
+warmup: passed
+measured_ms: 50.372, 50.645, 68.698, 47.927, 45.949
+median_process_ms: 50.372
+output:
+Flexible refund: 430.00
+Partial refund: 215.00
+No refund: 0.00

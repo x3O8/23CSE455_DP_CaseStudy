@@ -1,0 +1,78 @@
+Compiled: 2026-10-10T20:38:43.4347198+05:30
+Compiler: C:/Users/abhij/Desktop/Design Patterns Case Study/tools/pdf-runtime/015/tectonic.exe
+note: using only cached resource files
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: A7_Report.tex:260: Underfull \hbox (badness 10000) in paragraph at lines 260--260
+warning: A7_Report.tex:304: Underfull \hbox (badness 1005) in paragraph at lines 303--304
+warning: A7_Report.tex:361: Underfull \hbox (badness 1490) in paragraph at lines 360--361
+warning: A7_Report.tex:481: Underfull \hbox (badness 1342) in paragraph at lines 480--481
+warning: A7_Report.tex:522: Underfull \hbox (badness 10000) in paragraph at lines 522--522
+warning: A7_Report.tex:523: Underfull \hbox (badness 4036) in paragraph at lines 523--523
+warning: A7_Report.tex:524: Underfull \hbox (badness 1596) in paragraph at lines 523--524
+warning: A7_Report.tex:525: Underfull \hbox (badness 1142) in paragraph at lines 524--525
+warning: A7_Report.tex:526: Underfull \hbox (badness 1515) in paragraph at lines 525--526
+warning: A7_Report.tex:528: Underfull \hbox (badness 1237) in paragraph at lines 527--528
+warning: A7_Report.tex:529: Underfull \hbox (badness 1997) in paragraph at lines 528--529
+warning: A7_Report.tex:530: Underfull \hbox (badness 1755) in paragraph at lines 530--530
+warning: A7_Report.tex:532: Underfull \hbox (badness 10000) in paragraph at lines 532--532
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:578: Underfull \hbox (badness 10000) in paragraph at lines 578--578
+warning: A7_Report.tex:586: Underfull \hbox (badness 1442) in paragraph at lines 585--586
+warning: A7_Report.tex:960: Underfull \hbox (badness 2521) in paragraph at lines 960--960
+warning: A7_Report.tex:1050: Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 1975) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+note: Rerunning TeX because "A7_Report.toc" changed ...
+warning: A7_Report.tex:260: Underfull \hbox (badness 10000) in paragraph at lines 260--260
+warning: A7_Report.tex:304: Underfull \hbox (badness 1005) in paragraph at lines 303--304
+warning: A7_Report.tex:361: Underfull \hbox (badness 1490) in paragraph at lines 360--361
+warning: A7_Report.tex:481: Underfull \hbox (badness 1342) in paragraph at lines 480--481
+warning: A7_Report.tex:522: Underfull \hbox (badness 10000) in paragraph at lines 522--522
+warning: A7_Report.tex:523: Underfull \hbox (badness 4036) in paragraph at lines 523--523
+warning: A7_Report.tex:524: Underfull \hbox (badness 1596) in paragraph at lines 523--524
+warning: A7_Report.tex:525: Underfull \hbox (badness 1142) in paragraph at lines 524--525
+warning: A7_Report.tex:526: Underfull \hbox (badness 1515) in paragraph at lines 525--526
+warning: A7_Report.tex:528: Underfull \hbox (badness 1237) in paragraph at lines 527--528
+warning: A7_Report.tex:529: Underfull \hbox (badness 1997) in paragraph at lines 528--529
+warning: A7_Report.tex:530: Underfull \hbox (badness 1755) in paragraph at lines 530--530
+warning: A7_Report.tex:532: Underfull \hbox (badness 10000) in paragraph at lines 532--532
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:578: Underfull \hbox (badness 10000) in paragraph at lines 578--578
+warning: A7_Report.tex:586: Underfull \hbox (badness 1442) in paragraph at lines 585--586
+warning: A7_Report.tex:960: Underfull \hbox (badness 2521) in paragraph at lines 960--960
+warning: A7_Report.tex:1050: Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 1975) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+note: Rerunning TeX because "A7_Report.aux" changed ...
+warning: A7_Report.tex:260: Underfull \hbox (badness 10000) in paragraph at lines 260--260
+warning: A7_Report.tex:304: Underfull \hbox (badness 1005) in paragraph at lines 303--304
+warning: A7_Report.tex:361: Underfull \hbox (badness 1490) in paragraph at lines 360--361
+warning: A7_Report.tex:481: Underfull \hbox (badness 1342) in paragraph at lines 480--481
+warning: A7_Report.tex:522: Underfull \hbox (badness 10000) in paragraph at lines 522--522
+warning: A7_Report.tex:523: Underfull \hbox (badness 4036) in paragraph at lines 523--523
+warning: A7_Report.tex:524: Underfull \hbox (badness 1596) in paragraph at lines 523--524
+warning: A7_Report.tex:525: Underfull \hbox (badness 1142) in paragraph at lines 524--525
+warning: A7_Report.tex:526: Underfull \hbox (badness 1515) in paragraph at lines 525--526
+warning: A7_Report.tex:528: Underfull \hbox (badness 1237) in paragraph at lines 527--528
+warning: A7_Report.tex:529: Underfull \hbox (badness 1997) in paragraph at lines 528--529
+warning: A7_Report.tex:530: Underfull \hbox (badness 1755) in paragraph at lines 530--530
+warning: A7_Report.tex:532: Underfull \hbox (badness 10000) in paragraph at lines 532--532
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:533: Underfull \hbox (badness 10000) in paragraph at lines 532--533
+warning: A7_Report.tex:578: Underfull \hbox (badness 10000) in paragraph at lines 578--578
+warning: A7_Report.tex:586: Underfull \hbox (badness 1442) in paragraph at lines 585--586
+warning: A7_Report.tex:960: Underfull \hbox (badness 2521) in paragraph at lines 960--960
+warning: A7_Report.tex:1050: Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 1975) in paragraph at lines 1164--1164
+warning: A7_Report.tex:1164: Underfull \hbox (badness 10000) in paragraph at lines 1164--1164
+note: Running xdvipdfmx ...
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Writing `A7_Report.log` (26.89 KiB)
+note: Writing `A7_Report.pdf` (220.23 KiB)
+note: Skipped writing 5 intermediate files (use --keep-intermediates to keep them)

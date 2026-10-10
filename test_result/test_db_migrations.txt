@@ -1,0 +1,85 @@
+Command: ruby bin/rails db:drop db:create db:migrate
+Environment: RAILS_ENV=test; PostgreSQL 127.0.0.1:55432; user codex_test
+
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+Dropped database 'rails_room_booking_test'
+Created database 'rails_room_booking_test'
+== 20230518121724 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -> 0.0142s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0030s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0030s
+== 20230518121724 DeviseCreateUsers: migrated (0.0204s) =======================
+
+== 20230521044444 CreateRooms: migrating ======================================
+-- create_table(:rooms)
+   -> 0.0130s
+== 20230521044444 CreateRooms: migrated (0.0131s) =============================
+
+== 20230521044712 CreateBooking: migrating ====================================
+-- create_table(:bookings)
+   -> 0.0105s
+== 20230521044712 CreateBooking: migrated (0.0105s) ===========================
+
+== 20230531042741 CreateActiveStorageTables: migrating ========================
+-- create_table(:active_storage_blobs, {:id=>:primary_key})
+   -> 0.0119s
+-- create_table(:active_storage_attachments, {:id=>:primary_key})
+   -> 0.0177s
+-- create_table(:active_storage_variant_records, {:id=>:primary_key})
+   -> 0.0126s
+== 20230531042741 CreateActiveStorageTables: migrated (0.0424s) ===============
+
+== 20230608045813 AddTotalPriceToBooking: migrating ===========================
+-- add_column(:bookings, :total_ht, :decimal, {:default=>0.0})
+   -> 0.0050s
+-- add_column(:bookings, :total_ttc, :decimal, {:default=>0.0})
+   -> 0.0006s
+== 20230608045813 AddTotalPriceToBooking: migrated (0.0057s) ==================
+
+== 20230609044940 AddCancelToBooking: migrating ===============================
+-- add_column(:bookings, :canceled_at, :datetime, {:null=>true})
+   -> 0.0005s
+== 20230609044940 AddCancelToBooking: migrated (0.0006s) ======================
+
+== 20230610114044 CreateSettingsTable: migrating ==============================
+-- create_table(:settings)
+   -> 0.0114s
+== 20230610114044 CreateSettingsTable: migrated (0.0114s) =====================
+
+== 20230618133900 CreatePayment: migrating ====================================
+-- create_table(:payify_payments)
+   -> 0.0095s
+== 20230618133900 CreatePayment: migrated (0.0096s) ===========================
+
+== 20230618133901 AddStripePaymentIntentId: migrating =========================
+-- add_column(:payify_payments, :stripe_payment_inent_id, :string)
+   -> 0.0007s
+-- add_column(:payify_payments, :stripe_client_secret, :string)
+   -> 0.0004s
+== 20230618133901 AddStripePaymentIntentId: migrated (0.0011s) ================
+
+== 20261004170000 CreateBookingServices: migrating ============================
+-- create_table(:booking_services)
+   -> 0.0133s
+== 20261004170000 CreateBookingServices: migrated (0.0133s) ===================
+
+== 20261004171000 AddRoomUpgradeFieldsToBookings: migrating ===================
+-- add_reference(:bookings, :upgraded_from_room, {:foreign_key=>{:to_table=>:rooms}, :null=>true})
+   -> 0.0071s
+== 20261004171000 AddRoomUpgradeFieldsToBookings: migrated (0.0072s) ==========
+
+== 20261010190000 AddCancellationRefundAmountToBookings: migrating ============
+-- add_column(:bookings, :cancellation_refund_amount, :decimal, {:precision=>10, :scale=>2})
+   -> 0.0006s
+== 20261010190000 AddCancellationRefundAmountToBookings: migrated (0.0007s) ===
+
+
+Exit code: 0

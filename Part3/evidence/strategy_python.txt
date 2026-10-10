@@ -1,0 +1,8 @@
+compile/run command: python3 Main.py
+warmup: passed
+measured_ms: 595.258, 640.764, 576.726, 617.031, 575.601
+median_process_ms: 595.258
+output:
+FlexiblePolicy: 430.00
+PartialRefundPolicy: 215.00
+NoRefundPolicy: 0.00

@@ -1,0 +1,21 @@
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+Booking
+  When checking the booking price
+    Book a room and check price
+  When checking booking dates
+    Should require start and end dates
+    should be valid if there are no conflicting bookings
+    should be invalid if there are conflicting bookings
+
+Room
+  Create a room
+
+Finished in 9.67 seconds (files took 13.57 seconds to load)
+5 examples, 0 failures
+

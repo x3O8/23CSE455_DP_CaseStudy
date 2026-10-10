@@ -1,0 +1,14 @@
+=> Booting Puma
+=> Rails 7.0.6 application starting in test 
+=> Run `bin/rails server --help` for more startup options
+*** SIGUSR2 not implemented, signal based restart unavailable!
+*** SIGUSR1 not implemented, signal based restart unavailable!
+*** SIGHUP not implemented, signal based logs reopening unavailable!
+Puma starting in single mode...
+* Puma version: 5.6.6 (ruby 2.7.5-p203) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: test
+*          PID: 6300
+* Listening on http://127.0.0.1:3338
+Use Ctrl-C to stop

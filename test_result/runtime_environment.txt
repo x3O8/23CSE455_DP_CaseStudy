@@ -1,0 +1,17 @@
+Runtime verification date: 2026-10-10
+Host: Windows 10.0.26200 x64
+Isolation: workspace-only Ruby/gems, PostgreSQL local test cluster on 127.0.0.1:55432
+Ruby: ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x64-mingw32]
+Bundler: Bundler version 2.4.17
+Compiler: gcc.exe (Rev2, Built by MSYS2 project) 11.2.0
+PostgreSQL: postgres (PostgreSQL) 15.10
+Rails: 7.0.6
+Bundle: 124 installed gems, resolved from baseline lockfile plus x64-mingw32 platform and Windows tzinfo-data.
+Native extension execution: bcrypt, date, racc/cparse verified.
+Runtime setup: dot-source parent workspace .tools/runtime.ps1 before Rails commands.
+Installer cleanup evidence: parent workspace .tools/installation-cleanup.txt.
+Baseline model specs: 5 examples, 0 failures (baseline_rspec.txt).
+Evolved app pre-fix regression after valid fixture setup: 30 examples, 27 failures (part2_regression_before.txt).
+Final evolved suite: 36 examples, 0 failures (part2_rspec.txt).
+Final per-change suites: Change1 7/0; Change2 8/0; Change3 15/0.
+Fresh test database: all 12 migrations applied; complete eager loading and actual HTTP server response verified.

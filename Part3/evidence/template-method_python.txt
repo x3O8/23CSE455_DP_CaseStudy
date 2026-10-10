@@ -1,0 +1,8 @@
+compile/run command: python3 Main.py
+warmup: passed
+measured_ms: 629.080, 721.755, 672.008, 673.872, 614.064
+median_process_ms: 672.008
+output:
+Booking form: reservation
+Room form: room
+Settings form: settings

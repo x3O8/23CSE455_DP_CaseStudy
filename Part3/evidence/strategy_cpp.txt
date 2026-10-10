@@ -1,0 +1,8 @@
+compile/run command: ./main
+warmup: passed
+measured_ms: 1.540, 1.189, 1.417, 1.221, 1.223
+median_process_ms: 1.223
+output:
+430
+215
+0

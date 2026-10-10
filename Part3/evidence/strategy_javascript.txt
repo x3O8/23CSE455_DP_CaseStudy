@@ -1,0 +1,8 @@
+compile/run command: node Main.js
+warmup: passed
+measured_ms: 21.762, 22.329, 21.190, 22.138, 20.868
+median_process_ms: 21.762
+output:
+FlexiblePolicy: 430.00
+PartialRefundPolicy: 215.00
+NoRefundPolicy: 0.00

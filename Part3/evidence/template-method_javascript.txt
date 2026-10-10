@@ -1,0 +1,8 @@
+compile/run command: node Main.js
+warmup: passed
+measured_ms: 21.401, 21.364, 20.581, 27.724, 23.528
+median_process_ms: 21.401
+output:
+Booking form: reservation
+Room form: room
+Settings form: settings

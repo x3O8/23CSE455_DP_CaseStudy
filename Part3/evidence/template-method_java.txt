@@ -1,0 +1,8 @@
+compile/run command: java Main
+warmup: passed
+measured_ms: 39.261, 38.538, 44.236, 55.866, 39.494
+median_process_ms: 39.494
+output:
+Booking form: reservation
+Room form: room
+Settings form: settings

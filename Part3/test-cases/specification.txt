@@ -1,0 +1,12 @@
+Shared specifications
+
+Template Method
+Input: three resource types with resource/form hooks.
+Expected: each resource uses the same render algorithm while supplying its own resource and form names.
+Cases: Booking, Room, Settings.
+
+Strategy
+Input: amount=430 and one of Flexible, Partial(50%), NoRefund policies.
+Expected: 430, 215, 0 respectively.
+
+Error case: Strategy/Template abstract operation invoked without a concrete implementation must fail rather than silently invent a value.

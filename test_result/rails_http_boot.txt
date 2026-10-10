@@ -1,0 +1,4 @@
+Command: ruby bin/rails server -e test -b 127.0.0.1 -p 3338
+Check: GET http://127.0.0.1:3338/
+HTTP 302; Location http://127.0.0.1:3338/fr
+Server stopped after verification.

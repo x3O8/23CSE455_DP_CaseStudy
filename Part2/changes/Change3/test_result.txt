@@ -1,0 +1,34 @@
+Command: ruby -rbundler/setup -e load Gem.bin_path("rspec-core", "rspec") -- spec/services/cancellation_service_spec.rb spec/requests/booking_cancellations_spec.rb --format documentation
+Environment: RAILS_ENV=test; PostgreSQL 127.0.0.1:55432; user codex_test
+
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+CancellationService
+  calculates and persists 360 with FlexibleCancellationPolicy
+  calculates and persists 180 with PartialRefundCancellationPolicy
+  calculates and persists 0 with NoRefundCancellationPolicy
+  includes optional service charges in the refund basis
+  supports a non-default partial refund rate
+  leaves a denied booking uncanceled
+  rejects repeated cancellation without replacing the original audit record
+  rejects invalid partial refund rates
+  preserves a paid payment record when canceling
+
+Rails booking cancellation
+  uses the configured Strategy through the real POST route
+  uses flexible cancellation by default
+  does not let request parameters choose a more generous policy
+  does not cancel another user's booking
+  redirects guests to authentication without canceling
+  reports repeated cancellation without changing the refund
+
+Finished in 1.38 seconds (files took 4.79 seconds to load)
+15 examples, 0 failures
+
+
+Exit code: 0

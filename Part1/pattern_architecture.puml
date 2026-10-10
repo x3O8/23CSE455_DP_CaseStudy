@@ -1,0 +1,41 @@
+@startuml
+title Baseline Template Method through a Ruby mixin
+top to bottom direction
+skinparam classAttributeIconSize 0
+skinparam backgroundColor white
+skinparam classBackgroundColor #F4F7FC
+class CrudConcern <<Ruby module / ActiveSupport::Concern>> {
+  +index / show / new / create / edit / update / destroy
+  -base_class() : required hook
+  -object_class() : required hook
+  -form_values() : calls model_params / strong_params
+  -set_object() / use_slug?() / redirect_to_show()
+}
+class BookingsController {
+  base_class : Booking
+  object_class : user-scoped relation
+  model_params / strong_params / use_slug?
+}
+class RoomsController {
+  base_class : Room
+  object_class : room relation with images
+  model_params / strong_params
+}
+class SettingsController {
+  base_class : Setting
+  object_class : user-scoped relation
+  set_object / redirect_to_show overrides
+}
+BookingsController ..> CrudConcern : <<include / mixin>>
+RoomsController ..> CrudConcern : <<include / mixin>>
+SettingsController ..> CrudConcern : <<include / mixin>>
+note top of CrudConcern
+  create skeleton: authorize -> build -> validate
+  -> save and redirect, or render validation error.
+  Controller methods supply resource hooks.
+end note
+note bottom
+  Dashed arrows denote module inclusion, not inheritance.
+  All controllers inherit ApplicationController (omitted).
+end note
+@enduml

@@ -1,0 +1,3 @@
+ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [x64-mingw32]
+PASS: 89 Ruby files compiled successfully
+Exit code: 0

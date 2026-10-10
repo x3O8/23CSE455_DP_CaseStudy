@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-10-10T15:08:55.734983+00:00",
+  "files": [
+    {
+      "path": "A7_Final_Report.pdf",
+      "sha256": "fd360df717452e4647598de075887e8536b62db5dbf42731cae5c83c962222c8",
+      "pages": 25,
+      "rendered_pages": [
+        "report-01.png",
+        "report-02.png",
+        "report-03.png",
+        "report-04.png",
+        "report-05.png",
+        "report-06.png",
+        "report-07.png",
+        "report-08.png",
+        "report-09.png",
+        "report-10.png",
+        "report-11.png",
+        "report-12.png",
+        "report-13.png",
+        "report-14.png",
+        "report-15.png",
+        "report-16.png",
+        "report-17.png",
+        "report-18.png",
+        "report-19.png",
+        "report-20.png",
+        "report-21.png",
+        "report-22.png",
+        "report-23.png",
+        "report-24.png",
+        "report-25.png"
+      ],
+      "visual_review": "PASS: rebuilt covers and A7 report header visually inspected; remaining 33 page content regions match previously reviewed renders, and all 24 report headers are pixel-identical to the inspected header."
+    },
+    {
+      "path": "A7_slide.pdf",
+      "sha256": "3051591b26df1189e49a96f71337f1a54730dfcdade1c478d9af2864dcfa5b55",
+      "pages": 10,
+      "rendered_pages": [
+        "slides-01.png",
+        "slides-02.png",
+        "slides-03.png",
+        "slides-04.png",
+        "slides-05.png",
+        "slides-06.png",
+        "slides-07.png",
+        "slides-08.png",
+        "slides-09.png",
+        "slides-10.png"
+      ],
+      "visual_review": "PASS: rebuilt covers and A7 report header visually inspected; remaining 33 page content regions match previously reviewed renders, and all 24 report headers are pixel-identical to the inspected header."
+    }
+  ],
+  "render_hashes": {
+    "report-01.png": "0894073d61fe1653f709fdda5e38555bbf168b978dd944faf3506fb4c47d4c0a",
+    "report-02.png": "820003c56392ef3c4e9b0ef13fbd4093565d7ae8b6dca5de4959c7cebbb0a4ed",
+    "report-03.png": "0e14c7bbdc5151e9d5632af756e4aa9f421bcc8bb0e682041313b5fc135b8f6b",
+    "report-04.png": "f4f51c48f86700eb2ea36f38782add9044510a2180e7db77c138ed94cc3ca179",
+    "report-05.png": "9450d6c8422d9a6b06f5229100c0cabda290e2fbef5b6f6e4017937769eb113c",
+    "report-06.png": "ac375ca29f90809542c4906ea9d72da5a1e2318e95668e8bcb4a0a41b1e2a741",
+    "report-07.png": "b1382d6dd5e89800fbf9c4bd08373f1e97fe9838d1741153d040d9860d4a95bb",
+    "report-08.png": "0d5a7072201bb40cab180c0a06529fd1363462858ddceeaddba7dc0a5645bb1f",
+    "report-09.png": "5912d36dc819518c6c940d89e07d1d1edcddac377e5d5c8a63c18ee5506f7a0f",
+    "report-10.png": "6e228cf4db7dfacefb3c0481d031474e0bf38066fa71067384f0e6b2f6910524",
+    "report-11.png": "d3328c3c968b14842a82ea04bd0f059915db5a8dd50943b8fac9eb9a58184461",
+    "report-12.png": "042817c7a3547476be42ce3dbba2a8b7270cdd11aab9d4c76bfb4502e6f13f0b",
+    "report-13.png": "fbe323580bdf62af559a43ba7cb287342cfdf27ef378d74d4097b2abcf2ffeec",
+    "report-14.png": "b3e58be0f105de75b3a27c2e558946a6a0e7bca3e2fb08772f9aa4598de5a052",
+    "report-15.png": "d0b75a5b297ac471f21f17e7c7bba7ada6a8f7c94e2346125283c338d006e628",
+    "report-16.png": "924ab0b8bdde9bfbaa172c8c4420d467d388befd03c17563c716018008fe6cfd",
+    "report-17.png": "080074685b9478e509457b5c780b54ee59d3483159ae3d8e386044fe6b68b71a",
+    "report-18.png": "dd8b025c1b94e55c3555db1dabe32fde4157a44df88431b4b1d10b038b965a97",
+    "report-19.png": "243a0de6a95a4e30295d2be929cd371f2a6fb831ba09f78e7d6cdd854f5fa5c2",
+    "report-20.png": "74b0e8d48fe19a5ad5640ea283761518c3c8c362e3eb6cfddea832d40782449d",
+    "report-21.png": "73d2cc55aab703ebd0db5ac65d724867cb6d89c924dbc6ebf4961fe1264cdccd",
+    "report-22.png": "242f04639e30a3cd5277f1046e4ac0bc182c298562c66f5a0ac72b9232afaebb",
+    "report-23.png": "ea7583f07dd68b26eb83763f978787f25689bbd1184e60d2b94bbee20f7a0f6f",
+    "report-24.png": "493cb1fce27534f33c7db5e93e6794023b6b5a30b2e651c5a20ee71bfb94bbb2",
+    "report-25.png": "499161979c360f856b45741aa8c6498f97a495ce7028e9beb1dcefb188b3d486",
+    "slides-01.png": "d567b29a81e793e0fe749798dc79d8c917dc05ea6c064a88095af028427044ad",
+    "slides-02.png": "03f6c5113a12493d990d55213c05a62f98e92e9a926dc29b9909c13c8a5a1c59",
+    "slides-03.png": "07c18315a09c5cdd2c9baa0848d792607b053994b43984a95278f55ebc14d3da",
+    "slides-04.png": "bfde0ac51817dfde6f57eb0f064298f9e9f667546a660fc59105a25442085af4",
+    "slides-05.png": "938b71454c2575a373ad1fe94cfed9ba3aa7e041ad97875d9b384654c7f3289d",
+    "slides-06.png": "1c99e730b0be0f111843ca7f00079be39ad95128a5628371b9651cc05af25596",
+    "slides-07.png": "08c28ef4216518653f91aa4716ea43504541bfffb8235317c7bcbdf47f96e3d6",
+    "slides-08.png": "59e69650a5cf1da04c9604ed7490de71b0f8870181294cd5a69c058e08333f4d",
+    "slides-09.png": "9b784afdbbb6f23b377b11ddaaf325be0263f78cf9824ccc460286c5f8a3bffb",
+    "slides-10.png": "99f33b6fd2980fe74887685b0c8ed308899281baf451d56de75789d1b89602c3"
+  },
+  "team_metadata_revision": {
+    "team": "A7",
+    "submission_date": "6 September 2027",
+    "team_order": [
+      "AM.AI.U4AID23016",
+      "AM.AI.U4AID23037",
+      "AM.AI.U4AID23040",
+      "AM.AI.U4AID23046"
+    ],
+    "covers_visually_inspected": [
+      "report-01.png",
+      "slides-01.png"
+    ],
+    "report_header_visually_inspected": "report-02.png",
+    "identical_header_pages": 24,
+    "previously_reviewed_identical_content_regions": 33
+  }
+}

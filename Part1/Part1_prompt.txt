@@ -1,0 +1,4 @@
+
+The exact original interaction text for the Part 1 pattern-discovery prompt was not recoverable verbatim from the retained artifacts. This file records the recovered analytical scope only and is not represented as the original experiment record.
+
+Recovered scope: inspect the baseline Rails application at commit 5e15551, identify application-level design-pattern collaborations from source evidence, map actual participants and file/line ranges, verify Template Method, and reject unsupported pattern-name-only claims.

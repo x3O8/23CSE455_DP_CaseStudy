@@ -1,0 +1,9 @@
+pattern_name,instance_name,language,snippet_path,source_loc,max_function_cc,runtime_compiler,test_command,test_result,median_process_ms,language_notes
+Template Method,Shared CRUD Controller Workflow,java,Part3/template-method/java/Main.java,9,1,OpenJDK 21.0.11,javac Main.java && java Main,passed 1/1,39.494,Explicit abstract class/interface syntax; static typing.
+Template Method,Shared CRUD Controller Workflow,python,Part3/template-method/python/Main.py,17,1,Python 3.13.5,python3 Main.py,passed 1/1,672.008,ABC used for abstraction; dynamic dispatch.
+Template Method,Shared CRUD Controller Workflow,javascript,Part3/template-method/javascript/Main.js,9,1,Node.js v22.16.0,node Main.js,passed 1/1,21.401,Prototype-based class syntax with runtime polymorphism.
+Template Method,Shared CRUD Controller Workflow,cpp,Part3/template-method/cpp/Main.cpp,9,2,g++ 14.2.0,g++ -std=c++17 -O2 -Wall -Wextra -pedantic Main.cpp -o main && ./main,passed 1/1,1.097,Pure virtual interface and virtual dispatch; RAII-friendly ownership.
+Strategy,Cancellation Refund Policy,java,Part3/strategy/java/Main.java,6,1,OpenJDK 21.0.11,javac Main.java && java Main,passed 1/1,50.372,Explicit abstract class/interface syntax; static typing.
+Strategy,Cancellation Refund Policy,python,Part3/strategy/python/Main.py,14,1,Python 3.13.5,python3 Main.py,passed 1/1,595.258,ABC used for abstraction; dynamic dispatch.
+Strategy,Cancellation Refund Policy,javascript,Part3/strategy/javascript/Main.js,6,1,Node.js v22.16.0,node Main.js,passed 1/1,21.762,Prototype-based class syntax with runtime polymorphism.
+Strategy,Cancellation Refund Policy,cpp,Part3/strategy/cpp/Main.cpp,9,2,g++ 14.2.0,g++ -std=c++17 -O2 -Wall -Wextra -pedantic Main.cpp -o main && ./main,passed 1/1,1.223,Pure virtual interface and virtual dispatch; RAII-friendly ownership.

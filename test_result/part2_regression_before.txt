@@ -1,0 +1,418 @@
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+AdditionalServicePricing
+  includes captured breakfast and transfer charges in saved booking and payment totals (FAILED - 1)
+  recalculates prices after quantity updates and removal without changing dates (FAILED - 2)
+  keeps the captured unit price independent of later catalogue prices (FAILED - 3)
+  rejects zero and negative quantities without altering the booking total (FAILED - 4)
+  rejects negative unit prices and unrecognized service types (FAILED - 5)
+  keeps the original room-only total when no services are selected (FAILED - 6)
+  updates the existing pending payment rather than creating a replacement (FAILED - 7)
+
+CancellationService
+  calculates and persists 360 with FlexibleCancellationPolicy (FAILED - 8)
+  calculates and persists 180 with PartialRefundCancellationPolicy (FAILED - 9)
+  calculates and persists 0 with NoRefundCancellationPolicy (FAILED - 10)
+  includes optional service charges in the refund basis (FAILED - 11)
+  supports a non-default partial refund rate
+  leaves a denied booking uncanceled (FAILED - 12)
+  rejects repeated cancellation without replacing the original audit record (FAILED - 13)
+  rejects invalid partial refund rates (FAILED - 14)
+  preserves a paid payment record when canceling
+
+RoomUpgrade
+  rejects overlapping reservations without changing persisted room or totals (FAILED - 15)
+  persists an available room, its original room and the independently calculated difference (FAILED - 16)
+  allows adjacent checkout/check-in dates
+  ignores canceled reservations in the target room (FAILED - 17)
+  retains service charges when the room price changes (FAILED - 18)
+  preserves the first original room across multiple upgrades (FAILED - 19)
+  restores the original persisted state when validation fails (FAILED - 20)
+  rejects upgrades of a canceled booking (FAILED - 21)
+
+Rails booking cancellation
+  uses the configured Strategy through the real POST route (FAILED - 22)
+  uses flexible cancellation by default (FAILED - 23)
+  does not let request parameters choose a more generous policy (FAILED - 24)
+  does not cancel another user's booking (FAILED - 25)
+  redirects guests to authentication without canceling (FAILED - 26)
+  reports repeated cancellation without changing the refund (FAILED - 27)
+
+Failures:
+
+  1) AdditionalServicePricing includes captured breakfast and transfer charges in saved booking and payment totals
+     Failure/Error: booking.add_service(BreakfastPackage.new, quantity: 2)
+
+     NoMethodError:
+       undefined method `add_service' for #<Booking:0x00000245d0f91100>
+     # ./spec/services/additional_service_pricing_spec.rb:9:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  2) AdditionalServicePricing recalculates prices after quantity updates and removal without changing dates
+     Failure/Error: selection = booking.add_service(BreakfastPackage.new, quantity: 2)
+
+     NoMethodError:
+       undefined method `add_service' for #<Booking:0x00000245d1eccc00>
+     # ./spec/services/additional_service_pricing_spec.rb:19:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  3) AdditionalServicePricing keeps the captured unit price independent of later catalogue prices
+     Failure/Error: selection = booking.add_service(BreakfastPackage.new(unit_price: "30.10"), quantity: 2)
+
+     NoMethodError:
+       undefined method `add_service' for #<Booking:0x00000245cfbf9f48>
+     # ./spec/services/additional_service_pricing_spec.rb:30:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  4) AdditionalServicePricing rejects zero and negative quantities without altering the booking total
+     Failure/Error: expect { booking.add_service(BreakfastPackage.new, quantity: quantity) }.to raise_error(ActiveRecord::RecordInvalid)
+
+       expected ActiveRecord::RecordInvalid, got #<NoMethodError: undefined method `add_service' for #<Booking:0x00000245d1f95380>> with backtrace:
+         # ./spec/services/additional_service_pricing_spec.rb:39:in `block (4 levels) in <top (required)>'
+         # ./spec/services/additional_service_pricing_spec.rb:39:in `block (3 levels) in <top (required)>'
+         # ./spec/services/additional_service_pricing_spec.rb:38:in `each'
+         # ./spec/services/additional_service_pricing_spec.rb:38:in `block (2 levels) in <top (required)>'
+         # -e:1:in `load'
+         # -e:1:in `<main>'
+     # ./spec/services/additional_service_pricing_spec.rb:39:in `block (3 levels) in <top (required)>'
+     # ./spec/services/additional_service_pricing_spec.rb:38:in `each'
+     # ./spec/services/additional_service_pricing_spec.rb:38:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  5) AdditionalServicePricing rejects negative unit prices and unrecognized service types
+     Failure/Error: expect { booking.add_service(BreakfastPackage.new(unit_price: -1)) }.to raise_error(ActiveRecord::RecordInvalid)
+
+       expected ActiveRecord::RecordInvalid, got #<NoMethodError: undefined method `add_service' for #<Booking:0x00000245d2094920>> with backtrace:
+         # ./spec/services/additional_service_pricing_spec.rb:46:in `block (3 levels) in <top (required)>'
+         # ./spec/services/additional_service_pricing_spec.rb:46:in `block (2 levels) in <top (required)>'
+         # -e:1:in `load'
+         # -e:1:in `<main>'
+     # ./spec/services/additional_service_pricing_spec.rb:46:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  6) AdditionalServicePricing keeps the original room-only total when no services are selected
+     Failure/Error: expect(described_class.total(booking.booking_services)).to eq(0)
+
+     NoMethodError:
+       undefined method `booking_services' for #<Booking:0x00000245cf906868>
+     # ./spec/services/additional_service_pricing_spec.rb:52:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  7) AdditionalServicePricing updates the existing pending payment rather than creating a replacement
+     Failure/Error: booking.add_service(AirportTransfer.new)
+
+     NoMethodError:
+       undefined method `add_service' for #<Booking:0x00000245d21c57e0>
+     # ./spec/services/additional_service_pricing_spec.rb:59:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  8) CancellationService calculates and persists 360 with FlexibleCancellationPolicy
+     Failure/Error: expect(booking.reload.canceled_at).to eq(at)
+
+       expected: 2026-10-10 12:00:00.000000000 +0000
+            got: 2026-10-10 14:19:41.106019000 +0000
+
+       (compared using ==)
+
+       Diff:
+       @@ -1 +1 @@
+       -Sat, 10 Oct 2026 12:00:00.000000000 UTC +00:00
+       +Sat, 10 Oct 2026 14:19:41.106019000 UTC +00:00
+     # ./spec/services/cancellation_service_spec.rb:13:in `block (3 levels) in <main>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  9) CancellationService calculates and persists 180 with PartialRefundCancellationPolicy
+     Failure/Error: expect(booking.reload.canceled_at).to eq(at)
+
+       expected: 2026-10-10 12:00:00.000000000 +0000
+            got: 2026-10-10 14:19:41.120774000 +0000
+
+       (compared using ==)
+
+       Diff:
+       @@ -1 +1 @@
+       -Sat, 10 Oct 2026 12:00:00.000000000 UTC +00:00
+       +Sat, 10 Oct 2026 14:19:41.120774000 UTC +00:00
+     # ./spec/services/cancellation_service_spec.rb:13:in `block (3 levels) in <main>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+  10) CancellationService calculates and persists 0 with NoRefundCancellationPolicy
+      Failure/Error: expect(booking.reload.canceled_at).to eq(at)
+
+        expected: 2026-10-10 12:00:00.000000000 +0000
+             got: 2026-10-10 14:19:41.133907000 +0000
+
+        (compared using ==)
+
+        Diff:
+        @@ -1 +1 @@
+        -Sat, 10 Oct 2026 12:00:00.000000000 UTC +00:00
+        +Sat, 10 Oct 2026 14:19:41.133907000 UTC +00:00
+      # ./spec/services/cancellation_service_spec.rb:13:in `block (3 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  11) CancellationService includes optional service charges in the refund basis
+      Failure/Error: booking.add_service(AirportTransfer.new)
+
+      NoMethodError:
+        undefined method `add_service' for #<Booking:0x00000245d23a74a0>
+      # ./spec/services/cancellation_service_spec.rb:19:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  12) CancellationService leaves a denied booking uncanceled
+      Failure/Error: expect(booking.cancellation_refund_amount).to be_nil
+
+      NoMethodError:
+        undefined method `cancellation_refund_amount' for #<Booking:0x00000245d24642d0>
+      # ./spec/services/cancellation_service_spec.rb:36:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  13) CancellationService rejects repeated cancellation without replacing the original audit record
+      Failure/Error: expect { described_class.new(booking, policy: NoRefundCancellationPolicy.new).call(at: at + 1.day) }.to raise_error(ArgumentError)
+        expected ArgumentError but nothing was raised
+      # ./spec/services/cancellation_service_spec.rb:41:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  14) CancellationService rejects invalid partial refund rates
+      Failure/Error: expect { PartialRefundCancellationPolicy.new(rate: rate) }.to raise_error(ArgumentError)
+        expected ArgumentError but nothing was raised
+      # ./spec/services/cancellation_service_spec.rb:48:in `block (3 levels) in <main>'
+      # ./spec/services/cancellation_service_spec.rb:47:in `each'
+      # ./spec/services/cancellation_service_spec.rb:47:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  15) RoomUpgrade rejects overlapping reservations without changing persisted room or totals
+      Failure/Error: expect(booking.upgraded_from_room).to be_nil
+
+      NoMethodError:
+        undefined method `upgraded_from_room' for #<Booking:0x00000245d2698330>
+        Did you mean?  upgraded_from_room_id
+                       upgraded_from_room_id=
+                       upgraded_from_room_id?
+      # ./spec/services/room_upgrade_spec.rb:17:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  16) RoomUpgrade persists an available room, its original room and the independently calculated difference
+      Failure/Error: expect(booking.upgraded_from_room).to eq(room)
+
+      NoMethodError:
+        undefined method `upgraded_from_room' for #<Booking:0x00000245d2709878>
+        Did you mean?  upgraded_from_room_id
+                       upgraded_from_room_id=
+                       upgraded_from_room_id?
+      # ./spec/services/room_upgrade_spec.rb:25:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  17) RoomUpgrade ignores canceled reservations in the target room
+      Failure/Error: expect(described_class.new(booking, target).call).to be_success
+        expected `#<struct RoomUpgrade::Result :success?=false, booking=#<Booking id: 53, start_date: "2026-11-10", end...upgraded_from_room_id: nil>, difference=0, error="Target room is unavailable for the booking dates">.success?` to be truthy, got false
+      # ./spec/services/room_upgrade_spec.rb:39:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  18) RoomUpgrade retains service charges when the room price changes
+      Failure/Error: booking.add_service(BreakfastPackage.new, quantity: 2)
+
+      NoMethodError:
+        undefined method `add_service' for #<Booking:0x00000245d2906ba8>
+      # ./spec/services/room_upgrade_spec.rb:43:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  19) RoomUpgrade preserves the first original room across multiple upgrades
+      Failure/Error: expect(booking.reload.upgraded_from_room).to eq(room)
+
+      NoMethodError:
+        undefined method `upgraded_from_room' for #<Booking:0x00000245d296d268>
+        Did you mean?  upgraded_from_room_id
+                       upgraded_from_room_id=
+                       upgraded_from_room_id?
+      # ./spec/services/room_upgrade_spec.rb:54:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  20) RoomUpgrade restores the original persisted state when validation fails
+      Failure/Error: expect(booking.upgraded_from_room).to be_nil
+
+      NoMethodError:
+        undefined method `upgraded_from_room' for #<Booking:0x00000245d2a860c8>
+        Did you mean?  upgraded_from_room_id
+                       upgraded_from_room_id=
+                       upgraded_from_room_id?
+      # ./spec/services/room_upgrade_spec.rb:63:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  21) RoomUpgrade rejects upgrades of a canceled booking
+      Failure/Error: expect(described_class.new(booking, target).call).not_to be_success
+        expected `#<struct RoomUpgrade::Result :success?=true, booking=#<Booking id: 58, start_date: "2026-11-10", end_...t: "2026-10-10 14:19:41.863688000 +0000", upgraded_from_room_id: nil>, difference=0.15e3, error=nil>.success?` to be falsey, got true
+      # ./spec/services/room_upgrade_spec.rb:69:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  22) Rails booking cancellation uses the configured Strategy through the real POST route
+      Failure/Error: expect(booking.cancellation_refund_amount).to eq(180)
+
+      NoMethodError:
+        undefined method `cancellation_refund_amount' for #<Booking:0x00000245d25d3e18>
+      # ./spec/requests/booking_cancellations_spec.rb:23:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  23) Rails booking cancellation uses flexible cancellation by default
+      Failure/Error: expect(booking.reload.cancellation_refund_amount).to eq(360)
+
+      NoMethodError:
+        undefined method `cancellation_refund_amount' for #<Booking:0x00000245d3be2740>
+      # ./spec/requests/booking_cancellations_spec.rb:30:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  24) Rails booking cancellation does not let request parameters choose a more generous policy
+      Failure/Error: expect(booking.reload.cancellation_refund_amount).to eq(0)
+
+      NoMethodError:
+        undefined method `cancellation_refund_amount' for #<Booking:0x00000245d402b068>
+      # ./spec/requests/booking_cancellations_spec.rb:37:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  25) Rails booking cancellation does not cancel another user's booking
+      Failure/Error: authorize @object
+
+      Pundit::NotDefinedError:
+        unable to find policy `NilClassPolicy` for `nil`
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit/policy_finder.rb:54:in `policy!'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit.rb:153:in `policy!'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit.rb:81:in `authorize'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit/authorization.rb:67:in `authorize'
+      # ./app/controllers/bookings_controller.rb:9:in `cancel'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/i18n-1.14.1/lib/i18n.rb:322:in `with_locale'
+      # ./app/controllers/concerns/locale_concern.rb:18:in `switch_locale'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/actiontext-7.0.6/lib/action_text/rendering.rb:20:in `with_renderer'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/actiontext-7.0.6/lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:36:in `block in call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:34:in `catch'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:34:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/tempfile_reaper.rb:15:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:266:in `context'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:260:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:40:in `call_app'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:25:in `block in call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:25:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/method_override.rb:24:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/engine.rb:530:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-test-2.1.0/lib/rack/test.rb:360:in `process_request'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-test-2.1.0/lib/rack/test.rb:153:in `request'
+      # ./spec/requests/booking_cancellations_spec.rb:44:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  26) Rails booking cancellation redirects guests to authentication without canceling
+      Failure/Error: authorize @object
+
+      Pundit::NotDefinedError:
+        unable to find policy `NilClassPolicy` for `nil`
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit/policy_finder.rb:54:in `policy!'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit.rb:153:in `policy!'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit.rb:81:in `authorize'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/pundit-2.3.0/lib/pundit/authorization.rb:67:in `authorize'
+      # ./app/controllers/bookings_controller.rb:9:in `cancel'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/i18n-1.14.1/lib/i18n.rb:322:in `with_locale'
+      # ./app/controllers/concerns/locale_concern.rb:18:in `switch_locale'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/actiontext-7.0.6/lib/action_text/rendering.rb:20:in `with_renderer'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/actiontext-7.0.6/lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:36:in `block in call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:34:in `catch'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/warden-1.2.9/lib/warden/manager.rb:34:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/tempfile_reaper.rb:15:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:266:in `context'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/session/abstract/id.rb:260:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:40:in `call_app'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:25:in `block in call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/rack/logger.rb:25:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/method_override.rb:24:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/engine.rb:530:in `call'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-test-2.1.0/lib/rack/test.rb:360:in `process_request'
+      # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/rack-test-2.1.0/lib/rack/test.rb:153:in `request'
+      # ./spec/requests/booking_cancellations_spec.rb:50:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+  27) Rails booking cancellation reports repeated cancellation without changing the refund
+      Failure/Error: expect(flash[:alert]).to be_present
+        expected `nil.present?` to be truthy, got false
+      # ./spec/requests/booking_cancellations_spec.rb:60:in `block (2 levels) in <main>'
+      # ./spec/requests/booking_cancellations_spec.rb:12:in `block (2 levels) in <main>'
+      # -e:1:in `load'
+      # -e:1:in `<main>'
+
+Finished in 1.4 seconds (files took 4.47 seconds to load)
+30 examples, 27 failures
+
+Failed examples:
+
+rspec ./spec/services/additional_service_pricing_spec.rb:8 # AdditionalServicePricing includes captured breakfast and transfer charges in saved booking and payment totals
+rspec ./spec/services/additional_service_pricing_spec.rb:18 # AdditionalServicePricing recalculates prices after quantity updates and removal without changing dates
+rspec ./spec/services/additional_service_pricing_spec.rb:29 # AdditionalServicePricing keeps the captured unit price independent of later catalogue prices
+rspec ./spec/services/additional_service_pricing_spec.rb:37 # AdditionalServicePricing rejects zero and negative quantities without altering the booking total
+rspec ./spec/services/additional_service_pricing_spec.rb:45 # AdditionalServicePricing rejects negative unit prices and unrecognized service types
+rspec ./spec/services/additional_service_pricing_spec.rb:51 # AdditionalServicePricing keeps the original room-only total when no services are selected
+rspec ./spec/services/additional_service_pricing_spec.rb:57 # AdditionalServicePricing updates the existing pending payment rather than creating a replacement
+rspec './spec/services/cancellation_service_spec.rb[1:1]' # CancellationService calculates and persists 360 with FlexibleCancellationPolicy
+rspec './spec/services/cancellation_service_spec.rb[1:2]' # CancellationService calculates and persists 180 with PartialRefundCancellationPolicy
+rspec './spec/services/cancellation_service_spec.rb[1:3]' # CancellationService calculates and persists 0 with NoRefundCancellationPolicy
+rspec ./spec/services/cancellation_service_spec.rb:18 # CancellationService includes optional service charges in the refund basis
+rspec ./spec/services/cancellation_service_spec.rb:30 # CancellationService leaves a denied booking uncanceled
+rspec ./spec/services/cancellation_service_spec.rb:39 # CancellationService rejects repeated cancellation without replacing the original audit record
+rspec ./spec/services/cancellation_service_spec.rb:46 # CancellationService rejects invalid partial refund rates
+rspec ./spec/services/room_upgrade_spec.rb:9 # RoomUpgrade rejects overlapping reservations without changing persisted room or totals
+rspec ./spec/services/room_upgrade_spec.rb:20 # RoomUpgrade persists an available room, its original room and the independently calculated difference
+rspec ./spec/services/room_upgrade_spec.rb:36 # RoomUpgrade ignores canceled reservations in the target room
+rspec ./spec/services/room_upgrade_spec.rb:42 # RoomUpgrade retains service charges when the room price changes
+rspec ./spec/services/room_upgrade_spec.rb:50 # RoomUpgrade preserves the first original room across multiple upgrades
+rspec ./spec/services/room_upgrade_spec.rb:58 # RoomUpgrade restores the original persisted state when validation fails
+rspec ./spec/services/room_upgrade_spec.rb:67 # RoomUpgrade rejects upgrades of a canceled booking
+rspec ./spec/requests/booking_cancellations_spec.rb:17 # Rails booking cancellation uses the configured Strategy through the real POST route
+rspec ./spec/requests/booking_cancellations_spec.rb:27 # Rails booking cancellation uses flexible cancellation by default
+rspec ./spec/requests/booking_cancellations_spec.rb:33 # Rails booking cancellation does not let request parameters choose a more generous policy
+rspec ./spec/requests/booking_cancellations_spec.rb:40 # Rails booking cancellation does not cancel another user's booking
+rspec ./spec/requests/booking_cancellations_spec.rb:49 # Rails booking cancellation redirects guests to authentication without canceling
+rspec ./spec/requests/booking_cancellations_spec.rb:55 # Rails booking cancellation reports repeated cancellation without changing the refund
+

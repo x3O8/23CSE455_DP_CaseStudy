@@ -1,0 +1,3 @@
+RECOVERY NOTE
+
+The exact original Part 2 interaction text was not recoverable verbatim from the retained artifacts. The retained Prompt 04 is the available evolution-analysis prompt and is stored under llm-analysis/prompts/prompt-04-evolution.md. This note is not a reconstructed verbatim transcript.

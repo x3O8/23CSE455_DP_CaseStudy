@@ -1,0 +1,67 @@
+Command: ruby -rbundler/setup -e load Gem.bin_path("rspec-core", "rspec") -- spec --format documentation
+Environment: RAILS_ENV=test; PostgreSQL 127.0.0.1:55432; user codex_test
+
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+Evolved application boot
+  eager loads the application and payment engine without unresolved constants
+
+Booking
+  When checking the booking price
+    Book a room and check price
+  When checking booking dates
+    Should require start and end dates
+    should be valid if there are no conflicting bookings
+    should be invalid if there are conflicting bookings
+
+Room
+  Create a room
+
+Rails booking cancellation
+  uses the configured Strategy through the real POST route
+  uses flexible cancellation by default
+  does not let request parameters choose a more generous policy
+  does not cancel another user's booking
+  redirects guests to authentication without canceling
+  reports repeated cancellation without changing the refund
+
+AdditionalServicePricing
+  includes captured breakfast and transfer charges in saved booking and payment totals
+  recalculates prices after quantity updates and removal without changing dates
+  keeps the captured unit price independent of later catalogue prices
+  rejects zero and negative quantities without altering the booking total
+  rejects negative unit prices and unrecognized service types
+  keeps the original room-only total when no services are selected
+  updates the existing pending payment rather than creating a replacement
+
+CancellationService
+  calculates and persists 360 with FlexibleCancellationPolicy
+  calculates and persists 180 with PartialRefundCancellationPolicy
+  calculates and persists 0 with NoRefundCancellationPolicy
+  includes optional service charges in the refund basis
+  supports a non-default partial refund rate
+  leaves a denied booking uncanceled
+  rejects repeated cancellation without replacing the original audit record
+  rejects invalid partial refund rates
+  preserves a paid payment record when canceling
+
+RoomUpgrade
+  rejects overlapping reservations without changing persisted room or totals
+  persists an available room, its original room and the independently calculated difference
+  allows adjacent checkout/check-in dates
+  ignores canceled reservations in the target room
+  retains service charges when the room price changes
+  preserves the first original room across multiple upgrades
+  restores the original persisted state when validation fails
+  rejects upgrades of a canceled booking
+
+Finished in 2.78 seconds (files took 5.13 seconds to load)
+36 examples, 0 failures
+
+
+Exit code: 0

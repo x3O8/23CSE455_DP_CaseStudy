@@ -1,0 +1,338 @@
+CSV consistency: PASS (0 failures)
+PASS data/patterns.csv: exact header
+PASS data/patterns.csv:2: complete CSV record
+PASS Part1/patterns.csv: exact header
+PASS Part1/patterns.csv:2: complete CSV record
+PASS Part1/patterns.csv: rows equal data/patterns.csv
+PASS data/patterns_evolution.csv: exact header
+PASS data/patterns_evolution.csv:2: complete CSV record
+PASS data/patterns_evolution.csv:3: complete CSV record
+PASS data/patterns_evolution.csv:4: complete CSV record
+PASS data/patterns_evolution.csv:5: complete CSV record
+PASS data/patterns_evolution.csv:6: complete CSV record
+PASS Part2/patterns_evolution.csv: exact header
+PASS Part2/patterns_evolution.csv:2: complete CSV record
+PASS Part2/patterns_evolution.csv:3: complete CSV record
+PASS Part2/patterns_evolution.csv:4: complete CSV record
+PASS Part2/patterns_evolution.csv:5: complete CSV record
+PASS Part2/patterns_evolution.csv:6: complete CSV record
+PASS Part2/patterns_evolution.csv: rows equal data/patterns_evolution.csv
+PASS data/pattern_counts.csv: exact header
+PASS data/pattern_counts.csv:2: complete CSV record
+PASS data/pattern_counts.csv:3: complete CSV record
+PASS data/pattern_counts.csv:4: complete CSV record
+PASS Part1/pattern_counts.csv: exact header
+PASS Part1/pattern_counts.csv:2: complete CSV record
+PASS Part1/pattern_counts.csv:3: complete CSV record
+PASS Part1/pattern_counts.csv:4: complete CSV record
+PASS Part1/pattern_counts.csv: rows equal data/pattern_counts.csv
+PASS Part2/pattern_counts.csv: exact header
+PASS Part2/pattern_counts.csv:2: complete CSV record
+PASS Part2/pattern_counts.csv:3: complete CSV record
+PASS Part2/pattern_counts.csv:4: complete CSV record
+PASS Part2/pattern_counts.csv:5: complete CSV record
+PASS Part2/pattern_counts.csv:6: complete CSV record
+PASS Part2/pattern_counts.csv:7: complete CSV record
+PASS Part2/pattern_counts.csv:8: complete CSV record
+PASS Part2/pattern_counts.csv:9: complete CSV record
+PASS Part2/pattern_counts.csv:10: complete CSV record
+PASS Part2/pattern_counts.csv:11: complete CSV record
+PASS Part2/pattern_counts.csv:12: complete CSV record
+PASS Part2/pattern_counts.csv:13: complete CSV record
+PASS Part2/pattern_counts.csv:14: complete CSV record
+PASS data/llm.csv: exact header
+PASS data/llm.csv:2: complete CSV record
+PASS data/llm.csv:3: complete CSV record
+PASS data/llm.csv:4: complete CSV record
+PASS data/llm.csv:5: complete CSV record
+PASS data/llm.csv:6: complete CSV record
+PASS data/llm.csv:7: complete CSV record
+PASS Part1/llm.csv: exact header
+PASS Part1/llm.csv:2: complete CSV record
+PASS Part1/llm.csv:3: complete CSV record
+PASS Part1/llm.csv:4: complete CSV record
+PASS Part1/llm.csv:5: complete CSV record
+PASS Part1/llm.csv:6: complete CSV record
+PASS Part1/llm.csv:7: complete CSV record
+PASS Part2/llm.csv: exact header
+PASS Part2/llm.csv:2: complete CSV record
+PASS Part2/llm.csv:3: complete CSV record
+PASS Part2/llm.csv:4: complete CSV record
+PASS Part2/llm.csv:5: complete CSV record
+PASS Part2/llm.csv:6: complete CSV record
+PASS Part2/llm.csv:7: complete CSV record
+PASS Part3/llm/llm.csv: exact header
+PASS Part3/llm/llm.csv:2: complete CSV record
+PASS Part3/llm/llm.csv:3: complete CSV record
+PASS Part3/llm/llm.csv:4: complete CSV record
+PASS Part3/llm/llm.csv:5: complete CSV record
+PASS Part3/llm/llm.csv:6: complete CSV record
+PASS Part3/llm/llm.csv:7: complete CSV record
+PASS Part1/llm.csv: rows equal data/llm.csv
+PASS Part2/llm.csv: rows equal data/llm.csv
+PASS Part3/llm/llm.csv: rows equal data/llm.csv
+PASS data/cross_language.csv: exact header
+PASS data/cross_language.csv:2: complete CSV record
+PASS data/cross_language.csv:3: complete CSV record
+PASS data/cross_language.csv:4: complete CSV record
+PASS data/cross_language.csv:5: complete CSV record
+PASS data/cross_language.csv:6: complete CSV record
+PASS data/cross_language.csv:7: complete CSV record
+PASS data/cross_language.csv:8: complete CSV record
+PASS data/cross_language.csv:9: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv: exact header
+PASS Part3/llm/pattern_crosslanguage.csv:2: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:3: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:4: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:5: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:6: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:7: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:8: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv:9: complete CSV record
+PASS Part3/llm/pattern_crosslanguage.csv: rows equal data/cross_language.csv
+PASS baseline: exactly one Template Method instance
+PASS evolution: five nonblank pattern records
+PASS pattern Original baseline 5e15551/Template Method: no blank fields
+PASS pattern Original baseline 5e15551: valid version/type
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/concerns/crud_concern.rb:1-149 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/concerns/crud_concern.rb:1-149 range within 149 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/bookings_controller.rb:1-47 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/bookings_controller.rb:1-47 range within 47 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/rooms_controller.rb:1-41 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/rooms_controller.rb:1-41 range within 41 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/settings_controller.rb:1-39 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/settings_controller.rb:1-39 range within 39 lines
+PASS pattern Original baseline 5e15551/Template Method: no blank fields
+PASS pattern Original baseline 5e15551: valid version/type
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/concerns/crud_concern.rb:1-149 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/concerns/crud_concern.rb:1-149 range within 149 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/bookings_controller.rb:1-47 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/bookings_controller.rb:1-47 range within 47 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/rooms_controller.rb:1-41 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/rooms_controller.rb:1-41 range within 41 lines
+PASS Original baseline 5e15551: correct source snapshot prefix
+PASS Original baseline 5e15551: explicit source line bounds
+PASS Original baseline 5e15551: code/app/controllers/settings_controller.rb:1-39 exists within submission
+PASS Original baseline 5e15551: code/app/controllers/settings_controller.rb:1-39 range within 39 lines
+PASS pattern After Change1/Template Method: no blank fields
+PASS pattern After Change1: valid version/type
+PASS After Change1: correct source snapshot prefix
+PASS After Change1: explicit source line bounds
+PASS After Change1: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 exists within submission
+PASS After Change1: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 range within 149 lines
+PASS After Change1: correct source snapshot prefix
+PASS After Change1: explicit source line bounds
+PASS After Change1: Part2/code/app/controllers/bookings_controller.rb:1-54 exists within submission
+PASS After Change1: Part2/code/app/controllers/bookings_controller.rb:1-54 range within 54 lines
+PASS After Change1: correct source snapshot prefix
+PASS After Change1: explicit source line bounds
+PASS After Change1: Part2/code/app/controllers/rooms_controller.rb:1-41 exists within submission
+PASS After Change1: Part2/code/app/controllers/rooms_controller.rb:1-41 range within 41 lines
+PASS After Change1: correct source snapshot prefix
+PASS After Change1: explicit source line bounds
+PASS After Change1: Part2/code/app/controllers/settings_controller.rb:1-39 exists within submission
+PASS After Change1: Part2/code/app/controllers/settings_controller.rb:1-39 range within 39 lines
+PASS pattern After Change2/Template Method: no blank fields
+PASS pattern After Change2: valid version/type
+PASS After Change2: correct source snapshot prefix
+PASS After Change2: explicit source line bounds
+PASS After Change2: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 exists within submission
+PASS After Change2: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 range within 149 lines
+PASS After Change2: correct source snapshot prefix
+PASS After Change2: explicit source line bounds
+PASS After Change2: Part2/code/app/controllers/bookings_controller.rb:1-54 exists within submission
+PASS After Change2: Part2/code/app/controllers/bookings_controller.rb:1-54 range within 54 lines
+PASS After Change2: correct source snapshot prefix
+PASS After Change2: explicit source line bounds
+PASS After Change2: Part2/code/app/controllers/rooms_controller.rb:1-41 exists within submission
+PASS After Change2: Part2/code/app/controllers/rooms_controller.rb:1-41 range within 41 lines
+PASS After Change2: correct source snapshot prefix
+PASS After Change2: explicit source line bounds
+PASS After Change2: Part2/code/app/controllers/settings_controller.rb:1-39 exists within submission
+PASS After Change2: Part2/code/app/controllers/settings_controller.rb:1-39 range within 39 lines
+PASS pattern After Change3/Template Method: no blank fields
+PASS pattern After Change3: valid version/type
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 exists within submission
+PASS After Change3: Part2/code/app/controllers/concerns/crud_concern.rb:1-149 range within 149 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/controllers/bookings_controller.rb:1-54 exists within submission
+PASS After Change3: Part2/code/app/controllers/bookings_controller.rb:1-54 range within 54 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/controllers/rooms_controller.rb:1-41 exists within submission
+PASS After Change3: Part2/code/app/controllers/rooms_controller.rb:1-41 range within 41 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/controllers/settings_controller.rb:1-39 exists within submission
+PASS After Change3: Part2/code/app/controllers/settings_controller.rb:1-39 range within 39 lines
+PASS pattern After Change3/Strategy: no blank fields
+PASS pattern After Change3: valid version/type
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/services/cancellation_service.rb:1-17 exists within submission
+PASS After Change3: Part2/code/app/services/cancellation_service.rb:1-17 range within 17 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/services/cancellation_policy.rb:1-9 exists within submission
+PASS After Change3: Part2/code/app/services/cancellation_policy.rb:1-9 range within 9 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/services/flexible_cancellation_policy.rb:1-9 exists within submission
+PASS After Change3: Part2/code/app/services/flexible_cancellation_policy.rb:1-9 range within 9 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/services/partial_refund_cancellation_policy.rb:1-14 exists within submission
+PASS After Change3: Part2/code/app/services/partial_refund_cancellation_policy.rb:1-14 range within 14 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/services/no_refund_cancellation_policy.rb:1-9 exists within submission
+PASS After Change3: Part2/code/app/services/no_refund_cancellation_policy.rb:1-9 range within 9 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/app/controllers/bookings_controller.rb:1-54 exists within submission
+PASS After Change3: Part2/code/app/controllers/bookings_controller.rb:1-54 range within 54 lines
+PASS After Change3: correct source snapshot prefix
+PASS After Change3: explicit source line bounds
+PASS After Change3: Part2/code/config/initializers/cancellation_policy.rb:1-10 exists within submission
+PASS After Change3: Part2/code/config/initializers/cancellation_policy.rb:1-10 range within 10 lines
+PASS evolution: valid ordered stages/statuses
+PASS LLM: all six retained stages in order
+PASS LLM Baseline: no blank fields
+PASS LLM Baseline: unknown historical metadata disclosed
+PASS LLM Baseline/prompt_file: llm-analysis/prompts/prompt-01-baseline.md exists within submission
+PASS LLM Baseline/input_file: code/ exists within submission
+PASS LLM Baseline/output_file: llm-analysis/results/result-01-baseline.md exists within submission
+PASS LLM Baseline/verification_file: data/baseline_source_manifest.json exists within submission
+PASS LLM Baseline/verification_file: code/Gemfile exists within submission
+PASS LLM Baseline/verification_file: code/Gemfile.lock exists within submission
+PASS LLM Architecture: no blank fields
+PASS LLM Architecture: unknown historical metadata disclosed
+PASS LLM Architecture/prompt_file: llm-analysis/prompts/prompt-02-architecture.md exists within submission
+PASS LLM Architecture/input_file: code/ exists within submission
+PASS LLM Architecture/output_file: llm-analysis/results/result-02-architecture.md exists within submission
+PASS LLM Architecture/verification_file: code/config/routes.rb exists within submission
+PASS LLM Architecture/verification_file: code/app/models/booking.rb exists within submission
+PASS LLM Architecture/verification_file: code/app/controllers/bookings_controller.rb exists within submission
+PASS LLM Pattern discovery: no blank fields
+PASS LLM Pattern discovery: unknown historical metadata disclosed
+PASS LLM Pattern discovery/prompt_file: llm-analysis/prompts/prompt-03-pattern-discovery.md exists within submission
+PASS LLM Pattern discovery/input_file: code/ exists within submission
+PASS LLM Pattern discovery/output_file: llm-analysis/results/result-03-pattern-discovery.md exists within submission
+PASS LLM Pattern discovery/verification_file: Part1/evidence/baseline-pattern-evidence.md exists within submission
+PASS LLM Pattern discovery/verification_file: data/patterns.csv exists within submission
+PASS LLM Evolution: no blank fields
+PASS LLM Evolution: unknown historical metadata disclosed
+PASS LLM Evolution/prompt_file: llm-analysis/prompts/prompt-04-evolution.md exists within submission
+PASS LLM Evolution/input_file: code/ exists within submission
+PASS LLM Evolution/input_file: Part2/code/ exists within submission
+PASS LLM Evolution/output_file: llm-analysis/results/result-04-evolution.md exists within submission
+PASS LLM Evolution/verification_file: Part2/changes/Change1/diff.md exists within submission
+PASS LLM Evolution/verification_file: Part2/changes/Change2/diff.md exists within submission
+PASS LLM Evolution/verification_file: Part2/changes/Change3/diff.md exists within submission
+PASS LLM Evolution/verification_file: test_result/part2_rspec.txt exists within submission
+PASS LLM Evolution/verification_file: test_result/test_db_migration_status.txt exists within submission
+PASS LLM Cross-language: no blank fields
+PASS LLM Cross-language: unknown historical metadata disclosed
+PASS LLM Cross-language/prompt_file: llm-analysis/prompts/prompt-05-cross-language.md exists within submission
+PASS LLM Cross-language/input_file: Part3/template-method/ exists within submission
+PASS LLM Cross-language/input_file: Part3/strategy/ exists within submission
+PASS LLM Cross-language/output_file: llm-analysis/results/result-05-cross-language.md exists within submission
+PASS LLM Cross-language/verification_file: Part3/evidence/ exists within submission
+PASS LLM Cross-language/verification_file: data/cross_language.csv exists within submission
+PASS LLM Final audit: no blank fields
+PASS LLM Final audit: unknown historical metadata disclosed
+PASS LLM Final audit/prompt_file: llm-analysis/prompts/prompt-06-final-audit.md exists within submission
+PASS LLM Final audit/input_file: code/ exists within submission
+PASS LLM Final audit/input_file: Part2/code/ exists within submission
+PASS LLM Final audit/input_file: Part3/ exists within submission
+PASS LLM Final audit/input_file: data/ exists within submission
+PASS LLM Final audit/input_file: A7_Report.tex exists within submission
+PASS LLM Final audit/output_file: llm-analysis/results/result-06-final-audit.md exists within submission
+PASS LLM Final audit/verification_file: tools/check_csv.py exists within submission
+PASS LLM Final audit/verification_file: test_result/ exists within submission
+PASS LLM Final audit/verification_file: SUBMISSION_CHECKLIST.md exists within submission
+PASS llm-analysis/prompts/prompt-02-architecture.md: recovery note retained without invented transcript
+PASS llm-analysis/prompts/prompt-03-pattern-discovery.md: recovery note retained without invented transcript
+PASS Original baseline 5e15551: per_pattern counts match inventory
+PASS Original baseline 5e15551: totals match inventory
+PASS After Change1: per_pattern counts match inventory
+PASS After Change1: totals match inventory
+PASS After Change2: per_pattern counts match inventory
+PASS After Change2: totals match inventory
+PASS After Change3: per_pattern counts match inventory
+PASS After Change3: totals match inventory
+PASS Strategy first and only appears after Change3
+PASS cross-language: eight snippets
+PASS cross-language: complete two-pattern/four-language matrix
+PASS cross-language Template Method/java: Part3/template-method/java/Main.java exists within submission
+PASS cross-language java: populated positive metrics
+PASS cross-language Template Method/java: LOC matches 9 nonblank/noncomment source lines
+PASS cross-language Template Method/java: median equals retained timing evidence
+PASS cross-language Template Method/java: median equals five measured samples
+PASS cross-language Template Method/python: Part3/template-method/python/Main.py exists within submission
+PASS cross-language python: populated positive metrics
+PASS cross-language Template Method/python: LOC matches 17 nonblank/noncomment source lines
+PASS cross-language Template Method/python: median equals retained timing evidence
+PASS cross-language Template Method/python: median equals five measured samples
+PASS cross-language Template Method/javascript: Part3/template-method/javascript/Main.js exists within submission
+PASS cross-language javascript: populated positive metrics
+PASS cross-language Template Method/javascript: LOC matches 9 nonblank/noncomment source lines
+PASS cross-language Template Method/javascript: median equals retained timing evidence
+PASS cross-language Template Method/javascript: median equals five measured samples
+PASS cross-language Template Method/cpp: Part3/template-method/cpp/Main.cpp exists within submission
+PASS cross-language cpp: populated positive metrics
+PASS cross-language Template Method/cpp: LOC matches 9 nonblank/noncomment source lines
+PASS cross-language Template Method/cpp: main CC matches 2
+PASS cross-language Template Method/cpp: median equals retained timing evidence
+PASS cross-language Template Method/cpp: median equals five measured samples
+PASS cross-language Strategy/java: Part3/strategy/java/Main.java exists within submission
+PASS cross-language java: populated positive metrics
+PASS cross-language Strategy/java: LOC matches 6 nonblank/noncomment source lines
+PASS cross-language Strategy/java: median equals retained timing evidence
+PASS cross-language Strategy/java: median equals five measured samples
+PASS cross-language Strategy/python: Part3/strategy/python/Main.py exists within submission
+PASS cross-language python: populated positive metrics
+PASS cross-language Strategy/python: LOC matches 14 nonblank/noncomment source lines
+PASS cross-language Strategy/python: median equals retained timing evidence
+PASS cross-language Strategy/python: median equals five measured samples
+PASS cross-language Strategy/javascript: Part3/strategy/javascript/Main.js exists within submission
+PASS cross-language javascript: populated positive metrics
+PASS cross-language Strategy/javascript: LOC matches 6 nonblank/noncomment source lines
+PASS cross-language Strategy/javascript: median equals retained timing evidence
+PASS cross-language Strategy/javascript: median equals five measured samples
+PASS cross-language Strategy/cpp: Part3/strategy/cpp/Main.cpp exists within submission
+PASS cross-language cpp: populated positive metrics
+PASS cross-language Strategy/cpp: LOC matches 9 nonblank/noncomment source lines
+PASS cross-language Strategy/cpp: main CC matches 2
+PASS cross-language Strategy/cpp: median equals retained timing evidence
+PASS cross-language Strategy/cpp: median equals five measured samples
+INFO CSV SHA256 data/cross_language.csv 979526331216c0ee83e9402fefc9ce557bd201dc633d6c5354b43f9df63ac609
+INFO CSV SHA256 data/llm.csv b93c779a9fb0ffaa01dda53642200c5e83f3e2264b2b5898b0af2716a64141ad
+INFO CSV SHA256 data/pattern_counts.csv 7267138dd729383117b9ccc7266966792e172788757e155742c1e22bdefb1e58
+INFO CSV SHA256 data/patterns.csv 95045f5c578a9b10328f785bb2af53eff27cd5df20389711ce5a1ae984a66098
+INFO CSV SHA256 data/patterns_evolution.csv 1e1b2e6e5b0419b8ed2ce65bb33e4917177725c8672a5cf4a882c4178b85b55f
+INFO CSV SHA256 Part1/llm.csv b93c779a9fb0ffaa01dda53642200c5e83f3e2264b2b5898b0af2716a64141ad
+INFO CSV SHA256 Part1/pattern_counts.csv 7267138dd729383117b9ccc7266966792e172788757e155742c1e22bdefb1e58
+INFO CSV SHA256 Part1/patterns.csv 95045f5c578a9b10328f785bb2af53eff27cd5df20389711ce5a1ae984a66098
+INFO CSV SHA256 Part2/llm.csv b93c779a9fb0ffaa01dda53642200c5e83f3e2264b2b5898b0af2716a64141ad
+INFO CSV SHA256 Part2/pattern_counts.csv 11084b658354da2cdc5f57a2df778b6e9a2cd74b48a5fe31f3cf0fd6a7da3744
+INFO CSV SHA256 Part2/patterns_evolution.csv 1e1b2e6e5b0419b8ed2ce65bb33e4917177725c8672a5cf4a882c4178b85b55f
+INFO CSV SHA256 Part3/llm/llm.csv b93c779a9fb0ffaa01dda53642200c5e83f3e2264b2b5898b0af2716a64141ad
+INFO CSV SHA256 Part3/llm/pattern_crosslanguage.csv 979526331216c0ee83e9402fefc9ce557bd201dc633d6c5354b43f9df63ac609

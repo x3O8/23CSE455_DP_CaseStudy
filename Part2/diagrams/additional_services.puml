@@ -1,0 +1,33 @@
+@startuml
+title Optional services and captured booking prices
+skinparam classAttributeIconSize 0
+class AdditionalService {
+  name
+  unit_price : BigDecimal
+  price(quantity:)
+}
+class BreakfastPackage
+class AirportTransfer
+class Booking
+class BookingService {
+  service_type
+  quantity
+  unit_price
+  subtotal() : unit_price * quantity
+}
+class AdditionalServicePricing {
+  {static} total(services)
+}
+AdditionalService <|-- BreakfastPackage
+AdditionalService <|-- AirportTransfer
+Booking "1" -- "*" BookingService : belongs_to / has_many
+AdditionalServicePricing ..> BookingService : sums subtotal()
+note bottom of BookingService
+  Captures service type and price as values.
+  No association to AdditionalService objects.
+end note
+note top of AdditionalService
+  Instantiable Ruby base class;
+  subclasses configure service defaults.
+end note
+@enduml

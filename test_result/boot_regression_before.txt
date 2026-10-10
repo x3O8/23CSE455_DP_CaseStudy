@@ -1,0 +1,51 @@
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+Evolved application boot
+  eager loads the application and payment engine without unresolved constants (FAILED - 1)
+
+Failures:
+
+  1) Evolved application boot eager loads the application and payment engine without unresolved constants
+     Failure/Error: expect { Rails.application.eager_load! }.not_to raise_error
+
+       expected no Exception, got #<NameError: uninitialized constant ActiveModel::Serializer
+       Did you mean?  ActiveModel::Serializers> with backtrace:
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/payify-0.1.18/app/serializers/payify/payment_serializer.rb:2:in `<module:Payify>'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/payify-0.1.18/app/serializers/payify/payment_serializer.rb:1:in `<main>'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/bootsnap-1.16.0/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:32:in `require'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/kernel.rb:30:in `require'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/helpers.rb:135:in `const_get'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/helpers.rb:135:in `cget'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:169:in `block in actual_eager_load_dir'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/helpers.rb:40:in `block in ls'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/helpers.rb:25:in `each'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/helpers.rb:25:in `ls'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:164:in `actual_eager_load_dir'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:17:in `block (2 levels) in eager_load'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:16:in `each'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:16:in `block in eager_load'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:10:in `synchronize'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/zeitwerk-2.6.8/lib/zeitwerk/loader/eager_load.rb:10:in `eager_load'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/autoloaders.rb:32:in `each'
+         # C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/railties-7.0.6/lib/rails/application.rb:493:in `eager_load!'
+         # ./spec/boot/eager_loading_spec.rb:5:in `block (3 levels) in <top (required)>'
+         # ./spec/boot/eager_loading_spec.rb:5:in `block (2 levels) in <top (required)>'
+         # -e:1:in `load'
+         # -e:1:in `<main>'
+     # ./spec/boot/eager_loading_spec.rb:5:in `block (2 levels) in <top (required)>'
+     # -e:1:in `load'
+     # -e:1:in `<main>'
+
+Finished in 0.21971 seconds (files took 4.56 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/boot/eager_loading_spec.rb:4 # Evolved application boot eager loads the application and payment engine without unresolved constants
+

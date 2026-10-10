@@ -1,0 +1,92 @@
+Report source paths: PASS (0 failures)
+PASS report: source/artifact path references extracted
+PASS report:213: code/config/database.yml identifies baseline/evolved snapshot
+PASS report:213: code/config/database.yml exists within submission
+PASS report:215: code/ identifies baseline/evolved snapshot
+PASS report:215: code/ exists within submission
+PASS report:215: Part2/code/ identifies baseline/evolved snapshot
+PASS report:215: Part2/code/ exists within submission
+PASS report:223: Part1/pattern_architecture.png identifies baseline/evolved snapshot
+PASS report:223: Part1/pattern_architecture.png exists within submission
+PASS report:462: code/app/controllers/concerns/crud_concern.rb:1--149 identifies baseline/evolved snapshot
+PASS report:462: code/app/controllers/concerns/crud_concern.rb:1--149 exists within submission
+PASS report:462: code/app/controllers/concerns/crud_concern.rb:1--149 range within 149 lines
+PASS report:463: code/app/controllers/bookings_controller.rb:1--47 identifies baseline/evolved snapshot
+PASS report:463: code/app/controllers/bookings_controller.rb:1--47 exists within submission
+PASS report:463: code/app/controllers/bookings_controller.rb:1--47 range within 47 lines
+PASS report:464: code/app/controllers/rooms_controller.rb:1--41 identifies baseline/evolved snapshot
+PASS report:464: code/app/controllers/rooms_controller.rb:1--41 exists within submission
+PASS report:464: code/app/controllers/rooms_controller.rb:1--41 range within 41 lines
+PASS report:465: code/app/controllers/settings_controller.rb:1--39 identifies baseline/evolved snapshot
+PASS report:465: code/app/controllers/settings_controller.rb:1--39 exists within submission
+PASS report:465: code/app/controllers/settings_controller.rb:1--39 range within 39 lines
+PASS report:589: Part2/diagrams/additional_services.png identifies baseline/evolved snapshot
+PASS report:589: Part2/diagrams/additional_services.png exists within submission
+PASS report:638: Part2/diagrams/cancellation_strategy.png identifies baseline/evolved snapshot
+PASS report:638: Part2/diagrams/cancellation_strategy.png exists within submission
+PASS report:653: Part2/code/app/services/cancellation_service.rb identifies baseline/evolved snapshot
+PASS report:653: Part2/code/app/services/cancellation_service.rb exists within submission
+PASS report:671: Part2/diagrams/cancellation_sequence.png identifies baseline/evolved snapshot
+PASS report:671: Part2/diagrams/cancellation_sequence.png exists within submission
+PASS report:680: Part2/diagrams/evolved_architecture.png identifies baseline/evolved snapshot
+PASS report:680: Part2/diagrams/evolved_architecture.png exists within submission
+PASS report:734: test_result/part2_rspec.txt identifies baseline/evolved snapshot
+PASS report:734: test_result/part2_rspec.txt exists within submission
+PASS report:735: test_result/test_db_migrations.txt identifies baseline/evolved snapshot
+PASS report:735: test_result/test_db_migrations.txt exists within submission
+PASS report:736: test_result/test_db_migration_status.txt identifies baseline/evolved snapshot
+PASS report:736: test_result/test_db_migration_status.txt exists within submission
+PASS report:737: test_result/rails_boot.txt identifies baseline/evolved snapshot
+PASS report:737: test_result/rails_boot.txt exists within submission
+PASS report:738: test_result/rails_http_boot.txt identifies baseline/evolved snapshot
+PASS report:738: test_result/rails_http_boot.txt exists within submission
+PASS report:739: Part2/changes/Change1/test_result.txt identifies baseline/evolved snapshot
+PASS report:739: Part2/changes/Change1/test_result.txt exists within submission
+PASS report:739: Part2/changes/Change2/test_result.txt identifies baseline/evolved snapshot
+PASS report:739: Part2/changes/Change2/test_result.txt exists within submission
+PASS report:739: Part2/changes/Change3/test_result.txt identifies baseline/evolved snapshot
+PASS report:739: Part2/changes/Change3/test_result.txt exists within submission
+PASS report:740: test_result/part2_regression_before.txt identifies baseline/evolved snapshot
+PASS report:740: test_result/part2_regression_before.txt exists within submission
+PASS report:741: test_result/boot_regression_before.txt identifies baseline/evolved snapshot
+PASS report:741: test_result/boot_regression_before.txt exists within submission
+PASS report:1141: Part3/evidence/ identifies baseline/evolved snapshot
+PASS report:1141: Part3/evidence/ exists within submission
+PASS report:1141: data/cross_language.csv identifies baseline/evolved snapshot
+PASS report:1141: data/cross_language.csv exists within submission
+PASS report:1155: data/pattern_counts.csv identifies baseline/evolved snapshot
+PASS report:1155: data/pattern_counts.csv exists within submission
+PASS report:1161: data/llm.csv identifies baseline/evolved snapshot
+PASS report:1161: data/llm.csv exists within submission
+PASS report:653: listing Part2/code/app/services/cancellation_service.rb identifies source snapshot
+PASS report:653/listing: Part2/code/app/services/cancellation_service.rb exists within submission
+INFO 1 explicit source listing inputs checked
+INFO 30 occurrences; 27 distinct path references checked
+INFO Report SHA256 8c585841a50eb66409df3daf0407fd58d9d3d2b2c0acf92e50808cbab71729e7
+INFO Source SHA256 Part2/code/app/controllers/bookings_controller.rb 80c0786ad3598be9bec4289d29999afbd0a86a0a4ddd834f3c2abce388135dd5
+INFO Source SHA256 Part2/code/app/controllers/concerns/crud_concern.rb 41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662
+INFO Source SHA256 Part2/code/app/controllers/rooms_controller.rb a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c
+INFO Source SHA256 Part2/code/app/controllers/settings_controller.rb 119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226
+INFO Source SHA256 Part2/code/app/services/cancellation_policy.rb 276d9f37c8a238a496f53d0d3001e3bfab601efda0ed2055e2efa25960360689
+INFO Source SHA256 Part2/code/app/services/cancellation_service.rb 3927fab03617807b83e7a376060952b85416eead321016c73ac476857fd64399
+INFO Source SHA256 Part2/code/app/services/flexible_cancellation_policy.rb 9278d501836795ec8b31c11eb7defe47deb80299f82dbe05177e3d35ed8de1e0
+INFO Source SHA256 Part2/code/app/services/no_refund_cancellation_policy.rb c3065dcc7238a63da1fa453deef62f9133cf157d95ca51d085d59aae81976e8d
+INFO Source SHA256 Part2/code/app/services/partial_refund_cancellation_policy.rb cc8b30896f309f0e81bf98049981b36cd08beb723b9a88d89f20feebc473dfca
+INFO Source SHA256 Part2/code/config/initializers/cancellation_policy.rb 98818378e407cc680fc024d2909f4d46192b202992b5ee8351e4b6df06a083f2
+INFO Source SHA256 Part3/strategy/cpp/Main.cpp 2698942e9e6b80d729584b5f95a27c15f5bc35ffc02e697d32b1850f0f7d6b56
+INFO Source SHA256 Part3/strategy/java/Main.java 1b19b91fb0501959be40fd665ed41b00cb388f9c72dcef4bc4e8b52f67626168
+INFO Source SHA256 Part3/strategy/javascript/Main.js b07d5be5f6339fd5b222f0dbd4611e61cc754347d9578a46d28d21a9ab6ac887
+INFO Source SHA256 Part3/strategy/python/Main.py 2eea45ac1c811390fb878b43f79254009b880ec5e7193b1e2d5e72a0c040f9e4
+INFO Source SHA256 Part3/template-method/cpp/Main.cpp 6b81a9be5c57677c7e1df8abd4ebe09560aa3f5616292c4cd84d6c19c3bb07bd
+INFO Source SHA256 Part3/template-method/java/Main.java d51f6a372d19e583df99d4ea4fd92005abf9116ffe44528ac9a76a0389f939cc
+INFO Source SHA256 Part3/template-method/javascript/Main.js 3eb21952ecdf82d9b5d62673e3f0c36b0f246426be9e303a477847c1d84f21c2
+INFO Source SHA256 Part3/template-method/python/Main.py 30d7304ca7e000995c60e5b4350b9e324ffca0886ff7cead447bc06b2c93b34c
+INFO Source SHA256 code/Gemfile da870e120861d33f76051d5451deabd62790f7ee1afa80778efe515890fbe851
+INFO Source SHA256 code/Gemfile.lock c9c728306bb43cd6badcdea02c53db1c6c17d1f07115c743f190cf4a6e8d418c
+INFO Source SHA256 code/app/controllers/bookings_controller.rb 9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef
+INFO Source SHA256 code/app/controllers/concerns/crud_concern.rb 41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662
+INFO Source SHA256 code/app/controllers/rooms_controller.rb a3341a0974f5ae545a523eabd6d22365bad1c91256ff8c57a77632960ecedd3c
+INFO Source SHA256 code/app/controllers/settings_controller.rb 119f1b8e9806f194ec8c0caa6650a4e219ae43ff4a8efcc0ad711b5a43feb226
+INFO Source SHA256 code/app/models/booking.rb ca5fd15dbf3d42bf0137ebef14a1d83840424bd68782cf554e7478f7a925ebff
+INFO Source SHA256 code/config/database.yml 6d2a6c8adf1a6e2bd642bdb7ca31500d992cdd72b9823eeff08b8c4cd424190d
+INFO Source SHA256 code/config/routes.rb b7f1e6c195bf8b74b018d7f191cb64e413cf99f7a779f70a63c6621649c28b6b

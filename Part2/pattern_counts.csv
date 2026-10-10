@@ -1,0 +1,14 @@
+source_version,summary,pattern_name,count
+Original baseline 5e15551,per_pattern,Template Method,1
+Original baseline 5e15551,total_pattern_types,,1
+Original baseline 5e15551,total_pattern_instances,,1
+After Change1,per_pattern,Template Method,1
+After Change1,total_pattern_types,,1
+After Change1,total_pattern_instances,,1
+After Change2,per_pattern,Template Method,1
+After Change2,total_pattern_types,,1
+After Change2,total_pattern_instances,,1
+After Change3,per_pattern,Template Method,1
+After Change3,per_pattern,Strategy,1
+After Change3,total_pattern_types,,2
+After Change3,total_pattern_instances,,2

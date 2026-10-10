@@ -1,0 +1,29 @@
+Command: ruby bin/rails db:migrate:status
+Environment: RAILS_ENV=test; PostgreSQL 127.0.0.1:55432; user codex_test
+
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+C:/Users/abhij/Desktop/DESIGN~1/TOOLS~1/rubydevkit/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+C:/Users/abhij/Desktop/Design Patterns Case Study/.tools/gems/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+
+database: rails_room_booking_test
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20230518121724  Devise create users
+   up     20230521044444  Create rooms
+   up     20230521044712  Create booking
+   up     20230531042741  Create active storage tablesactive storage
+   up     20230608045813  Add total price to booking
+   up     20230609044940  Add cancel to booking
+   up     20230610114044  Create settings table
+   up     20230618133900  Create paymentpayify
+   up     20230618133901  Add stripe payment intent idpayify
+   up     20261004170000  Create booking services
+   up     20261004171000  Add room upgrade fields to bookings
+   up     20261010190000  Add cancellation refund amount to bookings
+
+
+Exit code: 0

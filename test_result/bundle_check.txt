@@ -1,0 +1,6 @@
+Command: ruby -S bundle check
+Environment: RAILS_ENV=test; PostgreSQL 127.0.0.1:55432; user codex_test
+
+The Gemfile's dependencies are satisfied
+
+Exit code: 0
