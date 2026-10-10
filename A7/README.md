@@ -1,6 +1,6 @@
 # A7 - Design-pattern case study
 
-One report and one canonical dataset folder cover the whole case study. The report is `A7_Final_Report.pdf`, with editable source `A7_Report.tex`; slides are `A7_slide.pdf` / `A7_slide.tex`. Supporting parts are not separate submissions.
+One report and one canonical dataset folder cover the whole case study. The report is `A7_Report.pdf`, with editable source `A7_Report.tex`; slides are `A7_slide.pdf` / `A7_slide.tex`. Supporting parts are not separate submissions.
 
 | Roll number | Student | Batch |
 |---|---|---|
@@ -56,6 +56,12 @@ Part3 uses one representative instance of each confirmed pattern, shared inputs 
 
 ## Assignment interpretation and limits
 
-`Part2/verification/assignment_compliance.md` maps the supplied PDFs to source/evidence and documents their conflicting layout instructions. The direct user request to synchronize count copies takes precedence over the PDF's no-duplicate-dataset instruction: supporting CSV mirrors are retained and automatically checked; `data/` remains canonical. The user-selected x3O8 repository is not silently replaced by the faculty repository named in the PDF.
+`Part2/verification/assignment_compliance.md` maps the supplied PDFs to source/evidence and documents their conflicting layout instructions. The latest user instruction resolves repeated datasets: part-wise inventory mirrors have been removed; all readers use `data/`. Distinct source metrics and review-observation CSVs remain under Part2 as evidence, not duplicate inventories. The faculty repository currently has no A7 folder on its checked default branch. The user will submit later; submission and the required team-folder screenshot remain pending.
 
 Saved versions satisfy reproducibility without invented change commits. Historical LLM model/date/access tier and Prompt 02/03 verbatim wording remain unavailable and disclosed. Faculty approval, actual student contribution evidence and original submission date cannot be inferred. The earlier named fix ZIP is still unavailable. This repair does not assert complete historical compliance where evidence is missing.
+
+## New Part2 LLM verification and final submission
+
+`Part2/Part2_prompt.txt` preserves its recovery note and contains the verbatim separate experiment 07 prompt. `data/llm.csv` links `llm-analysis/prompts/prompt-07-part2-verification.txt`, frozen input context/hashes, the unchanged `llm-analysis/results/result-07-part2-verification.txt`, `evaluation-07.md` and metadata. This actual 2026-10-11 Codex review-agent interaction exposes GPT-6 family, but no exact deployment alias or access tier. User corrections are quoted separately from Codex evaluation; subsequent human review remains pending. Historical rows retain unknown metadata.
+
+`A7_Report.pdf` is the sole report filename; `A7_Final_Report.pdf` is retired. The faculty submission is pending user action, as recorded in `Part2/verification/submission_status.md`. After uploading A7/, capture the real faculty-repository team-folder screenshot and acceptance/tree URL. No local package receipt is represented as an accepted faculty upload.

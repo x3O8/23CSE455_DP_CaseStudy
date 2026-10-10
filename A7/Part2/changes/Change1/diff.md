@@ -15,4 +15,4 @@ The machine-applicable diff is `diff.patch`, from `Part2/checkpoints/original/` 
 + HasPriceConcern refreshes totals on save; pending payments retain their identity and get the new amount, while paid amounts remain unchanged.
 + spec/services/additional_service_pricing_spec.rb: seven database-backed examples.
 
-Refactoring effect: optional-service pricing is moved away from controller branching into a small domain/service layer.
+Refactoring effect: optional-service pricing is introduced as a separate domain/service responsibility. The retained baseline controllers did not contain optional-service pricing branches; this is responsibility separation for new functionality, not removal of existing controller logic.

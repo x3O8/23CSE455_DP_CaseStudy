@@ -1,0 +1,29 @@
+1. **Rejected — additional-service pricing was moved from existing controller branching.** The retained baseline `BookingsController#cancel` only authorizes, calls `Booking#cancel!`, and redirects (`code/app/controllers/bookings_controller.rb:6–14`). Its permitted parameters contain dates, guests and room, without additional-service selection (`BookingsController#strong_params`, lines 28–32). The shared persistence workflows contain validation/save branches, not service-specific pricing branches (`CrudConcern#create`, `code/app/controllers/concerns/crud_concern.rb:28–40`; `CrudConcern#update`, lines 48–60).
+
+   `AdditionalServicePricing.total` sums selection subtotals (`Part2/code/app/services/additional_service_pricing.rb:2–4`). `Booking#compute_price_ht` incorporates that sum, and `Booking#add_service` persists captured selections (`Part2/checkpoints/Change2/app/models/booking.rb:73–79`). Correction: additional-service pricing is newly introduced in a domain/service layer; the frozen evidence does not establish removal of pre-existing controller pricing branches. The extraction claim in `Part2/changes/Change1/diff.md:18` overstates the historical before-state.
+
+2. **Supported, with a narrow interpretation — RoomUpgrade avoids changes to `Booking#cancel!`.** Baseline `Booking#cancel!` writes the cancellation timestamp (`code/app/models/booking.rb:59–61`); the Change2 checkpoint retains the same body (`Part2/checkpoints/Change2/app/models/booking.rb:65–67`). `RoomUpgrade#call` performs the room transition separately, rejecting canceled bookings, checking availability, retaining the original room and saving (`Part2/code/app/services/room_upgrade.rb:9–28`).
+
+   Correction: the upgrade implementation leaves `Booking#cancel!` unchanged, but it does change other Booking responsibilities, including associations, availability and pricing. The evidence does not establish that an earlier upgrade implementation contained a conditional inside `Booking#cancel!`.
+
+3. **Rejected — `Booking.active` belongs to Change3.** The scope already exists in the reconstructed Change2 checkpoint (`Part2/checkpoints/Change2/app/models/booking.rb:15`). `Booking#dates_are_available` uses it at lines 25–31, particularly line 28. `RoomUpgrade#available?` consumes the same scope (`Part2/code/app/services/room_upgrade.rb:32–34`).
+
+   Correction: attribute `Booking.active` to Change2, where the upgrade requires active-reservation availability. Baseline cancellation state already exists through `Booking#canceled?` and `Booking#cancel!` (`code/app/models/booking.rb:47–49,59–61`). Change3 adds refund-policy behavior; it is not required to supply this availability scope. These are reconstructed saved-stage boundaries, not independently recovered historical change commits.
+
+4. **Supported — cancellation forms one Strategy collaboration.** The participants and delegation are:
+
+   - Context: `CancellationService#initialize` accepts the policy (`Part2/code/app/services/cancellation_service.rb:2–5`); `CancellationService#call` delegates eligibility and refund calculation (lines 7–16, specifically 10 and 12).
+   - Abstraction: `CancellationPolicy#cancellable?` and `CancellationPolicy#refund_amount` define required operations (`Part2/code/app/services/cancellation_policy.rb:2–8`).
+   - Concrete strategies: `FlexibleCancellationPolicy#cancellable?` / `#refund_amount` (`Part2/code/app/services/flexible_cancellation_policy.rb:2–8`); `PartialRefundCancellationPolicy#initialize`, `#cancellable?` / `#refund_amount` (`Part2/code/app/services/partial_refund_cancellation_policy.rb:2–13`); `NoRefundCancellationPolicy#cancellable?` / `#refund_amount` (`Part2/code/app/services/no_refund_cancellation_policy.rb:2–8`).
+   - Client: `BookingsController#cancel` obtains and injects the configured policy (`Part2/code/app/controllers/bookings_controller.rb:7–21`, specifically 13–14).
+   - Composition root: `Rails.application.config.x.cancellation_policy` is a configured lambda selecting and constructing a policy (`Part2/code/config/initializers/cancellation_policy.rb:2–10`).
+
+   Correction: the three policies are alternatives within **one** cancellation collaboration, not three Strategy instances. `CancellationService#call` calculates an amount and persists it with the timestamp under a booking lock (lines 8–15). It performs no external refund transfer in this shown implementation. “Refund” here means calculated local refund recording, not evidence that Stripe returned money.
+
+5. **Supported as recorded results; limited as independent execution evidence — cumulative stage counts are 13, 21 and 36 with zero failures.** The frozen receipts record:
+
+   - Change1: RSpec command at `Part2/verification/Change1_rails.txt:86`; **13 examples, 0 failures** at line 118; exit zero at line 120.
+   - Change2: RSpec command at `Part2/verification/Change2_rails.txt:24`; **21 examples, 0 failures** at line 66; exit zero at line 68.
+   - Change3: RSpec command at `Part2/verification/Change3_rails.txt:96`; **36 examples, 0 failures** at line 157; exit zero at line 159.
+
+   These are cumulative checkpoint suites, not feature-only counts. Their listed examples include `AdditionalServicePricing.total` behavior, RoomUpgrade behavior and, at Change3, cancellation service and route behavior. Correction: describe them as retained execution receipts for reconstructed checkpoints. I did not run tests during this experiment, and these receipts do not establish historical execution of original intermediate commits or external payment-transfer behavior.

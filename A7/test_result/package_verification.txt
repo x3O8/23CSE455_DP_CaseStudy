@@ -1,1 +1,1 @@
-PASS: ZIP has one top-level A7/ folder; 1279 files match final content; CRC check passed.
+PASS: ZIP has one top-level A7/ folder; 1278 files match final content; CRC check passed.

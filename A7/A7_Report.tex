@@ -545,13 +545,13 @@ The rejected-candidate analysis is not a claim that these patterns are impossibl
 
 \subsection{Assignment scope and interpretation}
 
-This section follows the Part2 records and snapshot-count requirements in the supplied DP\_Csestudy-2 and DP\_Csestudy-3 PDFs. \code{Part2/verification/assignment\_compliance.md} records coverage and unresolved evidence gaps. The PDFs disagree about per-part reports and duplicate datasets; this package keeps one main report and canonical \code{data/} folder, with synchronized supporting CSV mirrors retained at the user's explicit request. The user-selected repository remains the target. Layout examples do not authorize fabricated historical commits, prompts, dates, faculty approval, contribution attribution or test results.
+This section follows the Part2 records and snapshot-count requirements in the supplied DP\_Csestudy-2 and DP\_Csestudy-3 PDFs. \code{Part2/verification/assignment\_compliance.md} records coverage and unresolved evidence gaps. The PDFs disagree about per-part reports and duplicate datasets; this package keeps one main report and canonical \code{data/} folder, with no repeated part-wise CSV inventories, following the user's latest instruction. Faculty-repository submission is pending and will be completed by the user. Layout examples do not authorize fabricated historical commits, prompts, dates, faculty approval, contribution attribution or test results.
 
 \subsection{Reproducible source checkpoints and provenance}
 
 The retained repository did not contain historical commits for the three separate changes. Four cumulative source checkpoints now make the analysis reproducible: \code{Part2/checkpoints/original/}, \code{Part2/checkpoints/Change1/}, \code{Part2/checkpoints/Change2/}, and \code{Part2/checkpoints/Change3/}. Original copies the retained upstream baseline and Change3 matches the final \code{Part2/code/} application. Change1 and Change2 are explicitly reconstructed pedagogical stages, not historical commits. Existing migration filenames are identifiers, not verified execution dates. No historical prompt wording or model/date metadata is reconstructed.
 
-\code{tools/rebuild\_part2.py} records every checkpoint file in \code{Part2/checkpoint\_manifest.json}, generates true adjacent-stage unified patches, and synchronizes the three count CSV copies. \code{tools/check\_part2.py} checks exact bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next checkpoint. Evolution CSV references identify each stage's own source rather than the final application. The original baseline remains immutable.
+\code{tools/rebuild\_part2.py} records every checkpoint file in \code{Part2/checkpoint\_manifest.json}, generates true adjacent-stage unified patches, and maintains the canonical count dataset in \code{data/}. \code{tools/check\_part2.py} checks exact bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next checkpoint. Evolution CSV references identify each stage's own source rather than the final application. The original baseline remains immutable.
 
 \subsection{Requirement evolution}
 
@@ -631,7 +631,7 @@ The implementation isolates this workflow in \code{RoomUpgrade}. The service rec
 
 \textbf{Dependency boundary:} Change2 introduces \code{Booking.active} before \code{RoomUpgrade} calls it. The baseline already supports a cancellation timestamp. Change2 also uses the scope in booking availability validation and \code{Room\#booked\_dates}, and rejects upgrades of canceled bookings. Change3 inherits these availability semantics and introduces the refund Strategy. The complete Change2 checkpoint is therefore runnable without Change3 classes or its refund migration.
 
-This avoids adding a large conditional branch to \code{Booking\#cancel!} or to controller actions. It also keeps the semantic distinction between ``an optional service attached to a booking'' and ``a replacement of the room being booked.''
+RoomUpgrade owns target-room availability checks, the nightly price difference, room reassignment and persistence. It does not change the cancellation operation. This keeps the semantic distinction between ``an optional service attached to a booking'' and ``a replacement of the room being booked.''
 
 The operation is not classified as Command, State or Strategy. The presence of an operation object does not automatically create Command; the implementation is primarily a domain responsibility extraction.
 
@@ -1027,6 +1027,10 @@ The methodological boundary was that an LLM output was treated as a hypothesis r
 The package retains six analysis stages. Prompt 01 and Prompts 04--06 are preserved as prompt records. The exact historical wording for Prompts 02 and 03 could not be recovered as independent verbatim records. Rather than reconstructing those prompts and presenting the reconstruction as historical evidence, the package records the limitation.
 
 Historical model/date metadata is also marked unknown where it could not be independently verified.
+
+A separate current Part2 verification experiment is retained in \code{llm-analysis/prompts/prompt-07-part2-verification.txt} and \code{llm-analysis/results/result-07-part2-verification.txt}, with frozen inputs, hashes, metadata and \code{llm-analysis/results/evaluation-07.md}. The actual interaction date is 2026-10-11 (Asia/Calcutta); the system-identified model family is GPT-6, while the exact deployment alias and access tier are unavailable. The raw response rejects nonexistent baseline controller pricing branches and assigns Booking.active to Change2. It narrowly observes that cancellation is unchanged by upgrades; the user-required report correction instead explains upgrade responsibilities. The evaluation quotes the user's actual prior corrections and distinguishes Codex checks from pending subsequent human approval. This experiment does not recover historical prompts or rerun Rails tests.
+
+The report filename is \texttt{A7\_Report.pdf}. Faculty-repository submission and the genuine GitHub team-folder screenshot remain pending user action; the checked faculty main branch contains only README.md, as recorded in \code{Part2/verification/submission\_status.md}.
 
 \begin{table}[H]
 \centering

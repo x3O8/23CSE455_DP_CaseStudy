@@ -31,7 +31,6 @@ try {
       Set-Content -LiteralPath (Join-Path $evidenceRoot "pdf_${stem}_build.txt") -Encoding utf8
     if ($exitCode -ne 0) { throw "LaTeX build failed: $source" }
   }
-  Move-Item -LiteralPath (Join-Path $teamRoot 'A7_Report.pdf') -Destination (Join-Path $teamRoot 'A7_Final_Report.pdf') -Force
   foreach ($stem in @('A7_Report', 'A7_slide')) {
     Move-Item -LiteralPath (Join-Path $teamRoot "$stem.log") -Destination (Join-Path $evidenceRoot "pdf_$stem.log") -Force
   }

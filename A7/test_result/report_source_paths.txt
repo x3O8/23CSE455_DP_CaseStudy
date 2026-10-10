@@ -118,20 +118,36 @@ PASS report:825: test_result/part2_regression_before.txt identifies baseline/evo
 PASS report:825: test_result/part2_regression_before.txt exists within submission
 PASS report:826: test_result/boot_regression_before.txt identifies baseline/evolved snapshot
 PASS report:826: test_result/boot_regression_before.txt exists within submission
-PASS report:1226: Part3/evidence/ identifies baseline/evolved snapshot
-PASS report:1226: Part3/evidence/ exists within submission
-PASS report:1226: data/cross_language.csv identifies baseline/evolved snapshot
-PASS report:1226: data/cross_language.csv exists within submission
-PASS report:1240: data/pattern_counts.csv identifies baseline/evolved snapshot
-PASS report:1240: data/pattern_counts.csv exists within submission
-PASS report:1246: data/llm.csv identifies baseline/evolved snapshot
-PASS report:1246: data/llm.csv exists within submission
+PASS report:1031: llm-analysis/prompts/prompt-07-part2-verification.txt identifies baseline/evolved snapshot
+PASS report:1031: llm-analysis/prompts/prompt-07-part2-verification.txt exists within submission
+PASS report:1031: llm-analysis/results/result-07-part2-verification.txt identifies baseline/evolved snapshot
+PASS report:1031: llm-analysis/results/result-07-part2-verification.txt exists within submission
+PASS report:1031: llm-analysis/results/evaluation-07.md identifies baseline/evolved snapshot
+PASS report:1031: llm-analysis/results/evaluation-07.md exists within submission
+PASS report:1033: Part2/verification/submission_status.md identifies baseline/evolved snapshot
+PASS report:1033: Part2/verification/submission_status.md exists within submission
+PASS report:1230: Part3/evidence/ identifies baseline/evolved snapshot
+PASS report:1230: Part3/evidence/ exists within submission
+PASS report:1230: data/cross_language.csv identifies baseline/evolved snapshot
+PASS report:1230: data/cross_language.csv exists within submission
+PASS report:1244: data/pattern_counts.csv identifies baseline/evolved snapshot
+PASS report:1244: data/pattern_counts.csv exists within submission
+PASS report:1250: data/llm.csv identifies baseline/evolved snapshot
+PASS report:1250: data/llm.csv exists within submission
 PASS report:682: listing Part2/code/app/services/cancellation_service.rb identifies source snapshot
 PASS report:682/listing: Part2/code/app/services/cancellation_service.rb exists within submission
 INFO 1 explicit source listing inputs checked
-INFO 72 occurrences; 61 distinct path references checked
-INFO Report SHA256 48475b0efdbb31de9a2a5978b8f715b1b2f0be3a2538ff0ac7cf7d4f8fa2a79a
+INFO 77 occurrences; 65 distinct path references checked
+INFO Report SHA256 8dcc86224a07f1d065eb78729419faf83fe5a2a81c33bef3b1bd7d0254a4df21
+INFO Source SHA256 Part2/code/app/controllers/bookings_controller.rb 80c0786ad3598be9bec4289d29999afbd0a86a0a4ddd834f3c2abce388135dd5
+INFO Source SHA256 Part2/code/app/services/additional_service_pricing.rb d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561
+INFO Source SHA256 Part2/code/app/services/cancellation_policy.rb 276d9f37c8a238a496f53d0d3001e3bfab601efda0ed2055e2efa25960360689
 INFO Source SHA256 Part2/code/app/services/cancellation_service.rb 3927fab03617807b83e7a376060952b85416eead321016c73ac476857fd64399
+INFO Source SHA256 Part2/code/app/services/flexible_cancellation_policy.rb 9278d501836795ec8b31c11eb7defe47deb80299f82dbe05177e3d35ed8de1e0
+INFO Source SHA256 Part2/code/app/services/no_refund_cancellation_policy.rb c3065dcc7238a63da1fa453deef62f9133cf157d95ca51d085d59aae81976e8d
+INFO Source SHA256 Part2/code/app/services/partial_refund_cancellation_policy.rb cc8b30896f309f0e81bf98049981b36cd08beb723b9a88d89f20feebc473dfca
+INFO Source SHA256 Part2/code/app/services/room_upgrade.rb bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503
+INFO Source SHA256 Part2/code/config/initializers/cancellation_policy.rb 98818378e407cc680fc024d2909f4d46192b202992b5ee8351e4b6df06a083f2
 INFO Source SHA256 Part3/strategy/cpp/Main.cpp 2698942e9e6b80d729584b5f95a27c15f5bc35ffc02e697d32b1850f0f7d6b56
 INFO Source SHA256 Part3/strategy/java/Main.java 1b19b91fb0501959be40fd665ed41b00cb388f9c72dcef4bc4e8b52f67626168
 INFO Source SHA256 Part3/strategy/javascript/Main.js b07d5be5f6339fd5b222f0dbd4611e61cc754347d9578a46d28d21a9ab6ac887

@@ -1,0 +1,19 @@
+{
+  "Part2/changes/Change1/diff.md": "01b81d4b00c6d8e307c980de3faee9465a2a11b468c9222578619cae4ecc6eeb",
+  "Part2/code/app/services/additional_service_pricing.rb": "d5466c57ccac705bfdc152831ad7e6d8b18988673838a6689ada1d522a490561",
+  "code/app/controllers/bookings_controller.rb": "9401eb2d86caf416cd122fa2da0708e38236774fce0190a70867819131d161ef",
+  "code/app/models/booking.rb": "ca5fd15dbf3d42bf0137ebef14a1d83840424bd68782cf554e7478f7a925ebff",
+  "Part2/code/app/services/room_upgrade.rb": "bbda4dfdb2a3aef6c01f7f456bef36118c383509122a620fdca9d58a705b9503",
+  "Part2/checkpoints/Change2/app/models/booking.rb": "33c545149828c042d786d91a808a4b6fe4fb9222d8cdb36ad338085057354bec",
+  "Part2/code/app/services/cancellation_service.rb": "3927fab03617807b83e7a376060952b85416eead321016c73ac476857fd64399",
+  "Part2/code/app/services/cancellation_policy.rb": "276d9f37c8a238a496f53d0d3001e3bfab601efda0ed2055e2efa25960360689",
+  "Part2/code/app/services/flexible_cancellation_policy.rb": "9278d501836795ec8b31c11eb7defe47deb80299f82dbe05177e3d35ed8de1e0",
+  "Part2/code/app/services/partial_refund_cancellation_policy.rb": "cc8b30896f309f0e81bf98049981b36cd08beb723b9a88d89f20feebc473dfca",
+  "Part2/code/app/services/no_refund_cancellation_policy.rb": "c3065dcc7238a63da1fa453deef62f9133cf157d95ca51d085d59aae81976e8d",
+  "Part2/code/app/controllers/bookings_controller.rb": "80c0786ad3598be9bec4289d29999afbd0a86a0a4ddd834f3c2abce388135dd5",
+  "Part2/code/config/initializers/cancellation_policy.rb": "98818378e407cc680fc024d2909f4d46192b202992b5ee8351e4b6df06a083f2",
+  "code/app/controllers/concerns/crud_concern.rb": "41e22a529003b85fe4e2eabfc63f277a2b7ae7391e88e76089786e7c716d2662",
+  "Part2/verification/Change1_rails.txt": "ae2372888ec2bff67c9141f78a9128c710b57221439f1e4e607e090b3601e57d",
+  "Part2/verification/Change2_rails.txt": "9a5b08c4fda776b919847cf89ed1444c8f80b741ee5af2ff6b5e9683e8f0b123",
+  "Part2/verification/Change3_rails.txt": "5d8e9bd4ae914cb75a71b9c5ce6e8c2d738f51036d89337e54e70c40e79ad0ae"
+}

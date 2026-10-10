@@ -98,7 +98,7 @@ def build():
     (PART / 'checkpoint_manifest.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     for i, stage in enumerate(STAGES[1:], 1):
         (PART / 'changes' / stage / 'diff.patch').write_text(unified(sources[i-1], sources[i]), encoding='utf-8', newline='\n')
-    evolution_path = PART / 'patterns_evolution.csv'
+    evolution_path = ROOT / 'data/patterns_evolution.csv'
     with evolution_path.open(encoding='utf-8-sig', newline='') as f:
         reader = csv.DictReader(f)
         header, rows = reader.fieldnames, list(reader)
@@ -107,21 +107,23 @@ def build():
         prefix = f'Part2/checkpoints/{STAGES[index]}/'
         refs = []
         for ref in row['source_locations'].split(';'):
-            path = ref.strip().split(':')[0]
+            path, bounds = ref.strip().rsplit(':', 1)
             path = path.split('code/', 1)[1] if 'code/' in path else path.split(f'checkpoints/{STAGES[index]}/', 1)[1]
             n = len(sources[index][path].decode().splitlines())
-            refs.append(f'{prefix}{path}:1-{n}')
+            start, end = map(int, bounds.split('-'))
+            assert 1 <= start <= end <= n, f'Invalid source bounds: {ref}'
+            refs.append(f'{prefix}{path}:{start}-{end}')
         row['source_locations'] = '; '.join(refs)
-    for path in [evolution_path, ROOT / 'data/patterns_evolution.csv']:
+    for path in [evolution_path]:
         write_csv(path, header, rows)
     counts = []
     for i, version in enumerate(VERSIONS):
         names = ['Template Method'] + (['Strategy'] if i == 3 else [])
         counts.extend(dict(source_version=version, summary='per_pattern', pattern_name=n, count=1) for n in names)
         counts.extend(dict(source_version=version, summary=s, pattern_name='', count=len(names)) for s in ['total_pattern_types', 'total_pattern_instances'])
-    for path in [PART / 'pattern_counts.csv', ROOT / 'data/pattern_counts.csv', ROOT / 'Part1/pattern_counts.csv']:
+    for path in [ROOT / 'data/pattern_counts.csv']:
         write_csv(path, ['source_version', 'summary', 'pattern_name', 'count'], counts)
-    print('Rebuilt four checkpoint trees, SHA-256 manifest, three unified patches and synchronized CSVs.')
+    print('Rebuilt four checkpoint trees, SHA-256 manifest, three unified patches and canonical CSVs.')
 
 
 if __name__ == '__main__':

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
 import re
 from collections import Counter
 from pathlib import Path
@@ -72,12 +73,19 @@ def copies(paths: list[str], header: list[str]) -> list[dict[str, str]]:
 
 
 def validate_csvs() -> None:
-    patterns = copies(["data/patterns.csv", "Part1/patterns.csv"], PATTERN_HEADER)
-    evolution = copies(["data/patterns_evolution.csv", "Part2/patterns_evolution.csv"], EVOLUTION_HEADER)
-    counts = copies(["data/pattern_counts.csv", "Part1/pattern_counts.csv", "Part2/pattern_counts.csv"], COUNT_HEADER)
+    for removed in ["Part1/patterns.csv", "Part1/pattern_counts.csv", "Part1/llm.csv", "Part2/patterns_evolution.csv", "Part2/pattern_counts.csv", "Part2/llm.csv", "Part3/llm/llm.csv", "Part3/llm/pattern_crosslanguage.csv"]:
+        check(not (ROOT / removed).exists(), f"canonical datasets: removed mirror {removed} remains absent")
+    patterns = table("data/patterns.csv", PATTERN_HEADER)
+    evolution = table("data/patterns_evolution.csv", EVOLUTION_HEADER)
+    counts = table("data/pattern_counts.csv", COUNT_HEADER)
     evolved_counts = counts
-    llm = copies(["data/llm.csv", "Part1/llm.csv", "Part2/llm.csv", "Part3/llm/llm.csv"], LLM_HEADER)
-    cross = copies(["data/cross_language.csv", "Part3/llm/pattern_crosslanguage.csv"], CROSS_HEADER)
+    llm = table("data/llm.csv", LLM_HEADER)
+    cross = table("data/cross_language.csv", CROSS_HEADER)
+    for part in ['template-method', 'strategy']:
+        for language in ['java', 'python', 'javascript', 'cpp']:
+            readme = ROOT / 'Part3' / part / language / 'README.md'
+            text = readme.read_text(encoding='utf-8')
+            check('data/cross_language.csv' in text and 'Part3/llm/pattern_crosslanguage.csv' not in text, f'{part}/{language}: README points to canonical measured commands')
     check(len(patterns) == 1 and patterns[0]["pattern_name"] == "Template Method", "baseline: exactly one Template Method instance")
     check(len(evolution) == 5, "evolution: five nonblank pattern records")
     for row in patterns + evolution:
@@ -93,16 +101,37 @@ def validate_csvs() -> None:
             check(bool(re.search(r":\d+-\d+$", value)), f"{row['source_version']}: explicit source line bounds")
             reference(value, row["source_version"])
     check([(r["source_version"], r["status_after_change"]) for r in evolution] == [(VERSIONS[0], "baseline"), (VERSIONS[1], "preserved"), (VERSIONS[2], "preserved"), (VERSIONS[3], "preserved"), (VERSIONS[3], "newly_introduced")], "evolution: valid ordered stages/statuses")
-    check([row["part"] for row in llm] == STAGES, "LLM: all six retained stages in order")
+    check([row["part"] for row in llm] == STAGES + ["Part2 verification experiment 07"], "LLM: six retained stages and separate current experiment in order")
     for row in llm:
         check(all(row.values()), f"LLM {row['part']}: no blank fields")
-        check(row["model_and_date"] == "unknown historical model/date", f"LLM {row['part']}: unknown historical metadata disclosed")
+        if row['part'] in STAGES:
+            check(row["model_and_date"] == "unknown historical model/date", f"LLM {row['part']}: unknown historical metadata disclosed")
+        else:
+            check(row['model_and_date'] == 'GPT-6 (system-identified family; deployment alias unavailable); 2026-10-11 Asia/Calcutta', 'experiment 07: actual available model identity and local interaction date disclosed')
         for field in ["prompt_file", "input_file", "output_file", "verification_file"]:
             for value in row[field].split(";"):
                 reference(value, f"LLM {row['part']}/{field}", allow_directory=True)
-    recovery = [llm[i]["prompt_file"] for i in [1, 2]] if len(llm) == 6 else []
+    recovery = [llm[i]["prompt_file"] for i in [1, 2]] if len(llm) >= 6 else []
     for path in recovery:
         check("VERBATIM-RECOVERY STATUS" in (ROOT / path).read_text(encoding="utf-8"), f"{path}: recovery note retained without invented transcript")
+    prompt = (ROOT / 'llm-analysis/prompts/prompt-07-part2-verification.txt').read_text(encoding='utf-8')
+    wrapper = (ROOT / 'Part2/Part2_prompt.txt').read_text(encoding='utf-8')
+    check('RECOVERY NOTE' in wrapper and '\nBEGIN VERBATIM NEW PROMPT\n' + prompt + '\nEND VERBATIM NEW PROMPT\n' in wrapper, 'experiment 07: exact dispatched prompt retained separately from recovery note')
+    metadata = json.loads((ROOT / 'llm-analysis/results/experiment-07-metadata.json').read_text(encoding='utf-8'))
+    check(metadata['interaction_date'] == '2026-10-11' and metadata['timezone'] == 'Asia/Calcutta' and metadata['model_family'] == 'GPT-6', 'experiment 07: recorded current interaction metadata')
+    check(metadata['deployment_alias'] is None and metadata['access_tier'] is None and metadata['fresh_test_execution'] is False, 'experiment 07: unavailable deployment/tier and no new model-run tests disclosed')
+    for rel, digest in metadata['files'].items():
+        reference(rel, 'experiment 07 artifact')
+        check(hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == digest, f'experiment 07: immutable recorded artifact hash {rel}')
+    frozen = (ROOT / 'llm-analysis/prompts/input-07-part2-verification.md').read_text(encoding='utf-8')
+    captured = json.loads((ROOT / 'llm-analysis/prompts/input-07-source-hashes.json').read_text(encoding='utf-8'))
+    for rel, digest in captured.items():
+        reference(rel, 'experiment 07 source')
+        check('## ' + rel + ' (SHA-256 ' + digest + ')' in frozen, f'experiment 07: frozen source section {rel}')
+        if rel != 'Part2/changes/Change1/diff.md':
+            check(hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == digest, f'experiment 07: captured executable source/receipt unchanged {rel}')
+    evaluation = (ROOT / 'llm-analysis/results/evaluation-07.md').read_text(encoding='utf-8')
+    check('human corrections' in evaluation and 'Student/faculty acceptance of the new response is pending.' in evaluation, 'experiment 07: actual prior user corrections distinguished from pending human acceptance')
     for version in VERSIONS:
         inventory = patterns if version == VERSIONS[0] else [r for r in evolution if r["source_version"] == version]
         counted = [r for r in counts if r["source_version"] == version]

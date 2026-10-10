@@ -44,10 +44,9 @@ def verify():
             actual = tree(Path(directory))
             assert actual == {p: b.replace(b'\r\n', b'\n') for p,b in expected[i].items()}, f'{stage}: replay does not produce next checkpoint'
         print(f'PASS {stage}: real unified patch applies and reproduces next checkpoint (LF-normalized)')
-    for name in ['pattern_counts.csv', 'patterns_evolution.csv']:
-        assert (ROOT / 'data' / name).read_bytes() == (PART / name).read_bytes(), name + ': duplicate differs'
-    assert (ROOT / 'Part1/pattern_counts.csv').read_bytes() == (PART / 'pattern_counts.csv').read_bytes()
-    print('PASS canonical/Part1/Part2 count copies and canonical/Part2 evolution copies are synchronized')
+    for removed in ['Part1/patterns.csv', 'Part1/pattern_counts.csv', 'Part1/llm.csv', 'Part2/pattern_counts.csv', 'Part2/patterns_evolution.csv', 'Part2/llm.csv', 'Part3/llm/llm.csv', 'Part3/llm/pattern_crosslanguage.csv']:
+        assert not (ROOT / removed).exists(), 'Repeated dataset reintroduced: ' + removed
+    print('PASS data/ is the sole authoritative pattern, count, evolution, LLM and cross-language dataset location')
     metrics = json.loads((PART / 'metrics/ruby_ast_metrics.json').read_text())
     from measure_part2 import HEADER
     expected_rows = []

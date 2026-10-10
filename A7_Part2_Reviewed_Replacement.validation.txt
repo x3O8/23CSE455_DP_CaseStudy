@@ -1,6 +1,6 @@
 PASS: 170 original upstream files match SHA-256 manifest.
-PASS: high-confidence secret scan across 1279 final files, including extracted PDF text.
+PASS: high-confidence secret scan across 1278 final files, including extracted PDF text.
 Scope: private keys, GitHub tokens, AWS access keys, Stripe live keys, Google API keys, credential URLs, key filenames.
 Reviewed exclusions: upstream synthetic test passwords; commented generated Devise secret/pepper examples; encrypted credentials.yml.enc without master.key. No live credentials were found. This pattern scan is not a guarantee against every possible secret format.
-PASS: ZIP has one top-level A7/ folder; 1279 files match final content; CRC check passed.
-ZIP SHA-256: 0be0564dc35d6d8b6ac33ce8d8b251000bf36cbfb23f19507ef95bf598fde708
+PASS: ZIP has one top-level A7/ folder; 1278 files match final content; CRC check passed.
+ZIP SHA-256: 2307366728c4d28a4a995d5f2db855b0eb489718b16bf0d46cb9398539d649b7

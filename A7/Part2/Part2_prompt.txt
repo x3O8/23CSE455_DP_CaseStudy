@@ -1,3 +1,11 @@
 RECOVERY NOTE
 
 The exact original Part 2 interaction text was not recoverable verbatim from the retained artifacts. The retained Prompt 04 is the available evolution-analysis prompt and is stored under llm-analysis/prompts/prompt-04-evolution.md. This note is not a reconstructed verbatim transcript.
+
+
+SEPARATE CURRENT EXPERIMENT 07 — 2026-10-11 Asia/Calcutta
+This is the exact new prompt sent to the existing Codex review agent, not a recovered historical Part2 prompt. Model identity available to this session: GPT-6 family; exact deployment alias and access tier unavailable. The agent retained prior review context. Frozen primary inputs and their hashes are retained separately. Raw response and evaluation are separate files; no new human acceptance is asserted.
+
+BEGIN VERBATIM NEW PROMPT
+Read only A7/llm-analysis/prompts/input-07-part2-verification.md as the frozen input context for a new Part 2 LLM verification experiment. Do not edit files or run tests. Evaluate these claims against the numbered source and retained receipts: (1) additional-service pricing was moved from existing controller branching; (2) RoomUpgrade avoids changes to Booking#cancel!; (3) Booking.active belongs to Change3; (4) cancellation forms one Strategy collaboration with a context, abstraction, three concrete policies and configured client injection; (5) the recorded cumulative stage test counts are 13, 21 and 36 with zero failures. For each claim state supported, rejected or limited, give qualified method names and precise source line ranges, and explain the correction. Distinguish reconstructed checkpoints from historical commits, recorded receipts from tests you personally ran, and calculated local refunds from external payment transfers. Return your complete raw response without a preamble. Do not invent unavailable model aliases, human review, dates or historical prompts.
+END VERBATIM NEW PROMPT

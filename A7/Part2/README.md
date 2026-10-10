@@ -34,7 +34,7 @@ python A7/tools/summarize_part2.py
 
 Each `changes/ChangeN/diff.patch` is a true adjacent-checkpoint unified patch; `diff.md` explains its boundary. Patches normalize text line endings to LF; the manifest preserves original bytes. The checker verifies the reconstruction recipe and manifest, then actually applies each patch and compares the resulting tree with the next checkpoint.
 
-The count CSV copies in `../data/`, `../Part1/`, and this directory contain the same four-stage inventory. Filter `source_version` for the baseline; Part1 does not claim later patterns as baseline findings. Evolution CSV rows reference each checkpoint's own sources and valid line bounds.
+All inventories are authoritative only in `../data/`; repeated part-wise CSVs have been removed. Filter `source_version` for the baseline. Evolution rows reference each checkpoint's own qualified methods with focused line bounds; the generator preserves those bounds.
 
 ## Rails verification
 

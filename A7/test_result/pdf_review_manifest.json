@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-10T19:18:24.133049+00:00",
+  "generated_at": "2026-10-10T20:23:45.211715+00:00",
   "files": [
     {
-      "path": "A7_Final_Report.pdf",
-      "sha256": "44a743c13a7dc4e8c29af0806f6de210a5dc8bb33847332877865ca33138ccca",
+      "path": "A7_Report.pdf",
+      "sha256": "88805ca7769189ec5a9b5a1954de24892c33cb322aaf816680838a98b393766f",
       "pages": 29,
       "rendered_pages": [
         "report-01.png",
@@ -36,7 +36,7 @@
         "report-28.png",
         "report-29.png"
       ],
-      "visual_review": "Reviewed: every rendered page inspected in eight contact sheets; changed Part2 acceptance, counts, diagrams and metrics also inspected at full size. No observed clipping or overlap."
+      "visual_review": "Reviewed after grading-risk corrections: every rendered page inspected in eight contact sheets; changed report pages 16 and 25 inspected at full size. No observed clipping or overlap."
     },
     {
       "path": "A7_slide.pdf",
@@ -57,7 +57,7 @@
         "slides-12.png",
         "slides-13.png"
       ],
-      "visual_review": "Reviewed: every rendered page inspected in eight contact sheets; changed Part2 acceptance, counts, diagrams and metrics also inspected at full size. No observed clipping or overlap."
+      "visual_review": "Reviewed after grading-risk corrections: every rendered page inspected in eight contact sheets; changed report pages 16 and 25 inspected at full size. No observed clipping or overlap."
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "experiment": "Part2 verification experiment 07",
+  "interaction_date": "2026-10-11",
+  "timezone": "Asia/Calcutta",
+  "recorded_at": "2026-10-11T01:52:46.130498+05:30",
+  "model_family": "GPT-6",
+  "identity_basis": "System identifies Codex as based on GPT-6; existing review agent inherits the parent model. Exact deployment alias is not exposed.",
+  "deployment_alias": null,
+  "access_tier": null,
+  "executor": "existing Codex review agent /root/review_part2",
+  "context_limits": "Exact new prompt supplied with frozen primary input file. Agent also retained earlier task/review context; this is not a context-free or standalone fresh-model comparison.",
+  "human_review": "User supplied the grading corrections quoted in evaluation-07.md before this experiment. Subsequent human review of the response is pending.",
+  "fresh_test_execution": false,
+  "files": {
+    "llm-analysis/prompts/prompt-07-part2-verification.txt": "69d13696428a247d3a63033e8ba4bc9945f4af5bbbe954d1591f8302101ece16",
+    "llm-analysis/prompts/input-07-part2-verification.md": "f63ed09d7b4bb5179416b9a47dd9a88bfa4d3a71c9b7bb8c169e8828e1c02476",
+    "llm-analysis/prompts/input-07-source-hashes.json": "480be70278eec741b604e1a36e7d01f118df9cceb7cbaa95db32ded4fd923ea2",
+    "llm-analysis/results/result-07-part2-verification.txt": "97a32f56156c3403c7ee079d10490a6f6255bf1dc31305b2775b4730a6f41285"
+  }
+}

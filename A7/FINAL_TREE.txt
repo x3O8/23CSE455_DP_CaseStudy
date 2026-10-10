@@ -1,5 +1,5 @@
 A7/
-  A7_Final_Report.pdf
+  A7_Report.pdf
   A7_Report.tex
   A7_slide.pdf
   A7_slide.tex
@@ -181,26 +181,29 @@ A7/
   data/patterns.csv
   data/patterns_evolution.csv
   FINAL_TREE.txt
+  llm-analysis/prompts/input-07-part2-verification.md
+  llm-analysis/prompts/input-07-source-hashes.json
   llm-analysis/prompts/prompt-01-baseline.md
   llm-analysis/prompts/prompt-02-architecture.md
   llm-analysis/prompts/prompt-03-pattern-discovery.md
   llm-analysis/prompts/prompt-04-evolution.md
   llm-analysis/prompts/prompt-05-cross-language.md
   llm-analysis/prompts/prompt-06-final-audit.md
+  llm-analysis/prompts/prompt-07-part2-verification.txt
   llm-analysis/README.md
+  llm-analysis/results/evaluation-07.md
+  llm-analysis/results/experiment-07-metadata.json
   llm-analysis/results/result-01-baseline.md
   llm-analysis/results/result-02-architecture.md
   llm-analysis/results/result-03-pattern-discovery.md
   llm-analysis/results/result-04-evolution.md
   llm-analysis/results/result-05-cross-language.md
   llm-analysis/results/result-06-final-audit.md
+  llm-analysis/results/result-07-part2-verification.txt
   Part1/evidence/baseline-pattern-evidence.md
-  Part1/llm.csv
   Part1/Part1_prompt.txt
   Part1/pattern_architecture.png
   Part1/pattern_architecture.puml
-  Part1/pattern_counts.csv
-  Part1/patterns.csv
   Part2/.gitattributes
   Part2/changes/Change1/diff.md
   Part2/changes/Change1/diff.patch
@@ -1139,13 +1142,10 @@ A7/
   Part2/diagrams/room_upgrade.puml
   Part2/evidence/pattern_observations.csv
   Part2/evidence/snapshot_summary.csv
-  Part2/llm.csv
   Part2/metrics/before_after.csv
   Part2/metrics/README.md
   Part2/metrics/ruby_ast_metrics.json
   Part2/Part2_prompt.txt
-  Part2/pattern_counts.csv
-  Part2/patterns_evolution.csv
   Part2/README.md
   Part2/verification/assignment_compliance.md
   Part2/verification/Change1_rails.txt
@@ -1160,6 +1160,7 @@ A7/
   Part2/verification/retained_submission_metadata.txt
   Part2/verification/review.md
   Part2/verification/slides_compile.txt
+  Part2/verification/submission_status.md
   Part3/evidence/strategy_cpp.txt
   Part3/evidence/strategy_java.txt
   Part3/evidence/strategy_javascript.txt
@@ -1168,9 +1169,7 @@ A7/
   Part3/evidence/template-method_java.txt
   Part3/evidence/template-method_javascript.txt
   Part3/evidence/template-method_python.txt
-  Part3/llm/llm.csv
   Part3/llm/part3_prompt.txt
-  Part3/llm/pattern_crosslanguage.csv
   Part3/README.md
   Part3/strategy/cpp/Main.cpp
   Part3/strategy/cpp/README.md
@@ -1279,4 +1278,4 @@ A7/
   tools/run_rails_checks.ps1
   tools/summarize_part2.py
 
-1279 packaged files. Generated from final source and evidence; runtime caches and installed dependencies excluded.
+1278 packaged files. Generated from final source and evidence; runtime caches and installed dependencies excluded.

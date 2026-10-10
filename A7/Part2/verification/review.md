@@ -16,7 +16,7 @@ A separate reviewer inspected the source reconstruction, validators, metric evid
 
 ## Input access limits
 
-The user supplied DP_Csestudy-2.pdf and DP_Csestudy-3.pdf from Downloads. Both were read completely and all seven pages inspected. `assignment_compliance.md` maps the Part2 requirements, source/evidence coverage, conflicting layout instructions and historical/administrative gaps. The Part2 report now has per-change acceptance/before/after/technique/test/metric records and participant/observation counts. A team README documents source, scope, versions, commands and limitations. User-requested synchronized CSV mirrors are retained explicitly despite the PDF's no-duplicate wording.
+The user supplied DP_Csestudy-2.pdf and DP_Csestudy-3.pdf from Downloads. Both were read completely and all seven pages inspected. `assignment_compliance.md` maps the Part2 requirements, source/evidence coverage, conflicting layout instructions and historical/administrative gaps. The Part2 report now has per-change acceptance/before/after/technique/test/metric records and participant/observation counts. A team README documents source, scope, versions, commands and limitations. The initial repair retained user-requested mirrors; the later grading-risk instruction resolves the conflict by removing repeated inventories and using data/ alone.
 
 The named earlier `A7_Part2_Documentation_and_Snapshot_Fix.zip` has not yet been located or supplied. Its contents and compatibility with HEAD are unassessed. The retained `A7_submission.zip` in a separate old workspace is a different package and is not substituted for the requested ZIP.
 
@@ -27,3 +27,13 @@ The corrected report (27 pages) and slides (12 pages) compiled with the retained
 The independent reviewer rechecked all three initial findings and confirmed they are resolved, with no remaining substantive issue in that source/evidence scope. A further assignment-based review covers the new documentation/count additions. The earlier fix ZIP remains unavailable. Final compiler/render/page-count and package evidence supersedes the earlier 27/12-page rendering described above after the assignment additions are rebuilt.
 
 The assignment-aligned rebuild compiled successfully: report 29 pages and slides 13 pages. All 42 pages were inspected using eight contact sheets, with full-size checks of changed Part2 acceptance/count/metric pages. No clipping or overlap was observed. The independent assignment-focused review found no new substantive findings; participant mappings, observation totals and requirement coverage are consistent with source. Current PDF hashes and review status are in test_result/pdf_review_manifest.json.
+
+## Grading-risk follow-up review
+
+Experiment 07 retains the genuine exact prompt and raw reviewer response; the reviewer confirms the saved response matches. GPT-6 family is known from system context, while deployment alias/tier remain unavailable. User corrections predate the experiment; subsequent human acceptance is not claimed. The faculty default tree was checked and submission/screenshot remain pending under the user's statement that they will submit later.
+
+The independent follow-up found one P2: eight language READMEs still referenced the removed cross-language CSV mirror. All eight now point to data/cross_language.csv; check_csv validates those README references to prevent recurrence. Other canonical-only datasets, focused source bounds, revised wording and experiment disclosures passed the reviewer's read-only check. Checkpoint and final Rails sources remain unchanged.
+
+The grading-risk report rebuild succeeded under the canonical A7_Report.pdf name (29 pages); the 13-page slides PDF is unchanged. All 42 rendered pages were inspected through eight contact sheets, with full-size checks of changed report pages 16 and 25. No observed clipping or overlap. Current hashes/review receipt supersede earlier document builds.
+
+The independent reviewer confirmed the P2 README finding resolved: all eight references use data/cross_language.csv, and the new validator checks passed with zero CSV/report failures. Final application and checkpoint sources were not modified or regenerated in this follow-up. Existing Rails receipts are retained; no new Rails execution is claimed.

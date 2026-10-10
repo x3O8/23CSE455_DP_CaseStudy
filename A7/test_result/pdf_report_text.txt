@@ -95,14 +95,14 @@ i
 9.4 Finding 4 – Cancellation is a strong Strategy case . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
 9.5 Finding 5 – Cross-language mechanisms diﬀer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
 9.6 Finding 6 – Evidence reduces pattern inﬂation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
-9.7 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+9.7 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
 10 Conclusion 22
 11 References 22
-A Detailed Source Evidence 22
-A.1 CrudConcern evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+A Detailed Source Evidence 23
+A.1 CrudConcern evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
 A.2 Booking evidence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
-B Part 2 Change Acceptance 23
-B.1 Change 1 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+B Part 2 Change Acceptance 24
+B.1 Change 1 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
 B.2 Change 2 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
 B.3 Change 3 acceptance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
 C Cross-language T est Speciﬁcation 24
@@ -582,9 +582,9 @@ what can be defended from this particular baseline source.
 This section follows the Part2 records and snapshot-count requirements in the supplied DP_Csestudy-2 and
 DP_Csestudy-3 PDFs. Part2/verification/assignment_compliance.md records coverage and unresolved evidence
 gaps. The PDFs disagree about per-part reports and duplicate datasets; this package keeps one main report and
-canonical data/ folder, with synchronized supporting CSV mirrors retained at the user’s explicit request. The user-
-selected repository remains the target. Layout examples do not authorize fabricated historical commits, prompts,
-dates, faculty approval, contribution attribution or test results.
+canonical data/ folder, with no repeated part-wise CSV inventories, following the user’s latest instruction. Faculty-
+repository submission is pending and will be completed by the user. Layout examples do not authorize fabricated
+historical commits, prompts, dates, faculty approval, contribution attribution or test results.
 5.2 Reproducible source checkpoints and provenance
 The retained repository did not contain historical commits for the three separate changes. Four cumulative
 source checkpoints now make the analysis reproducible: Part2/checkpoints/original/, Part2/checkpoints/Change1/,
@@ -593,10 +593,10 @@ Change3 matches the ﬁnal Part2/code/ application. Change1 and Change2 are expl
 ical stages, not historical commits. Existing migration ﬁlenames are identiﬁers, not veriﬁed execution dates. No
 historical prompt wording or model/date metadata is reconstructed.
 tools/rebuild_part2.py records every checkpoint ﬁle in Part2/checkpoint_manifest.json, generates true
-adjacent-stage uniﬁed patches, and synchronizes the three count CSV copies. tools/check_part2.py checks exact
-bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next checkpoint.
-Evolution CSV references identify each stage’s own source rather than the ﬁnal application. The original baseline
-remains immutable.
+adjacent-stage uniﬁed patches, and maintains the canonical count dataset in data/. tools/check_part2.py checks
+exact bytes and SHA-256 values, applies all three patches, and compares their resulting trees with the next check-
+point. Evolution CSV references identify each stage’s own source rather than the ﬁnal application. The original
+baseline remains immutable.
 5.3 Requirement evolution
 The evolved requirements are:
 1. Breakfast package.
@@ -675,9 +675,9 @@ ready supports a cancellation timestamp. Change2 also uses the scope in booking 
 Room#booked_dates, and rejects upgrades of canceled bookings. Change3 inherits these availability semantics and
 introduces the refund Strategy. The complete Change2 checkpoint is therefore runnable without Change3 classes
 or its refund migration.
-This avoids adding a large conditional branch to Booking#cancel! or to controller actions. It also keeps the
-semantic distinction between “an optional service attached to a booking” and “a replacement of the room being
-booked. ”
+RoomUpgrade owns target-room availability checks, the nightly price diﬀerence, room reassignment and persis-
+tence. It does not change the cancellation operation. This keeps the semantic distinction between “an optional
+service attached to a booking” and “a replacement of the room being booked. ”
 The operation is not classiﬁed as Command, State or Strategy. The presence of an operation object does not
 automatically create Command; the implementation is primarily a domain responsibility extraction.
 CH02 acceptance and before/after record. The target rejects overlapping active stays without changing per-
@@ -1004,6 +1004,18 @@ exact historical wording for Prompts 02 and 03 could not be recovered as indepen
 than reconstructing those prompts and presenting the reconstruction as historical evidence, the package records
 the limitation.
 Historical model/date metadata is also marked unknown where it could not be independently veriﬁed.
+A separate current Part2 veriﬁcation experiment is retained in llm-analysis/prompts/prompt-07-part2-verification.txt
+and llm-analysis/results/result-07-part2-verification.txt, with frozen inputs, hashes, metadata and
+llm-analysis/results/evaluation-07.md. The actual interaction date is 2026-10-11 (Asia/Calcutta); the system-
+identiﬁed model family is GPT-6, while the exact deployment alias and access tier are unavailable. The raw
+response rejects nonexistent baseline controller pricing branches and assigns Booking.active to Change2. It
+narrowly observes that cancellation is unchanged by upgrades; the user-required report correction instead explains
+upgrade responsibilities. The evaluation quotes the user’s actual prior corrections and distinguishes Codex checks
+from pending subsequent human approval. This experiment does not recover historical prompts or rerun Rails
+tests.
+The report ﬁlename is A7_Report.pdf. Faculty-repository submission and the genuine GitHub team-folder
+screenshot remain pending user action; the checked faculty main branch contains only README.md, as recorded
+in Part2/verification/submission_status.md.
 Table 16: LLM evidence and veriﬁcation status
 Stage Retained evidence Veriﬁcation
 Pattern discovery Source-analysis result and evidence matrix Source locations checked independently.
@@ -1031,6 +1043,10 @@ The most important human-veriﬁcation outcomes were:
 A defensible case study must state the boundaries of its evidence.
 1. External payment internals. Payify/Stripe internals are not fully observable from the application source, so
 their internal design patterns are not classiﬁed.
+20 of 24
+
+--- PAGE 26 ---
+23CSE455 – Design Pattern Case Study Team A7
 2. External webhook internals. Integromat/Make behavior outside the application’s webhook invocation is not
 observable.
 3. Representative Part 3 scope. The four-language examples are representative pattern implementations, not
@@ -1040,10 +1056,6 @@ tence, date availability, money representation and cancellation timing.
 5. T est environment scope. Migrations, persisted feature behavior, model tests, actual-route requests and eager
 loading were veriﬁed on a dedicated PostgreSQL test database. Production deployment and live external-service
 operation were not exercised.
-20 of 24
-
---- PAGE 26 ---
-23CSE455 – Design Pattern Case Study Team A7
 6. Refund delivery scope. Cancellation persists the calculated refund amount and timestamp. It does not issue
 an external Stripe refund or claim settlement of money.
 7. Timing scope. Process-level timings include startup and are based on tiny programs. They are comparative
@@ -1080,6 +1092,10 @@ level expression.
 The project demonstrates a general methodological lesson: a defensible design-pattern inventory should be willing
 to contain only one baseline pattern when only one collaboration is actually established. Academic quality is
 improved by rejecting unsupported candidates rather than maximizing the pattern count.
+21 of 24
+
+--- PAGE 27 ---
+23CSE455 – Design Pattern Case Study Team A7
 9.7 Contributions
 The inherited report attributed the overall case-study work primarily to Kurt Sony Rebello. The supporting project
 brief and independent contribution evidence are unavailable in the supplied inputs, so this repair cannot conﬁrm
@@ -1087,10 +1103,6 @@ that historical attribution. It is not presented as a veriﬁed contribution rec
 For Kavya Penikalapati, E. Abhijith Krishna and Guduru Akshaya Giri, the retained project records available
 for this report do not contain independently veriﬁed, speciﬁc technical contribution assignments. Their names and
 team membership are therefore reported exactly, but no unsupported technical tasks are attributed to them.
-21 of 24
-
---- PAGE 27 ---
-23CSE455 – Design Pattern Case Study Team A7
 10 Conclusion
 This case study examined an existing Ruby on Rails hotel booking application using a source-ﬁrst, evidence-based
 design-pattern methodology. The baseline was ﬁxed to an immutable commit so that the pattern inventory could
@@ -1132,15 +1144,15 @@ Software, Addison-Wesley, 1994.
 10. Python Documentation, Python language and standard-library documentation.
 11. Node.js Documentation, JavaScript runtime documentation.
 12. ISO/IEC 14882, Programming Languages – C++ , C++ language standard family.
+22 of 24
+
+--- PAGE 28 ---
+23CSE455 – Design Pattern Case Study Team A7
 A Detailed Source Evidence
 A.1 CrudConcern evidence
 The veriﬁed baseline CrudConcern contains the common CRUD algorithm and the hook methods used by the concrete
 controllers. The source is code/app/controllers/concerns/crud_concern.rb:1–149. The critical structural evidence
 is:
-22 of 24
-
---- PAGE 28 ---
-23CSE455 – Design Pattern Case Study Team A7
 Listing 5: Core Template Method structure in CrudConcern
 1 def create
 2 authorize object_class
@@ -1183,15 +1195,15 @@ Listing 6: Baseline cancellation behavior
 3 end
 This is why cancellation policy is treated as a new evolution requirement rather than as an existing baseline
 Strategy.
+23 of 24
+
+--- PAGE 29 ---
+23CSE455 – Design Pattern Case Study Team A7
 B Part 2 Change Acceptance
 B.1 Change 1 acceptance
 The implementation is considered structurally satisﬁed when a booking can be associated with breakfast or airport-
 transfer service objects/records and the service subtotal participates in the total calculation without modifying the
 original room amenity list.
-23 of 24
-
---- PAGE 29 ---
-23CSE455 – Design Pattern Case Study Team A7
 B.2 Change 2 acceptance
 The room-upgrade operation must reject an unavailable target room, calculate the target/base price diﬀerence,
 replace the booking room when valid, and recalculate the booking total.

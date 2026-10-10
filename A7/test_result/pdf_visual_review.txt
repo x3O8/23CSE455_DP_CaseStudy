@@ -1,4 +1,2 @@
-Fresh assignment-aligned repair visual review: report 29 pages, slides 13 pages; all 42 pages rendered and inspected.
-Eight contact sheets inspected; changed Part2 acceptance, counts, diagrams and metrics inspected at full size.
-No observed clipping or overlapping content. Hash binding is in pdf_review_manifest.json.
-Compiler warnings are retained in Part2/verification/report_compile.txt and slides_compile.txt.
+Grading-risk follow-up: canonical A7_Report.pdf compiled successfully, 29 pages. A7_slide.pdf unchanged, 13 pages. All 42 rendered pages inspected in eight contact sheets; changed report pages 16 and 25 inspected at full size.
+No observed clipping/overlap. Exact PDF hashes are in pdf_review_manifest.json. Compiler warnings remain in Part2/verification/report_compile.txt. No failed build is represented as successful.

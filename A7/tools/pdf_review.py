@@ -16,7 +16,7 @@ evidence = team / 'test_result'
 render_dir = evidence / 'pdf_pages'
 render_dir.mkdir(parents=True, exist_ok=True)
 manifest = {'generated_at': datetime.now(timezone.utc).isoformat(), 'files': []}
-for name, prefix in [('A7_Final_Report.pdf', 'report'), ('A7_slide.pdf', 'slides')]:
+for name, prefix in [('A7_Report.pdf', 'report'), ('A7_slide.pdf', 'slides')]:
     source = team / name
     reader = PdfReader(source)
     # Clear only this renderer's numbered pages and contact sheets.
