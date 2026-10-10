@@ -1,4 +1,241 @@
+HOTEL BOOKING APPLICATION: DESIGN PATTERN ANALYSIS AND EVOLUTION
 
-The exact original interaction text for the Part 1 pattern-discovery prompt was not recoverable verbatim from the retained artifacts. This file records the recovered analytical scope only and is not represented as the original experiment record.
+MASTER RESEARCH PROMPT AND REPOSITORY DISCOVERY
 
-Recovered scope: inspect the baseline Rails application at commit 5e15551, identify application-level design-pattern collaborations from source evidence, map actual participants and file/line ranges, verify Template Method, and reject unsupported pattern-name-only claims.
+Act as a senior software architect, design patterns expert, software reverse-engineering specialist, refactoring expert, empirical software engineering researcher, and Ruby on Rails specialist. You should have a strong understanding of Ruby on Rails, object-oriented design, Gang of Four design patterns, architectural patterns, Rails conventions, software architecture analysis, code smells, refactoring, UML diagrams, software evolution, maintainability, software metrics, cross-language implementation, and academic software engineering research.
+
+The objective is to conduct a human-in-the-loop software engineering case study based on an existing Ruby on Rails hotel booking application. The application will be investigated, analyzed, evolved, refactored, and eventually used to compare the implementation of selected design patterns across four programming languages.
+
+The analysis must be based primarily on the actual source code rather than assumptions about how a hotel booking application should be designed. The human researcher will make the final decisions regarding repository selection, research direction, and validation of the findings.
+
+1. Case Study Overview
+
+The working title of the project is “Design Pattern Analysis and Evolution in a Ruby on Rails Hotel Booking Application.”
+
+The project has three major parts: investigating the existing application, evolving its design to accommodate new requirements, and implementing selected patterns in four programming languages.
+
+The first part involves examining the application's existing architecture, identifying its domain concepts, and determining whether any established design patterns are present. The second part examines how the application can be extended to support additional requirements while maintaining good software design. The third part involves implementing selected patterns in four languages and comparing how their solutions differ across programming paradigms and language features.
+
+The four programming languages will be determined later based on the project requirements.
+
+2. Part One: Investigation of the Existing Application
+
+Investigate the application's implementation of the following hotel booking concepts: Hotel, Room, Customer, Reservation, Payment, Cancellation, and Additional Services.
+
+Identify the architectural patterns, design patterns, Rails-specific patterns, and other relevant structures that can be supported by the source code.
+
+For every potential pattern, explain where it occurs, which classes or modules participate, how those components interact, and what problem the implementation addresses. Examine the pattern's intent, structure, responsibilities, and practical benefits and limitations.
+
+Determine whether the implementation genuinely satisfies the characteristics of the identified pattern. If the code only resembles a pattern without fully implementing it, classify it as a partial implementation or a pattern-like structure rather than presenting it as a confirmed pattern.
+
+Assess the implementation's maintainability, extensibility, coupling, cohesion, and suitability for future development. Support conclusions with actual source-code evidence, including relevant file paths, class and method names, relationships, and code excerpts where appropriate.
+
+Do not assume that a pattern exists simply because it is commonly used in hotel booking systems or Ruby on Rails applications.
+
+3. Part Two: Application Evolution and Refactoring
+
+Examine how the existing application could be extended to support four new requirements: a breakfast package, airport transfer, room upgrade, and cancellation policy.
+
+For each requirement, first determine how the existing application would handle the change using its current architecture. Identify which existing classes, modules, controllers, models, or services would need to change and whether new components would be necessary.
+
+Analyze the likely impact of each change on responsibilities, coupling, cohesion, conditional logic, duplication, and maintainability. Determine whether the current design can accommodate the requirement cleanly or whether it exposes a design problem that justifies refactoring.
+
+Consider whether existing design patterns remain appropriate and whether introducing a new pattern would provide a genuine benefit. For example, examine whether a policy abstraction, interchangeable pricing rule, composable service, or separate booking command would solve an observed problem. These are possibilities to investigate, not patterns that must be implemented.
+
+For every proposed refactoring, explain the problem it addresses, the minimum reasonable design change, the expected benefits, and any additional complexity it introduces. Distinguish between changes that are necessary to satisfy a requirement and changes that are optional design improvements.
+
+The objective is to demonstrate how software design evolves in response to real requirements rather than redesigning the application from scratch.
+
+4. Part Three: Implementation in Four Programming Languages
+
+Select a number of academically meaningful design patterns or recurring design problems identified during the investigation and evolution stages.
+
+Implement their conceptual solutions in four programming languages, which will be specified later.
+
+The implementations must address the same underlying design problem and preserve the essential intent of the selected pattern. However, they should follow the conventions and idioms of each language rather than translating Ruby code line by line.
+
+Compare the implementations in terms of their structure, abstractions, interfaces, polymorphism, coupling, boilerplate, readability, extensibility, and language-specific characteristics.
+
+Explain how language features influence the implementation and whether a particular solution requires explicit interfaces, inheritance, composition, protocols, functions, or other language-specific mechanisms.
+
+The comparison must be technically meaningful and supported by the actual implementations. Avoid claiming that one language or implementation is superior without establishing the criteria used to make that judgment.
+
+5. Expected Project Deliverables
+
+The completed case study should include an explanation of the application's architecture, an evidence-based inventory of identified patterns, UML diagrams, source-code evidence, and an analysis of the confidence associated with each finding.
+
+It should also include the evolution scenarios for the four new requirements, proposed refactorings, implementations of selected patterns in four languages, and a comparative evaluation of those implementations.
+
+Where appropriate, the study should include software metrics, the prompts used during LLM-assisted analysis, the corresponding outputs, and structured data in Excel or CSV format.
+
+All deliverables should be suitable for an academic software engineering case study and should be reproducible to the extent permitted by the repository, its dependencies, and the available environment.
+
+6. Research Methodology
+
+This is a reverse-engineering and software evolution study, not a greenfield system-design exercise.
+
+The investigation must follow a clear evidence-first process. Begin by examining the source code and documenting its actual structure and behavior. Identify the responsibilities of its components, trace dependencies and relationships, and determine which design problems or recurring structures are present. Only after gathering this evidence should you decide whether a recognized pattern applies.
+
+The process should follow this sequence:
+
+Source code inspection, observed structure, observed behavior, component responsibilities, dependencies and relationships, design problems, pattern evidence, and finally pattern identification.
+
+Do not begin by deciding that the application contains Factory, Strategy, Observer, Adapter, Decorator, Singleton, or any other pattern. These patterns should only be identified if the implementation provides sufficient evidence.
+
+Where possible, distinguish between the intended design, the structure visible in the source code, and the behavior verified by running the application or its tests.
+
+7. Pattern Classification
+
+Classify identified patterns using the following categories.
+
+Architectural patterns include MVC, layered architecture, and service-oriented structures.
+
+Gang of Four creational patterns include Factory Method, Abstract Factory, Builder, Prototype, and Singleton.
+
+Gang of Four structural patterns include Adapter, Decorator, Facade, Composite, Proxy, and Bridge.
+
+Gang of Four behavioral patterns include Strategy, Observer, Command, State, Template Method, Chain of Responsibility, Iterator, Mediator, Memento, Visitor, and Interpreter.
+
+Rails and framework patterns include Active Record, Convention over Configuration, Service Objects, Concerns, Callbacks, and RESTful controller conventions.
+
+If an implementation resembles a known pattern but does not demonstrate enough of its structure or intent to qualify confidently, classify it as “Pattern-like / Partial Implementation.” Explain which characteristics are present and which are missing.
+
+These categories are intended to organize the findings, not to imply that every category must be represented in the selected application.
+
+8. Confidence Levels
+
+Assign a confidence level to every identified pattern.
+
+Use HIGH when the source code clearly demonstrates the pattern's structure, participants, relationships, and intent.
+
+Use MEDIUM when the implementation exhibits substantial characteristics of the pattern but some aspects are implicit, incomplete, or difficult to verify.
+
+Use LOW when the identification is based mainly on superficial similarities or limited evidence.
+
+Low-confidence findings must not be presented as definitive conclusions. Explain the evidence supporting the classification and identify any additional inspection or testing required to increase confidence.
+
+9. Human-in-the-Loop Repository Selection
+
+The human researcher has final authority over repository selection and the direction of the study.
+
+Do not automatically select a repository and begin analyzing it as the final case study. First search for potential repositories, investigate their suitability, and present a shortlist with a transparent comparison.
+
+The researcher will inspect the candidates and select the repository to be used for the study.
+
+Once a repository has been selected, use that repository as the primary source of evidence throughout the subsequent analysis. Do not silently replace it with another repository because another candidate appears more suitable.
+
+If the selected repository turns out to have limitations, explain those limitations and discuss the available options with the researcher before making any change to the research direction.
+
+10. Repository Discovery
+
+Search the web for viable, publicly accessible Ruby on Rails hotel booking applications. Search GitHub and other legitimate open-source sources.
+
+Use search queries covering Ruby on Rails hotel booking applications, Rails hotel reservation systems, Rails hotel management systems, Ruby hotel reservation projects, and Rails room reservation applications. Include searches for GitHub repositories and other relevant open-source projects.
+
+Prioritize repositories that are genuinely implemented in Ruby on Rails, contain meaningful domain logic, and are sufficiently complete to support architectural analysis and software evolution.
+
+Look for applications with reservation and room management functionality, customer or user management, and, where possible, payment processing, cancellation functionality, and additional services.
+
+Prefer repositories with multiple meaningful Rails components, a usable README, a clear license, relevant tests, and a useful commit history. The application should be large and structured enough to provide evidence for design-pattern analysis without being dominated by generated scaffolding or basic CRUD operations.
+
+Consider whether the project can be cloned, inspected, and reasonably executed. Do not reject a repository solely because it requires configuration or an older dependency, but clearly document any obstacles.
+
+Do not select a repository just because its name contains the words “hotel booking.” Examine the available evidence to establish whether the project actually implements the required domain.
+
+11. Repository Quality Assessment
+
+For each candidate, investigate the following information wherever it is available:
+
+Repository name, URL, author or organization, license, Ruby version, Rails version, database technology, approximate project size, and the number of models and controllers.
+
+Also examine the presence of service objects, concerns, authorization policies, background jobs, payment integrations, tests, and documentation.
+
+Determine whether reservation, room, customer, payment, cancellation, and additional-service functionality is implemented. Identify any missing domain concepts and explain whether they could reasonably be introduced during the evolution stage.
+
+Review the repository's commit history, last meaningful update, dependency requirements, and apparent execution status. Assess whether it appears to be a tutorial, student project, demonstration application, or more substantial software project.
+
+Consider the amount of meaningful domain logic, architectural structure, and design complexity available for investigation.
+
+Do not invent missing information. If a detail cannot be verified from the available evidence, explicitly mark it as “Unknown / Requires Human Verification.”
+
+Distinguish between information confirmed by repository files, information inferred from the available source code, and information that still requires manual inspection or execution.
+
+12. Repository Scoring
+
+Create a comparison table that scores each candidate from zero to five against the following criteria:
+
+Rails authenticity, hotel domain completeness, reservation complexity, room management, customer or user management, payment functionality, cancellation functionality, additional services, architectural richness, pattern-analysis potential, evolution and refactoring potential, codebase size, documentation quality, test coverage, and maintainability-analysis potential.
+
+Use a consistent scoring rubric. A score of zero should indicate that the capability is absent or that no supporting evidence is available, while a score of five should indicate strong, verified evidence. Where evidence is insufficient, clearly distinguish an unknown score from a confirmed absence rather than treating missing information as proof that a feature does not exist.
+
+Explain the reasoning behind the scores and cite the repository files or other reliable sources that support them.
+
+Calculate the total score for each candidate out of a possible 75 points, provided all fifteen criteria are scored. If a criterion remains unknown, report the uncertainty and avoid presenting the total as fully verified.
+
+The scoring system should help compare the candidates, but it must not automatically determine the final selection. The human researcher will make that decision after reviewing the shortlist and its limitations.
+
+13. Screening Out Unsuitable Repositories
+
+Strongly flag or reject repositories that are not genuinely based on Ruby on Rails, lack meaningful reservation functionality, contain little beyond basic CRUD operations, or are too small to support the intended analysis.
+
+Also flag repositories that consist primarily of generated scaffolding, have an insignificant hotel domain, lack a usable license, contain little meaningful implementation, or have been abandoned to the extent that reliable inspection is difficult.
+
+Repositories that are primarily frontend projects or superficial demonstrations should not be treated as strong candidates.
+
+A smaller project may still be suitable if it provides particularly useful examples of design decisions, domain logic, or refactoring opportunities. In such cases, explain the tradeoff and identify the limitations that would affect the study.
+
+14. Required Output for the First Stage
+
+The first response must focus exclusively on the research methodology and repository discovery. Do not begin the full source-code analysis or make final claims about design patterns in any candidate.
+
+Start by explaining the proposed research methodology, including how evidence will be collected, how candidate repositories will be assessed, and how observed facts will be separated from interpretations and unverified assumptions.
+
+Next, provide a shortlist of approximately five to ten strong candidates, if that many suitable repositories can be found. Do not pad the list with weak or unsuitable projects merely to reach a target number.
+
+For each candidate, provide the repository name, direct URL, available evidence that it uses Ruby on Rails, domain coverage, architectural characteristics, approximate complexity, pattern-analysis potential, evolution and refactoring potential, major risks, and scoring results.
+
+Include citations or direct links to the repository and relevant files wherever possible. Explain any limitations in the available evidence.
+
+Then identify the best overall candidate, the most technically complex candidate, the strongest candidate for design-pattern analysis, and the strongest candidate for evolution and refactoring research. These recommendations should be based on the available evidence and should include the main tradeoffs.
+
+Make it explicit that these recommendations are advisory and that the human researcher has final authority over repository selection.
+
+Finally, provide a manual verification checklist for the researcher to use before selecting a repository.
+
+The checklist should cover whether the repository can be cloned, whether its dependencies can be installed, whether the application can be run, whether its models and controllers can be inspected, whether service objects and other supporting components exist, whether the database schema is coherent, whether the application contains sufficient domain logic, whether its license is suitable for academic use, whether the repository is stable enough for the study, whether screenshots can be captured, whether source code can be cited and documented, and whether the application can support the planned evolution scenarios.
+
+15. Source Authenticity and Evidence Requirements
+
+Throughout the project, never claim that a class, method, module, file, database field, relationship, design pattern, test result, metric, or application behavior exists unless it has been observed or independently verified.
+
+If a source file cannot be accessed, explicitly state that it requires human verification from the repository.
+
+Do not fabricate source-code excerpts, file paths, execution results, screenshots, software metrics, test results, or UML relationships.
+
+Maintain a clear distinction between three types of information.
+
+Observed Evidence refers to facts directly supported by the repository, source code, documentation, tests, or verified execution.
+
+LLM Interpretation refers to the architectural conclusions, pattern classifications, design assessments, and recommendations derived from the observed evidence.
+
+Human Verification refers to findings that the researcher has independently confirmed by inspecting the repository, executing the application, running tests, capturing screenshots, or validating the analysis.
+
+Keep these distinctions explicit throughout the study so that the final conclusions remain transparent and reproducible.
+
+16. Academic Integrity and Research Responsibility
+
+The LLM serves as an analytical assistant rather than the final authority on the research findings.
+
+The human researcher is responsible for selecting the repository, verifying its contents, running the application, capturing screenshots, confirming application behavior, validating metrics, reviewing UML diagrams, assessing pattern classifications, and approving the final academic conclusions.
+
+The analysis should support the researcher's work without replacing independent verification or critical evaluation.
+
+17. Next Step
+
+Complete the repository discovery stage and present the findings in the requested format. Once the shortlist, comparison table, recommendations, and verification checklist have been provided, stop and wait for the human researcher to respond with:
+
+“I have selected repository: [repository]”
+
+Do not begin the detailed source-code investigation until the researcher has explicitly selected a repository.
+
+After receiving the selection, use that repository as the primary evidence source and proceed with the case study according to the methodology described above.
